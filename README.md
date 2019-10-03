@@ -1,4 +1,4 @@
 # Web-Development-MMO
-José Fernandes, Dylan Ferreira, Krishna Mattapalli, Jack Miller
+Multiplayer Snake
 
-sfvhwofvhwov
+José Fernandes, Dylan Ferreira, Krishna Mattapalli, Jack Miller

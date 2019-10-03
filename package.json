@@ -1,0 +1,31 @@
+{
+  "name": "web-development-mmo",
+  "version": "0.0.1",
+  "description": "Educational Group Project for Web Programming, Heriot Watt University",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jjm7HWU/Web-Development-MMO.git"
+  },
+  "keywords": [
+    "web",
+    "MMO",
+    "game"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jjm7HWU/Web-Development-MMO/issues"
+  },
+  "homepage": "https://github.com/jjm7HWU/Web-Development-MMO#readme",
+  "devDependencies": {
+    "jest": "^24.9.0"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "socket.io": "^2.3.0"
+  }
+}

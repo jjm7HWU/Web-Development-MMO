@@ -1,6 +1,6 @@
 {
   "name": "web-development-mmo",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Educational Group Project for Web Programming, Heriot Watt University",
   "main": "server.js",
   "scripts": {

@@ -4,7 +4,8 @@
   "description": "Educational Group Project for Web Programming, Heriot Watt University",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server/server"
   },
   "repository": {
     "type": "git",
@@ -22,7 +23,8 @@
   },
   "homepage": "https://github.com/jjm7HWU/Web-Development-MMO#readme",
   "devDependencies": {
-    "jest": "^24.9.0"
+    "jest": "^24.9.0",
+    "nodemon": "^1.19.3"
   },
   "dependencies": {
     "express": "^4.17.1",

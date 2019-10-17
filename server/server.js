@@ -5,8 +5,8 @@ const socketio = require("socket.io");
 let app;
 
 
-// TEMPORARY PORT -- REMOVE!!!!!!!!!!!!!!!
-process.env.PORT = 3000
+// TEMPORARY PORT -- REMOVE BEFORE DEPLOYMENT !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+process.env.PORT = 5000
 
 try 
 {

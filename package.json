@@ -4,11 +4,10 @@
   "description": "Educational Group Project for Web Programming, Heriot Watt University",
   "main": "server.js",
   "scripts": {
-    "client_install": "npm install --prefix client",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "client": "npm start --prefix client",
+   
     "server": "nodemon server/server",
-    "dev": "concurrently \"npm run server\" \"npm run client\" "
+   
 
   },
   "repository": {

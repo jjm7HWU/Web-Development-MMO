@@ -8,11 +8,23 @@ const express = require("express");
 const app = express();
 
 
+// stores the public directory path
+const publicDir = path.join(__dirname, '../../public');
+
+
+// setting the public directory as a public static folder
+app.use(express.static("public"));
+
+console.log(publicDir)
+
 app.get("/", (req, res) => {
-    //res.sendFile( path.join(__dirname, "/../index.html") )
-    res.send("I am the server")
+    res.sendFile( path.join(__dirname, "/../public/index.html") )
 })
 
+
+app.get("/game", (req, res) => {
+    res.sendFile( path.join(__dirname, "../public/game.html") )
+})
 
 
 // exports the app instance

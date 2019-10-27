@@ -14,7 +14,7 @@ class Snake {
     this.turn_countdown -= 1;
     if (this.turn_countdown == 0) {
       this.turn(random(0,3));
-      this.turn_countdown = random(10,12)
+      this.turn_countdown = random(10,12);
     }
     this.x += this.direction.x;
     this.y += this.direction.y;

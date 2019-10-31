@@ -1,13 +1,18 @@
+// update all entities
 function update() {
-  // TODO implement
+  // to be implemented
 }
 
-let lastTime;
-const callback = (millis) => {
-  if (lastTime) {
-    update();
-  }
-  lastTime = millis;
-  requestAnimationFrame(callback);
+// display all entities
+function display() {
+  // to be implemented
 }
-callback();
+
+const canvas = document.getElementById("canvas");
+const ctx = canvas.getContext("2d");
+
+setInterval(
+  function() {
+    update();
+    display();
+  }, 200);

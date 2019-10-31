@@ -11,6 +11,21 @@ const app = express();
 // stores the public directory path
 const publicDir = path.join(__dirname, '../../public');
 
+//load db
+const db = require('./config/database');
+
+//connect with sequalize
+db
+  .authenticate()
+  .then(() => {
+    console.log('Connection has been established successfully.');
+  })
+  .catch(err => {
+    console.error('Unable to connect to the database:', err);
+  });
+
+//MMO routes
+app.use('/mmo', require('./routes/mmodb')); 
 
 // setting the public directory as a public static folder
 app.use(express.static("public"));

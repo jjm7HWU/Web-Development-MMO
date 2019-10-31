@@ -1,8 +1,23 @@
 
 /* Game styles */
+* {
+      box-sizing: border-box;
+    }
 
 
+      /* messages unordered list element */
+      #messages {
+      max-width: 10%;
+      color: black;
 
+}
+
+
+#messages li {
+      /* each message list item*/
+     
+      
+}
 
 
 /* to implement */
@@ -13,20 +28,54 @@
 
 
 /* Chat styles */
+body {
+	 background-color:black;
+}
+head {
+
+}
+h1{
+	  color:yellow;
+	  size: 50px;
+	  padding: 3px;
+	  text-align: center;
+	  border-style: dotted;
+	  border-radius: 5px;
+
+}
+
 form {
-      background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%;
+      background:yellow;
+      padding: 10px;
+      position: fixed;
+      bottom: 0; 
+      width: 98%;
+      border-radius: 5px;
+      text-decoration-color: yellow;
+     
 }
 
 form input { 
-      border: 0; padding: 10px; width: 90%; margin-right: .5%; 
+      border: 5px; 
+      padding: 10px; 
+      width: 88%; 
+      float: left;
+      
 }
 
 form button {
-      width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px;
+      width: 10.5%; 
+      background: rgb(130, 224, 255); 
+      border: none; padding: 10px;
+}
+
+button:hover {
+  background-color: #e5e9dc;
 }
 
 #messages {
-      list-style-type: none; margin: 0; padding: 0;
+      list-style-type: none; 
+      margin: 0; padding: 0;
 }
 
 #messages li {

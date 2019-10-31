@@ -1,0 +1,32 @@
+body{
+	background-color: black;
+}
+h1{
+	  color:yellow;
+	  size: 50px;
+	  padding: 3px;
+	  text-align: center;
+	  border-style: dotted;
+	  border-radius: 5px;
+	}
+
+	#s3 img{
+		height: 500px;
+		width: 850px;
+		padding-left: 600px;
+		border-color: yellow;
+		border: 5px;
+	}
+	#s1 img{
+	 	height: 30px;
+	 	width: 150px;
+	}
+	#s2 img{
+	 	height: 30px;
+	 	width: 150px;
+	}
+
+	* {
+  box-sizing: border-box;
+}
+

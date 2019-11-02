@@ -19,6 +19,7 @@ function display() {
   // TODO: Display interface
 }
 
+/* Event listener for handling key presses */
 document.addEventListener("keydown", event => {
   switch (event.keyCode) {
     case (87) : player.turn(0); break; // W KEY to go up

@@ -32,7 +32,7 @@ class GameState {
         {
             // checks the id of each player
             return tempPlayer.isTheID(id);
-        } )
+        })
         
     }
 

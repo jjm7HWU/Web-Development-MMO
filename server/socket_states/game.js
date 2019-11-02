@@ -39,7 +39,7 @@ class GameState {
 
 
 
-// exporting the game state
+// exporting the objects
 module.exports = {
     GameState
 };

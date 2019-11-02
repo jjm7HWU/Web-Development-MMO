@@ -1,37 +1,45 @@
 
-// stores and manages the game state
-let gameState = {
-    players: [],
-    addPlayer: (socket) => {
-        if(!this.players)
-        {
-            this.players = [socket.id]
-        }
-        else {
-            this.players
-        }
+// this class stores and manages the game state
+class GameState {
 
-        //this.players.push(socket.id);
-    },
-    removePlayer: (socket) => {
-        this.players.filter( (value) => value != socket.id )
-
-        console.log("removing player")
-        console.log(this.players)
-    },
-    displayPlayers: () => {
-        if(!this.players)
-        {
-            console.log("Zero players")
-        } else
-        {
-            console.log(this.players);
-        }
+    // initializes the object
+    constructor() 
+    {
+        // initi
+        this.players = []
     }
+
+    // adds a player to the state
+    addPlayer(socket) 
+    {
+        this.players.push(socket.id);
+    }
+
+    // removes a player from a state
+    removePlayer(socket) 
+    {
+        // removes the player that meets the condition
+        this.players = this.players.filter( function (value) {
+            console.log("value: ")
+            console.log(typeof value)
+            console.log("id: ")
+            console.log(typeof socket.id)
+            console.log(value == socket.id)
+            return value == socket.id
+        } )
+        
+    }
+
+    // displays the players
+    displayPlayers() {
+        console.log(this.players)
+    }
+
 };
 
 
 
-
 // exporting the game state
-module.exports = gameState;
+module.exports = {
+    GameState
+};

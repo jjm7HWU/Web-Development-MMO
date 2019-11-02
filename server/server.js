@@ -32,28 +32,34 @@ const io = socketio(server);
 
 
 
-// requires the game state
-let gameState = require("./socket_states/game");
+// requires the game state class
+const game_state = require("./socket_states/game");
 
-io.on("connection", (socket) => {
+// game state variable
+let gameState = new game_state.GameState();
 
-    gameState.displayPlayers();
+
+console.log("no players");
+gameState.displayPlayers();
+
+io.on("connection", function (socket) {
 
 
     gameState.addPlayer(socket);
 
-    
+    console.log("after player was added")
     gameState.displayPlayers();
   
-    socket.on('chat message', function(msg){
+    socket.on('chat message', function(msg) {
         io.emit('chat message', msg);
     });
   
-    socket.on("disconnect", (socket) => {
+    socket.on("disconnect", function () {
         console.log("user disconnect")
 
         gameState.removePlayer(socket);
     
+        console.log("after player was removed")
         gameState.displayPlayers();
 
 

@@ -42,9 +42,11 @@ let gameState = new game_state.GameState();
 console.log("no players");
 gameState.displayPlayers();
 
+// initialise web socket
 io.on("connection", function (socket) {
 
 
+    // add new player to game state
     gameState.addPlayer(socket);
 
     console.log("after player was added")

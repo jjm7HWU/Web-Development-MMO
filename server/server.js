@@ -30,6 +30,7 @@ const server = app.listen(process.env.PORT, () => {
 // instantiates the web socket
 const io = socketio(server);
 
+<<<<<<< HEAD
 
 
 // requires the game state
@@ -50,10 +51,43 @@ io.on("connection", (socket) => {
     });
   
     socket.on("disconnect", (socket) => {
+=======
+
+
+// requires the game state class
+const game_state = require("./socket_states/game");
+
+// game state variable
+let gameState = new game_state.GameState();
+
+
+console.log("no players");
+gameState.displayPlayers();
+
+// initialise web socket
+io.on("connection", function (socket) {
+
+
+    // add new player to game state
+    gameState.addPlayer(socket);
+
+    console.log("after player was added")
+    gameState.displayPlayers();
+  
+    socket.on('chat message', function(msg) {
+        io.emit('chat message', msg);
+    });
+  
+    socket.on("disconnect", function () {
+>>>>>>> upstream/master
         console.log("user disconnect")
 
         gameState.removePlayer(socket);
     
+<<<<<<< HEAD
+=======
+        console.log("after player was removed")
+>>>>>>> upstream/master
         gameState.displayPlayers();
 
 

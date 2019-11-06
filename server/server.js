@@ -67,9 +67,9 @@ io.on("connection", function (socket) {
         io.emit('chat message', msg);
     });
 
-    socket.on("update dir", function(socket, dir) {
-        console.log("UPDATE DIR EVENT!!!!!!!!!!!!!!!!!!!")
+    socket.on("update dir", function(dir) {
         gameState.updateDir(socket, dir)
+        gameState.displayDirs();
     })
   
     socket.on("disconnect", function () {

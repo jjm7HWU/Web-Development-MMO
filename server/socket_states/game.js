@@ -14,6 +14,9 @@ class GameState {
         this.changes = []
     }
 
+    // update gameState
+    
+
     // adds a player to the state
     addPlayer(socket) 
     {
@@ -25,6 +28,9 @@ class GameState {
 
         // it pushes a player instance
         this.snakes.push(newSnake);
+
+        // it pushes a change position
+        this.changes.push(-1);
     }
 
     // removes a player from a state
@@ -32,13 +38,27 @@ class GameState {
     {
         // stores the socket id
         var id = socket.id;
+        
+        let tempIndex = -1;
 
-        // removes the player that meets the condition
-        this.snakes = this.snakes.filter( function (tempSnake) 
+        // removes the snake that meets the condition
+        this.snakes = this.snakes.filter( function (tempSnake, index) 
         {
             // checks the id of each player
-            return tempSnake.isTheID(id);
+            var isTheID = tempSnake.isTheID(id);
+
+            // if snake is being removed
+            if (isTheID)
+            {
+                tempIndex = index
+            }
+            
+            // return value
+            return !isTheID;
         })
+        
+        // if the index was found, remove the change index as well
+        if ( tempIndex != -1) this.changes.splice(tempIndex, 1)
         
     }
 

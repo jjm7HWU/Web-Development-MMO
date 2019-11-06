@@ -58,15 +58,15 @@ io.on("connection", function (socket) {
         io.emit('chat message', msg);
     });
 
-    socket.on("update", function(socket, turn) {
-        queue.push(socket, change)
+    // socket.on("update", function(socket, turn) {
+    //     queue.push(socket, change)
 
-        setInterval(function() {
-            gameState.update(queue)
-            socket.emit(gameState)
-            queue = []
-        },200)
-    })
+    //     setInterval(function() {
+    //         gameState.update(queue)
+    //         socket.emit(gameState)
+    //         queue = []
+    //     },200)
+    // })
   
     socket.on("disconnect", function () {
         console.log("user disconnect")

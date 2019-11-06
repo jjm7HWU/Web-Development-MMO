@@ -37,15 +37,8 @@ const ctx = canvas.getContext("2d");
 // Create player
 let player = new Player(0,0);
 
-// All to be relocated to server
-// FROM HERE
-
-let arena = new Arena();
-let {snakes, foods} = createEntities();
-
-// TEMPORARY - creates entities - will be done on server
-
-// TO HERE
+let arena = new Arena(); // create arena
+let {snakes, foods} = createEntities(); // create entities (TEMPORARY - to be done on server)
 
 /* Main game loop */
 setInterval(

@@ -4,12 +4,7 @@ class Snake {
     this.direction = {x:0, y:1}; // snake initially heading downwards
     this.colors = [randomColor(), randomColor()];
     this.eatStack = 0;
-    // create snake body of random length
     this.trail = [[this.x, this.y], [this.x, this.y-1]];
-    // turn_countdown decreases by one each frame and when zero is reached the snake turns
-    // in a random direction and countdown_timer is reset
-    // TEMPORARY - to be removed when multiplayer is functioning
-    this.turn_countdown = random(10,12);
   }
 
   /* Changes snake position according to current directions */

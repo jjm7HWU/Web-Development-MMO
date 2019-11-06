@@ -38,6 +38,7 @@ function displayBackground() {
       drawSquare(x, y, 1, 1, BACKGROUND_COLOR_2); // draw grid box
     }
   }
+  ctx.stroke();
 }
 
 function random(min, max) {
@@ -61,4 +62,20 @@ function decToHex(decimal) {
 function randomColor() {
   /* Return random hexadecimal color code */
   return "#"+decToHex(random(0,255))+decToHex(random(0,255))+decToHex(random(0,255));
+}
+
+function createEntities() {
+  // Add 100 random snakes (temporary)
+  let snakes = [];
+  for (let c = 0; c < 100; c++) {
+    snakes.push(new Snake(random(-10,10), random(-10,10)));
+  }
+
+  // Add 100 random food
+  let foods = [];
+  for (let c = 0; c < 100; c++) {
+    foods.push(new Food());
+  }
+
+  return {snakes, foods};
 }

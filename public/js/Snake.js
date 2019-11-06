@@ -16,16 +16,13 @@ class Snake {
 
   /* Changes snake position according to current directions */
   update() {
-    this.turn_countdown -= 1;
-    if (this.turn_countdown == 0) {
-      // when zero is reached turn the snake in a random direction
-      this.turn(random(0,3));
-      this.turn_countdown = random(10,12); // reset countdown
-    }
-    this.x += this.direction.x; // update snake position
+    // updates snake's position
+    this.x += this.direction.x;
     this.y += this.direction.y;
-    this.trail.pop(); // removes tip of snake tail
-    this.trail.unshift([this.x, this.y]); // adds snake's new head position to front of body
+
+    // removes end of tail and adds new head position to body
+    this.trail.pop();
+    this.trail.unshift([this.x, this.y]);
   }
 
   display() {

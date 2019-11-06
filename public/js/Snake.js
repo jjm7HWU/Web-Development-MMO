@@ -18,22 +18,22 @@ class Snake {
     this.x += this.direction.x;
     this.y += this.direction.y;
 
-    if (grid[this.x][this.y] == -2) {
+    if (arena.atTile(this.x, this.y) == -2) {
       this.eatStack += 5;
     }
 
     // removes end of tail
     if (this.eatStack == 0) {
       let tail = this.trail.pop();
-      grid[tail[0]][tail[1]] = -1;
+      arena.setTile(tail[0], tail[1], -1);
     }
-    else {
+    else { // unless snake is eating
       this.eatStack--;
     }
 
     // adds new position to body
     this.trail.unshift([this.x, this.y]);
-    grid[this.x][this.y] = 1;
+    arena.setTile(this.x, this.y, 1);
   }
 
   display() {

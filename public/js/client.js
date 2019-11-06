@@ -40,14 +40,7 @@ let player = new Player(0,0);
 // All to be relocated to server
 // FROM HERE
 
-let grid = [];
-for (let i=0; i<100; i++) {
-  let column = [];
-  for (let j=0; j<100; j++) {
-    column.push(-1);
-  }
-  grid.push(column);
-}
+let arena = new Arena();
 let {snakes, foods} = createEntities();
 
 // TEMPORARY - creates entities - will be done on server

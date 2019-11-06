@@ -41,7 +41,7 @@ let gameState = new game_state.GameState();
 
 console.log("no players");
 gameState.displayPlayers();
-gameState.displayTurns();
+gameState.displayDirs();
 
 // initialise web socket
 io.on("connection", function (socket) {
@@ -52,7 +52,7 @@ io.on("connection", function (socket) {
 
     console.log("after player was added")
     gameState.displayPlayers();
-    gameState.displayTurns();
+    gameState.displayDirs();
   
     socket.on('chat message', function(msg) {
         io.emit('chat message', msg);
@@ -75,7 +75,7 @@ io.on("connection", function (socket) {
     
         console.log("after player was removed")
         gameState.displayPlayers();
-        gameState.displayTurns();
+        gameState.displayDirs();
 
 
     })

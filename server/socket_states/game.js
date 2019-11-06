@@ -10,12 +10,72 @@ class GameState {
         // initialises the players array
         this.snakes = []
 
-        // hold changes
-        this.changes = []
+        // hold directions
+        this.dirs = []
     }
 
     // update gameState
+    update(){
+        this.updateSnakes();
+    }
+
+    updateSnakes(){
+        this.updateSnakeDirections();
+
+        console.log("dirs before reseting them")
+        this.displayDirs();
+        this.resetDirectionsArray();
+
+        
+        console.log("dirs after reseting them")
+        this.displayDirs();
+    }
+
+    // updates each snake directions
+    updateSnakeDirections(){
+        // loops through the directions array
+        for(var i = 0; i < this.snakes.length; i++)
+        {
+            // stores each position
+            var dir = this.dirs[i];
+
+            // changes snake direction
+            this.snakes[i].turn(dir);
+
+
+            this.snakes[i].update();
+        }
+    }
+
+    updateDir(socket, dir)
+    {
+        // stores socket id
+        var id = socket.id;
+
+        // loops through the snakes array
+        for(var i = 0; i < this.snakes.length; i++)
+        {
+            // if the id matches
+            if(this.snakes[i].id === id)
+            {
+                // override the the direction
+                this.dir[i] = dir;
+                
+                //stops the loop
+                break;
+            }
+        }
+    }
     
+    // reseting directions array
+    resetDirectionsArray()
+    {
+        // loops through the directions array
+        for(var i = 0; i < this.dirs.length; i++)
+        {
+            this.dirs[i] = -1;
+        }
+    }
 
     // adds a player to the state
     addPlayer(socket) 
@@ -30,7 +90,7 @@ class GameState {
         this.snakes.push(newSnake);
 
         // it pushes a change position
-        this.changes.push(-1);
+        this.dirs.push(-1);
     }
 
     // removes a player from a state
@@ -58,7 +118,7 @@ class GameState {
         })
         
         // if the index was found, remove the change index as well
-        if ( tempIndex != -1) this.changes.splice(tempIndex, 1)
+        if ( tempIndex != -1) this.dirs.splice(tempIndex, 1)
         
     }
 
@@ -67,9 +127,9 @@ class GameState {
         console.log(this.snakes)
     }
 
-    // display changes
-    displayTurns(){
-        console.log(this.changes)
+    // display directions
+    displayDirs(){
+        console.log(this.dirs)
     }
 
 };

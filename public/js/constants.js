@@ -9,6 +9,8 @@ const CENTER_Y = 7; // center tile's y position
 const CANVAS_WIDTH = TILE_SIZE * X_VIEW; // actual width of canvas in browser
 const CANVAS_HEIGHT = TILE_SIZE * Y_VIEW; // actual height of canvas in browser
 
+// const BACKGROUND_COLOR_1 = "#000000"; // color of grid lines separating tiles
+// const BACKGROUND_COLOR_2 = "#ffff66"; // color of tiles
 const BACKGROUND_COLOR_1 = "#fffce3"; // color of grid lines separating tiles
 const BACKGROUND_COLOR_2 = "#efecd3"; // color of tiles
 

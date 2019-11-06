@@ -3,9 +3,11 @@ class Snake {
     this.x = x; this.y = y;
     this.direction = {x:0, y:1}; // snake initially heading downwards
     this.colors = [randomColor(), randomColor()];
-    this.eatStack = 0;
     // create snake body of random length
-    this.trail = [[this.x, this.y], [this.x, this.y-1]];
+    this.trail = [];
+    for (let counter = 0; counter < random(3, random(3, 1000)); counter++) {
+      this.trail.push([this.x, this.y-counter]);
+    }
     // turn_countdown decreases by one each frame and when zero is reached the snake turns
     // in a random direction and countdown_timer is reset
     // TEMPORARY - to be removed when multiplayer is functioning
@@ -18,22 +20,9 @@ class Snake {
     this.x += this.direction.x;
     this.y += this.direction.y;
 
-    if (grid[this.x][this.y] == -2) {
-      this.eatStack += 5;
-    }
-
-    // removes end of tail
-    if (this.eatStack == 0) {
-      let tail = this.trail.pop();
-      grid[tail[0]][tail[1]] = -1;
-    }
-    else {
-      this.eatStack--;
-    }
-
-    // adds new position to body
+    // removes end of tail and adds new head position to body
+    this.trail.pop();
     this.trail.unshift([this.x, this.y]);
-    grid[this.x][this.y] = 1;
   }
 
   display() {

@@ -1,5 +1,5 @@
 // it requires the player file property
-const playerFile = require("./properties/player");
+const SnakeFile = require("./properties/snake");
 
 // this class stores and manages the game state
 class GameState {
@@ -8,17 +8,23 @@ class GameState {
     constructor() 
     {
         // initialises the players array
-        this.players = []
+        this.snakes = []
+
+        // hold changes
+        this.changes = []
     }
 
     // adds a player to the state
     addPlayer(socket) 
     {
+        // stores the socket id 
+        const id = socket.id;
+
         // it initialises the a player instance
-        var newPlayer = new playerFile.Player(socket);
+        var newSnake = new SnakeFile.Snake(0,0,id);
 
         // it pushes a player instance
-        this.players.push(newPlayer);
+        this.snakes.push(newSnake);
     }
 
     // removes a player from a state
@@ -28,17 +34,22 @@ class GameState {
         var id = socket.id;
 
         // removes the player that meets the condition
-        this.players = this.players.filter( function (tempPlayer) 
+        this.snakes = this.snakes.filter( function (tempSnake) 
         {
             // checks the id of each player
-            return tempPlayer.isTheID(id);
+            return tempSnake.isTheID(id);
         })
         
     }
 
     // displays the players
     displayPlayers() {
-        console.log(this.players)
+        console.log(this.snakes)
+    }
+
+    // display changes
+    displayTurns(){
+        console.log(this.changes)
     }
 
 };

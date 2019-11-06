@@ -59,7 +59,7 @@ class GameState {
             if(this.snakes[i].id === id)
             {
                 // override the the direction
-                this.dir[i] = dir;
+                this.dirs[i] = dir;
                 
                 //stops the loop
                 break;

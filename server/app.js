@@ -12,17 +12,17 @@ const app = express();
 const publicDir = path.join(__dirname, '../../public');
 
 //load db
-const db = require('./config/database');
+// const db = require('./config/database');
 
-//connect with sequalize
-db
-  .authenticate()
-  .then(() => {
-    console.log('Connection has been established successfully.');
-  })
-  .catch(err => {
-    console.error('Unable to connect to the database:', err);
-  });
+// //connect with sequalize
+// db
+//   .authenticate()
+//   .then(() => {
+//     console.log('Connection has been established successfully.');
+//   })
+//   .catch(err => {
+//     console.error('Unable to connect to the database:', err);
+//   });
 
 //MMO routes
 app.use('/mmo', require('./routes/mmodb')); 

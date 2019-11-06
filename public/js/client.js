@@ -9,6 +9,7 @@ function display() {
   displayBackground();
 
   // Display all entities
+  for (const food of foods) food.display();
   player.display();
   for (const snake of snakes) snake.display();
 
@@ -37,11 +38,14 @@ const ctx = canvas.getContext("2d");
 // Create player
 let player = new Player(0,0);
 
-// Add 100 random snakes (temporary)
-let snakes = [];
-for (let c = 0; c < 100; c++) {
-  snakes.push(new Snake(random(-10,10), random(-10,10)));
-}
+// All to be relocated to server
+// FROM HERE
+
+let {snakes, foods} = createEntities();
+
+// TEMPORARY - creates entities - will be done on server
+
+// TO HERE
 
 /* Main game loop */
 setInterval(

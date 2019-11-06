@@ -1,7 +1,8 @@
 class Food {
   constructor() {
-    this.x = random(-20,20);
-    this.y = random(-20,20);
+    this.x = random(0,99);
+    this.y = random(0,99);
+    grid[this.x][this.y] = -2;
     this.colors = ["#edca6b","#d9b44e"];
   }
 

@@ -43,8 +43,17 @@ console.log("no players");
 gameState.displayPlayers();
 gameState.displayDirs();
 
+
+
+
 // initialise web socket
 io.on("connection", function (socket) {
+
+
+    // setInterval(function() {
+    //     console.log("Emitting game state");
+    //     socket.emit("game state" + gameState)
+    // }, 1000)
 
 
     // add new player to game state
@@ -58,15 +67,10 @@ io.on("connection", function (socket) {
         io.emit('chat message', msg);
     });
 
-    // socket.on("update", function(socket, turn) {
-    //     queue.push(socket, change)
-
-    //     setInterval(function() {
-    //         gameState.update(queue)
-    //         socket.emit(gameState)
-    //         queue = []
-    //     },200)
-    // })
+    socket.on("update dir", function(socket, dir) {
+        console.log("UPDATE DIR EVENT!!!!!!!!!!!!!!!!!!!")
+        gameState.updateDir(socket, dir)
+    })
   
     socket.on("disconnect", function () {
         console.log("user disconnect")

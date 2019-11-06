@@ -1,4 +1,3 @@
-import { Socket } from "dgram";
 
 class Snake {
   constructor(x,y) {
@@ -60,7 +59,7 @@ class Snake {
 
   turn(n) {
     // emit new direction
-    socket.emit("update", n);
+    socket.emit("update dir", n);
 
     /* Changes snake direction to corresponding number */
     switch (n) {

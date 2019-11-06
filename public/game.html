@@ -17,7 +17,7 @@
 <body>
    <canvas id="canvas" width="1500" height="900"></canvas>
     <ul id="messages"></ul>
-    <form action="">
+    <form id="formInput" action="">
       <input id="m" autocomplete="off" /><button>Send</button>
    </form>
 
@@ -28,7 +28,7 @@
 
 </body>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.slim.js"></script>
-  <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+  <script type="text/javascript" src="js/socketClient.js"></script>
   <script type="text/javascript" src="js/constants.js"></script>
   <script type="text/javascript" src="js/functions.js"></script>
   <script type="text/javascript" src="js/Snake.js"></script>
@@ -36,5 +36,4 @@
   <script type="text/javascript" src="js/Arena.js"></script>
   <script type="text/javascript" src="js/Food.js"></script>
   <script type="text/javascript" src="js/client.js"></script>
-  <script type="text/javascript" src="js/socketClient.js"></script>
 </html>

@@ -12,6 +12,10 @@ class GameState {
 
         // hold directions
         this.dirs = []
+
+        // create food items
+        // create random food items across 
+        this.foodItems = []
     }
 
     // update gameState
@@ -66,6 +70,7 @@ class GameState {
             }
         }
     }
+
     
     // reseting directions array
     resetDirectionsArray()

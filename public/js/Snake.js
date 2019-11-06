@@ -4,7 +4,11 @@ class Snake {
     this.direction = {x:0, y:1}; // snake initially heading downwards
     this.colors = [randomColor(), randomColor()];
     this.eatStack = 0;
-    this.trail = [[this.x, this.y], [this.x, this.y-1]];
+    this.length = 1;
+    this.trail = []
+    for (let c = 0; c < this.length; c++) {
+      this.trail.push([this.x, this.y+c]);
+    }
   }
 
   /* Changes snake position according to current directions */
@@ -13,8 +17,10 @@ class Snake {
     this.x += this.direction.x;
     this.y += this.direction.y;
 
+    // eat tile at head
     if (arena.atTile(this.x, this.y) == -2) {
       this.eatStack += 5;
+      console.log(arena.atTile(this.x, this.y));
     }
 
     // removes end of tail

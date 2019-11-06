@@ -35,7 +35,7 @@ const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 
 // Create player
-let player = new Player(0,0);
+let player = new Snake(0,0);
 
 let arena = new Arena(); // create arena
 let {snakes, foods} = createEntities(); // create entities (TEMPORARY - to be done on server)

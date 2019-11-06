@@ -22,12 +22,12 @@
       border-color:black;
       border: 5px;
 }
-    
+
 
 #messages li {
       /* each message list item*/
-     
-      
+
+
 }
 
 
@@ -40,7 +40,7 @@
 
 /* Chat styles */
 body {
-	 background-color:black;
+	 background-color:#fffce3;
 }
 head {
 
@@ -61,24 +61,24 @@ form {
       background:yellow;
       padding: 10px;
       position: fixed;
-      bottom: 0; 
+      bottom: 0;
       width: 98%;
       border-radius: 5px;
       text-decoration-color: yellow;
-     
+
 }
 
-form input { 
-      border: 5px; 
-      padding: 10px; 
-      width: 88%; 
+form input {
+      border: 5px;
+      padding: 10px;
+      width: 88%;
       float: left;
-      
+
 }
 
 form button {
-      width: 10.5%; 
-      background: rgb(130, 224, 255); 
+      width: 10.5%;
+      background: rgb(130, 224, 255);
       border: none; padding: 10px;
 }
 
@@ -87,7 +87,7 @@ button:hover {
 }
 
 #messages {
-      list-style-type: none; 
+      list-style-type: none;
       margin: 0; padding: 0;
 }
 
@@ -96,5 +96,5 @@ button:hover {
 }
 
 #messages li:nth-child(odd) {
-      background: #eee; 
+      background: #eee;
 }

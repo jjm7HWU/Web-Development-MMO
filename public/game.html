@@ -2,16 +2,19 @@
 <html lang="en">
 <!--<hr color="yellow" size="5">-->
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <!-- title -->
   <title>Game Page</title>
-  <link rel="stylesheet" type="text/css" href="./styles/main.css">
-  <link rel="stylesheet" type="text/css" href="./styles/game.css">
-  <!-- <a href="index.html"> <img src="house.png"></a> -->
-  <!-- <a id="h" href="index.html" bordercolor="red"><img src="../imgs/home.png"></a> -->
+
+  <!-- linking css files -->
+    <link rel="stylesheet" type="text/css" href="./styles/main.css">
+     <link rel="stylesheet" type="text/css" href="./styles/game.css">
 
 </head>
+
 <!-- <h1> THE SNAKE </h1> -->
 <!--<hr color="yellow" size="5">-->
 <body>
@@ -22,11 +25,25 @@
    </form>
 
 
+<body>
+
+  <!-- canvas of main game -->
+  <div class="relative">
+    <canvas id="canvas" width="1500" height="800"> </canvas> 
+      <div class="absolute">
+          <ul id="messages"></ul>
+      </div> 
+   </div>
 
 
-
+  <!-- group chart box -->
+  <form action="" method="post">
+      <input id="m" autocomplete="off" /><button>Send</button>
+  </form>
 
 </body>
+
+<!-- linking js files -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.slim.js"></script>
   <script type="text/javascript" src="js/socketClient.js"></script>
   <script type="text/javascript" src="js/constants.js"></script>

@@ -6,9 +6,11 @@ function random(min, max) {
 
 
 class Snake {
-    constructor(x,y, id = null) {
+    constructor(x,y, id = null) 
+    {
       this.id = id;
-      this.x = x; this.y = y;
+      this.x = x; 
+      this.y = y;
       this.direction = {x:0, y:1}; // snake initially heading downwards
       // create snake body of random length
       this.trail = [(this.x, this.y)];
@@ -39,6 +41,8 @@ class Snake {
       // TODO: send to server message that you are going in direction n 
       switch (n) 
       {
+        // do nothing
+        case (-1) : break;
         case (0) : this.direction.x = 0; this.direction.y = -1; break;    // turn UP
         case (1) : this.direction.x = 1; this.direction.y = 0; break;     // turn RIGHT
         case (2) : this.direction.x = 0; this.direction.y = 1; break;     // turn DOWN

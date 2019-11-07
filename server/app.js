@@ -14,7 +14,7 @@ const publicDir = path.join(__dirname, '../../public');
 //load db
 // const db = require('./config/database');
 
-// //connect with sequalize
+// //connect with sequelize
 // db
 //   .authenticate()
 //   .then(() => {

@@ -1,17 +1,15 @@
+
 class Snake {
   constructor(x,y) {
     this.x = x; this.y = y;
     this.direction = {x:0, y:1}; // snake initially heading downwards
     this.colors = [randomColor(), randomColor()];
-    // create snake body of random length
-    this.trail = [];
-    for (let counter = 0; counter < random(3, random(3, 1000)); counter++) {
-      this.trail.push([this.x, this.y-counter]);
+    this.eatStack = 0;
+    this.length = 1;
+    this.trail = []
+    for (let c = 0; c < this.length; c++) {
+      this.trail.push([this.x, this.y+c]);
     }
-    // turn_countdown decreases by one each frame and when zero is reached the snake turns
-    // in a random direction and countdown_timer is reset
-    // TEMPORARY - to be removed when multiplayer is functioning
-    this.turn_countdown = random(10,12);
   }
 
   /* Changes snake position according to current directions */
@@ -20,9 +18,24 @@ class Snake {
     this.x += this.direction.x;
     this.y += this.direction.y;
 
-    // removes end of tail and adds new head position to body
-    this.trail.pop();
+    // eat tile at head
+    if (arena.atTile(this.x, this.y) == -2) {
+      this.eatStack += 5;
+      console.log(arena.atTile(this.x, this.y));
+    }
+
+    // removes end of tail
+    if (this.eatStack == 0) {
+      let tail = this.trail.pop();
+      arena.setTile(tail[0], tail[1], -1);
+    }
+    else { // unless snake is eating
+      this.eatStack--;
+    }
+
+    // adds new position to body
     this.trail.unshift([this.x, this.y]);
+    arena.setTile(this.x, this.y, 1);
   }
 
   display() {
@@ -45,6 +58,9 @@ class Snake {
   }
 
   turn(n) {
+    // emit new direction
+    socket.emit("update dir", n);
+
     /* Changes snake direction to corresponding number */
     switch (n) {
       case (0) : this.direction.x = 0; this.direction.y = -1; break;    // turn UP

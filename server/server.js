@@ -38,34 +38,34 @@ const game_state = require("./socket_states/game");
 // game state variable
 let gameState = new game_state.GameState();
 
+// stream game state
+let streamGameState = () => {
+    gameState.update()
+    io.sockets.emit("game state", gameState)
+    gameState.displayPlayers()
+    gameState.displayDirs()
+}
 
-console.log("no players");
-gameState.displayPlayers();
-gameState.displayTurns();
+
+
+
 
 // initialise web socket
 io.on("connection", function (socket) {
 
-
     // add new player to game state
     gameState.addPlayer(socket);
 
-    console.log("after player was added")
-    gameState.displayPlayers();
-    gameState.displayTurns();
+    
+    // streams the game state after adding a player
+    streamGameState()
   
     socket.on('chat message', function(msg) {
         io.emit('chat message', msg);
     });
 
-    socket.on("update", function(socket, turn) {
-        queue.push(socket, change)
-
-        setInterval(function() {
-            gameState.update(queue)
-            socket.emit(gameState)
-            queue = []
-        },200)
+    socket.on("update dir", function(dir) {
+        gameState.updateDir(socket, dir)
     })
   
     socket.on("disconnect", function () {
@@ -73,12 +73,16 @@ io.on("connection", function (socket) {
 
         gameState.removePlayer(socket);
     
-        console.log("after player was removed")
-        gameState.displayPlayers();
-        gameState.displayTurns();
-
+        // streams the game state after removing a player
+        streamGameState()
 
     })
 
 
 })
+
+
+// sends the global game state to everybody
+setInterval(function() {
+    streamGameState()
+}, 1000)

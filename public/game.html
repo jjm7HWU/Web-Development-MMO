@@ -18,8 +18,14 @@
 <!-- <h1> THE SNAKE </h1> -->
 <!--<hr color="yellow" size="5">-->
 <body>
-   <canvas id="canvas" width="1500" height="900"></canvas>
-    <ul id="messages"></ul>
+  <!-- game canvas -->
+  <div class="relative">
+      <canvas id="canvas" width="1500" height="900"></canvas>
+         <div class="absolute">
+           <ul id="messages"></ul>
+         </div>
+ </div>
+
     <form id="formInput">
       <input id="m" autocomplete="off" /><button>Send</button>
    </form>

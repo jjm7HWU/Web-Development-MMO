@@ -11,11 +11,11 @@ function display() {
   // Display all entities
   for (const food of foods) food.display();
   player.display();
-  //for (const snake of snakes) snake.display();
+  for (const snake of snakes) snake.display();
 
   // Display all entities' heads (temporary implementation)
   player.displayHead();
-  //for (const snake of snakes) snake.displayHead();
+  for (const snake of snakes) snake.displayHead();
 
   // TODO: Display interface
 }
@@ -34,10 +34,8 @@ document.addEventListener("keydown", event => {
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 
-// Create player
-let player = new Snake(0,0);
-
 let arena = new Arena(); // create arena
+let player = new Snake(0,0); // create player
 let {snakes, foods} = createEntities(); // create entities (TEMPORARY - to be done on server)
 
 /* Main game loop */

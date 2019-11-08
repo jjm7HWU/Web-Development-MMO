@@ -9,7 +9,6 @@ class Snake {
     this.trail = []
     for (let c = 0; c < this.length; c++) {
       this.trail.push([this.x, this.y+c]);
-      arena.setTile(this.x, this.y+c, 0);
     }
   }
 
@@ -19,37 +18,24 @@ class Snake {
     this.x += this.direction.x;
     this.y += this.direction.y;
 
-    let cell = arena.atTile(this.x, this.y);
-    let isAlive = true;
-
-    // collision detection
-    if (typeof(cell) == "object") {
-
-      switch (cell.getType()) {
-        case("Food"):
-          // food detected
-          this.eatStack += cell.nutrition;
-          cell.respawn();
-          break;
-      }
-
+    // eat tile at head
+    if (arena.atTile(this.x, this.y) == -2) {
+      this.eatStack += 5;
+      console.log(arena.atTile(this.x, this.y));
     }
 
-    if (isAlive) {
-
-      // removes end of tail
-      if (this.eatStack == 0) {
-        let tail = this.trail.pop();
-        arena.setTile(tail[0], tail[1], -1);
-      }
-      else { // unless snake is eating
-        this.eatStack--;
-      }
-
-      // adds new head position to body
-      this.trail.unshift([this.x, this.y]);
-      arena.setTile(this.x, this.y, 0);
+    // removes end of tail
+    if (this.eatStack == 0) {
+      let tail = this.trail.pop();
+      arena.setTile(tail[0], tail[1], -1);
     }
+    else { // unless snake is eating
+      this.eatStack--;
+    }
+
+    // adds new position to body
+    this.trail.unshift([this.x, this.y]);
+    arena.setTile(this.x, this.y, 1);
   }
 
   display() {

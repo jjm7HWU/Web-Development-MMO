@@ -11,18 +11,21 @@ const app = express();
 // stores the public directory path
 const publicDir = path.join(__dirname, '../../public');
 
+// Body parser
+//app.use(bodyParser.urlencoded({extended: false}));
+
 //load db
-// const db = require('./config/database');
+ const db = require('./config/database');
 
 // //connect with sequelize
-// db
-//   .authenticate()
-//   .then(() => {
-//     console.log('Connection has been established successfully.');
-//   })
-//   .catch(err => {
-//     console.error('Unable to connect to the database:', err);
-//   });
+ db
+   .authenticate()
+   .then(() => {
+     console.log('Connection has been established successfully.');
+   })
+   .catch(err => {
+     console.error('Unable to connect to the database:', err);
+  });
 
 //MMO routes
 app.use('/mmo', require('./routes/mmodb')); 

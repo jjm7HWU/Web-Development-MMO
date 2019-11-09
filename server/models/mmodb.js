@@ -1,5 +1,6 @@
 const Sequelize= require('sequelize');
 const db = require('../config/database');
+const moment = require('moment');
 
 const player= db.define('player', {
     id: {
@@ -11,8 +12,11 @@ const player= db.define('player', {
     highscore: {
         type: Sequelize.INTEGER
     },
-    lasttimeonline: {
-        type: Sequelize.DATE
+    last_time_online: {
+        type: Sequelize.DATEONLY,
+        get:function() {
+            return moment.utc(this.getDataValue('last_time_online')).format('YYYY-MM-DD')
+        }
     },
 
 }, {

@@ -71,14 +71,14 @@ function closeForm() {
  <button class="open-button2" onclick="openForm2()">Sign UP</button>
 
  <div class="form-popup2" id="myForm2">
-     <form class="form-container2">
+     <form class="form-container2" action="/mmo/add" method="POST" >
        <h1>Sign Up</h1>
    
        <label for="email"><b>Email</b></label>
-       <input type="text" placeholder="Email" name="Email" required>
+       <input type="text" placeholder="Email" name="email" values={{email}} required>
    
-       <label for="psw"><b>Password</b></label>
-       <input type="password" placeholder="Password" name="psw" required>
+       <label for="password"><b>Password</b></label>
+       <input type="password" placeholder="Password" name="password" values={{password}} required>
    
        <button type="submit" class="btn2">Sing Up</button>
        <button type="button" class="btn cancel2" onclick="closeForm2()">Close</button>

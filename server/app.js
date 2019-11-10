@@ -11,8 +11,11 @@ const app = express();
 // stores the public directory path
 const publicDir = path.join(__dirname, '../../public');
 
+// Load BodyParser 
+const bodyParser = require('body-parser');
+
 // Body parser
-//app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({extended: false}));
 
 //load db
  const db = require('./config/database');

@@ -20,15 +20,8 @@ router.get('/', (req,res) =>
 module.exports = router;
 
 //add info in db
-router.get('/add', (req,res) => {
-    const data = {
-        email:'',
-        password:'',
-        highscore:2020,
-        last_time_online: now
-    }
-
-    let { email, password, highscore, last_time_online} = data;
+router.post('/add', (req,res) => {
+    const { email, password, highscore, last_time_online} = req.body;
 
     //Insert into player table
     player.create({

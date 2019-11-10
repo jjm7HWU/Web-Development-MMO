@@ -22,17 +22,17 @@ module.exports = router;
 //add info in db
 router.get('/add', (req,res) => {
     const data = {
-        id:'',
+        email:'',
         password:'',
         highscore:2020,
         last_time_online: now
     }
 
-    let { id, password, highscore, last_time_online} = data;
+    let { email, password, highscore, last_time_online} = data;
 
     //Insert into player table
     player.create({
-        id,
+        email,
         password,
         highscore,
         last_time_online

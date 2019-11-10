@@ -3,7 +3,7 @@ const db = require('../config/database');
 const moment = require('moment');
 
 const player= db.define('player', {
-    id: {
+    email: {
         type: Sequelize.STRING, primaryKey: true
     },
     password: {

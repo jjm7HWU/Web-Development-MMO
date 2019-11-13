@@ -24,7 +24,7 @@ class Snake {
       this.y += this.direction.y;
 
       // gets cell at new head position
-      let cell = this.atTile(snake.x, snake.y);
+      let cell = arena.atTile(this.x, this.y);
 
       // collision detection
       if (typeof(cell) == "object") {
@@ -32,7 +32,7 @@ class Snake {
         switch (cell.getType()) {
           case("Food"):
             // food detected
-            snake.eatStack += cell.nutrition;
+            this.eatStack += cell.nutrition;
             cell.respawn();
             break;
         }

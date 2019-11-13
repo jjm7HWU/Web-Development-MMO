@@ -9,29 +9,28 @@ let now = new Date();
 
 //Get mmodb list 
 
-router.get('/', (req,res) => 
+router.get('/', (req,res) => {
     player.findAll()
-    .then(player => {
-        console.log(player);
-        res.sendStatus(200);
+    .then(players => {
+        res.send(players)
     })
-    .catch(err=>console.log(err)));
+    .catch(err=> res.status(500).send(err));
+})
 
 
 //add info in db
 router.post('/add', (req,res) => {
-    const { email, password, highscore, last_time_online} = req.body;
+    const { email, password } = req.body;
 
     //Insert into player table
     player.create({
         email,
         password,
-        highscore,
-        last_time_online
+        highscore: 0,
+        last_time_online: now
     })
-     .then(player =>res.redirect('/mmo'))
-     .catch(err => console.log(err));
-
+     .then(player => res.send(player) )
+     .catch(err=> res.status(500).send(err));
 })
 
 module.exports = router;

@@ -65,11 +65,7 @@ function randomColor() {
 }
 
 function createEntities() {
-  // Add 100 random snakes (temporary)
   let snakes = [];
-  for (let c = 0; c < 100; c++) {
-    snakes.push(new Snake(random(0,99), random(0,5)));
-  }
 
   // Add 100 random food
   let foods = [];

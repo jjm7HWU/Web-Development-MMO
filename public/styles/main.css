@@ -40,7 +40,7 @@ h1{
 #nickname {
 			border-radius: 10px;
 			width: 31.5%;
-			margin-top:30px;
+			padding-top:30px;
 			box-sizing: border-box;
 			margin-left: 460px;
 			border: 4px solid yellow;
@@ -57,7 +57,7 @@ h1{
 		margin-left: 460px;
 		background-color:yellow;
 		color:black;
-		padding:20px 200px;
+		padding:20px;
 		text-align: center;
 		font-size: 16px;
 		cursor: pointer;
@@ -67,13 +67,15 @@ h1{
 	  
 form button:hover {
 			background-colo:white;
-			 }
+	  	   }
+	
+	 
 /* //////////////////////////////////////////////////////////////////////// */
-							/* Login Button */
+ 							/* Login Button */
 
 
-/* Button used to open the contact form - fixed at the bottom of the page */
-.open-button {
+ /* Button used to open the contact form - fixed at the bottom of the page */
+ .open-button {
 	background-color: yellow;
 	color: black;
 	padding: 16px 20px;
@@ -81,30 +83,31 @@ form button:hover {
 	border-color: yellow;
 	cursor: pointer;
 	opacity: 0.8;
-	position: fixed;
+	/* position: fixed; */
 	bottom: 23px;
 	right: 28px;
-	width: 300px;
+	/* width: 300px; */
+	width:50%;
   }
-  
+
   /* The popup form - hidden by default */
   .form-popup {
 	background-color: black;
 	display: none;
 	position: fixed;
-	bottom: 0;
-	right: 15px;
+	bottom: 58px;
+	left: 8px;
 	border: 3px solid yellow;
 	z-index: 9;
   }
-  
+
   /* Add styles to the form container */
   .form-container {
 	max-width: 300px;
 	padding: 10px;
 	background-color: black;
   }
-  
+
   /* Full-width input fields */
   .form-container input[type=text], .form-container input[type=password] {
 	width: 90%;
@@ -113,13 +116,13 @@ form button:hover {
 	border: none;
 	background: yellow;
   }
-  
+
   /* When the inputs get focus, do something */
   .form-container input[type=text]:focus, .form-container input[type=password]:focus {
 	background-color: #ddd;
 	outline: none;
   }
-  
+
   /* Set a style for the submit/login button */
   .form-container .btn {
 	background-color: yellow;
@@ -131,18 +134,18 @@ form button:hover {
 	margin-bottom:10px;
 	opacity: 0.8;
   }
-  
+
   /* Add a red background color to the cancel button */
   .form-container .cancel {
 	background-color: red;
   }
-  
+
   /* Add some hover effects to buttons */
   .form-container .btn:hover, .open-button:hover {
 	opacity: 1;
   }	
-  
-  
+
+
 
   /* Full-width input fields */
 input[type=text], input[type=password] {
@@ -220,7 +223,7 @@ hr {
   border: 1px solid #f1f1f1;
   margin-bottom: 25px;
 }
- 
+
 /* The Close Button (x) */
 .close {
   position: absolute;
@@ -247,15 +250,16 @@ hr {
 /* Change styles for cancel button and signup button on extra small screens */
 @media screen and (max-width: 300px) {
   .cancelbtn, .signupbtn {
-     width: 100%;
+	 width: 100%;
   }
 }
-	
+
+
 /* /////////////////////////////////////////////////////////////////////////////////// */
-						/* SignUp Button */
-						
-/* Button used to open the contact form - fixed at the bottom of the page */
-.open-button2 {
+ 						/* SignUp Button */
+
+ /* Button used to open the contact form - fixed at the bottom of the page */
+ .open-button2 {
 	background-color: yellow;
 	color: black;
 	padding: 16px 20px;
@@ -263,10 +267,11 @@ hr {
 	border-color: yellow;
 	cursor: pointer;
 	opacity: 0.8;
-	position: fixed;
+	/* position: fixed; */
 	bottom: 23px;
 	left:28px;
-	width: 300px;
+	/* width: 300px; */
+	width: 49%;
   }
 
   /* The popup form - hidden by default */
@@ -274,12 +279,14 @@ hr {
 	background-color: black;
 	display: none;
 	position: fixed;
-	bottom: 0;
-	left: 15px;
+	bottom: 58px;
+	right: 32px;
 	border: 3px solid yellow;
 	z-index: 9;
+	
+	
   }
-  
+
   /* Add styles to the form container */
   .form-container2 {
 	max-width: 300px;
@@ -315,7 +322,7 @@ hr {
 	opacity: 0.8;
   }
 
-    /* Add a red background color to the cancel button */
+	/* Add a red background color to the cancel button */
 	.form-container2 .cancel2 {
 		background-color: red;
 	  }
@@ -335,7 +342,7 @@ input[type=text], input[type=password] {
 	background: #f1f1f1;
   }
 
-   
+
 /* Add a background color when the inputs get focus */
 input[type=text]:focus, input[type=password]:focus {
 	background-color: #ddd;
@@ -363,7 +370,7 @@ input[type=text]:focus, input[type=password]:focus {
 	padding: 14px 20px;
 	background-color: #f44336;
   }
-  
+
   /* Float cancel and signup buttons and add an equal width */
 .cancelbtn2, .signupbtn2 {
 	float: left;
@@ -396,7 +403,7 @@ input[type=text]:focus, input[type=password]:focus {
 	border: 1px solid #888;
 	width: 80%; /* Could be more or less, depending on screen size */
   }
-  
+
   /* Style the horizontal ruler */
 hr {
 	border: 1px solid #f1f1f1;
@@ -431,4 +438,282 @@ hr {
 	.cancelbtn2, .signupbtn2 {
 	   width: 100%;
 	}
+  } 
+
+/* ipad Pro */
+  @media screen and (max-width: 1024px) {
+	#s3 img{
+		padding-left: 35%;
+
+	}
+	#nickname{
+		margin-left: 35%;
+	}
+	#button{
+		margin-left: 35%;
+	}
+	.open-button, .open-button2{
+
+	}
+	.form-popup, .form-popup2{
+
+	}
+
+  }
+  /* ipad */
+  @media screen and (max-width: 768px) {
+
+	#s3 img{
+		padding-left: 30%;
+
+	}
+	#nickname{
+		margin-left: 35%;
+	}
+	#button{
+		margin-left: 35%;
+	}
+	.open-button, .open-button2{
+
+	}
+	.form-popup {
+		width: 25%;
+		bottom:152px;
+	}
+	.form-popup2{
+		width: 25%;
+		right:10px;
+		bottom:152px;
+	}
+  }
+
+/* iphonex */
+  @media screen and (max-width: 375px){
+
+	#s3 img{
+		padding-left: 10%;
+
+	}
+	#nickname{
+		width: 100%;
+	margin-left:1px;
+	}
+	#button{
+		width: 100%;
+		margin-left:1px;
+		
+	}
+	.open-button, .open-button2{
+		width: 100%;
+
+	}
+	.form-popup {
+		width: 50%;
+		bottom:152px;
+	}
+	.form-popup2{
+		width: 50%;
+		right:10px;
+		bottom:152px;
+	}
+
+  }
+
+  /* iphone 6,7,8 plus */
+  @media screen and (max-width: 414px){
+
+	#s3 img{
+		padding-left: 13%;
+
+	}
+	#nickname{
+		width: 100%;
+	margin-left:1px;
+	}
+	#button{
+		width: 100%;
+		margin-left:1px;
+		
+	}
+	.open-button, .open-button2{
+		width: 100%;
+
+	}
+	.form-popup {
+		width: 50%;
+		bottom:152px;
+	}
+	.form-popup2{
+		width: 50%;
+		right:10px;
+		bottom:152px;
+	}
+  }
+  
+  /* iphone 6,7,8 */
+  @media screen and (max-width: 375px){
+
+	#s3 img{
+		padding-left: 11%;
+
+	}
+	#nickname{
+		width: 100%;
+	margin-left:1px;
+	}
+	#button{
+		width: 100%;
+		margin-left:1px;
+		
+	}
+	.open-button, .open-button2{
+		width: 100%;
+
+	}
+	.form-popup {
+		width: 50%;
+		bottom:152px;
+	}
+	.form-popup2{
+		width: 50%;
+		right:10px;
+		bottom:152px;
+	}
+
+  }
+  
+  /* iphone 5/SE */
+  @media screen and (max-width: 320px){
+
+	#s3 img{
+		padding-left: 18%;
+		width: 70%;
+
+	}
+	#nickname{
+		width: 100%;
+	margin-left:1px;
+	}
+	#button{
+		width: 100%;
+		margin-left:1px;
+		
+	}
+	.open-button, .open-button2{
+		width: 100%;
+
+	}
+	.form-popup {
+		width: 90%;
+	
+		
+	}
+	.form-popup2{
+		width: 90%;
+		
+	
+	}
+
+  }
+  
+  /* Galaxy s5 */
+  @media screen and (max-width: 360px){
+
+	#s3 img{
+		padding-left: 14%;
+		width: 70%;
+
+	}
+	#nickname{
+		width: 100%;
+	margin-left:1px;
+	}
+	#button{
+		width: 100%;
+		margin-left:1px;
+		
+	}
+	.open-button, .open-button2{
+		width: 100%;
+
+	}
+	.form-popup {
+		width: 90%;
+	
+		
+	}
+	.form-popup2{
+		width: 90%;
+		
+	
+	}
+
+  }
+
+  /* pixel2*/
+  @media screen and (max-width: 411px){
+
+	#s3 img{
+		padding-left: 18%;
+		width: 70%;
+
+	}
+	#nickname{
+		width: 100%;
+	margin-left:1px;
+	}
+	#button{
+		width: 100%;
+		margin-left:1px;
+		
+	}
+	.open-button, .open-button2{
+		width: 100%;
+
+	}
+	.form-popup {
+		width: 90%;
+	
+		
+	}
+	.form-popup2{
+		width: 90%;
+		
+	
+	}
+
+  }
+
+  /* pixel2 XL */
+  @media screen and (max-width: 411px){
+
+	#s3 img{
+		padding-left: 18%;
+		width: 70%;
+
+	}
+	#nickname{
+		width: 100%;
+	margin-left:1px;
+	}
+	#button{
+		width: 100%;
+		margin-left:1px;
+		
+	}
+	.open-button, .open-button2{
+		width: 100%;
+
+	}
+	.form-popup {
+		width: 90%;
+	
+		
+	}
+	.form-popup2{
+		width: 90%;
+		
+	
+	}
+
   }

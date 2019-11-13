@@ -14,13 +14,13 @@
     <head>
 
          <!-- Animated snake-1 -->
-         <marquee direction="left" scrolldelay="0"> <a id="s1" href="https://www.animatedimages.org/cat-snakes-290.htm"><img src="https://www.animatedimages.org/data/media/290/animated-snake-image-0022.gif" alt="animated-snake-image-0022" /></a></marquee>
+         <marquee direction="left" scrolldelay="0"> <a id="s1" href="https://www.animatedimages.org/cat-snakes-290.htm"><img src="https://www.animatedimages.org/data/media/290/animated-snake-image-0022.gif" border="0" alt="animated-snake-image-0022" /></a></marquee>
          
          <!-- Main heading -->
          <h1> THE SNAKES </h1>
          
          <!-- Animated snake-2 -->
-         <marquee direction="left" scrolldelay="0"><a id="s2" href="https://www.animatedimages.org/cat-snakes-290.htm"><img src="https://www.animatedimages.org/data/media/290/animated-snake-image-0022.gif" alt="animated-snake-image-0022" /></a></marquee>
+         <marquee direction="left" scrolldelay="0"><a id="s2" href="https://www.animatedimages.org/cat-snakes-290.htm"><img src="https://www.animatedimages.org/data/media/290/animated-snake-image-0022.gif" border="0" alt="animated-snake-image-0022" /></a></marquee>
     
      </head>
 
@@ -37,38 +37,38 @@
             <input id="button" type="submit" placeholder=" START  " />
        </form>
 
-       <!-- /////////////////////////////////// -->
-       <!-- Login Button -->
-<button class="open-button" onclick="openForm()">LOGIN</button>
+         <!-- /////////////////////////////////// -->
+        <!-- Login Button -->
+ <button class="open-button" onclick="openForm()">LOGIN</button>
 
-<div class="form-popup" id="myForm">
-  <form  class="form-container">
-    <h1>Login</h1>
+ <div class="form-popup" id="myForm">
+   <form action="/action_page.php" class="form-container">
+     <h1>Login</h1>
 
-    <label for="email"><b>Email</b></label>
-    <input type="text" placeholder="UserName" name="Email" required>
+     <label for="email"><b>Email</b></label>
+     <input type="text" placeholder="UserName" name="Email" required>
 
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Password" name="psw" required>
+     <label for="psw"><b>Password</b></label>
+     <input type="password" placeholder="Password" name="psw" required>
 
-    <button type="submit" class="btn">Login</button>
-    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-  </form>
-</div>
+     <button type="submit" class="btn">Login</button>
+     <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+   </form>
+ </div>
 
-<script>
-function openForm() {
-  document.getElementById("myForm").style.display = "block";
-}
+ <script>
+ function openForm() {
+   document.getElementById("myForm").style.display = "block";
+ }
 
-function closeForm() {
-  document.getElementById("myForm").style.display = "none";
-}
-</script>
+ function closeForm() {
+   document.getElementById("myForm").style.display = "none";
+ }
+ </script>
 
- <!-- //////////////////////////////////////////////////////////// -->         
-     <!-- Sign Up Button -->
- <button class="open-button2" onclick="openForm2()">Sign UP</button>
+  <!-- //////////////////////////////////////////////////////////// -->         
+      <!-- Sign Up Button -->
+  <button class="open-button2" onclick="openForm2()">Sign UP</button>
 
  <div class="form-popup2" id="myForm2">
      <form class="form-container2" action="/mmo/add" method="POST" >

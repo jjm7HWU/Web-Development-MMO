@@ -16,6 +16,9 @@ const app = express();
 // using the cors module
 app.use(cors())
 
+// support parsing of application/json type post data
+app.use(bodyParser.json());
+
 // Body parser
 app.use(bodyParser.urlencoded({extended: false}));
 
@@ -27,13 +30,13 @@ const publicDir = path.join(__dirname, '../../public');
  const db = require('./config/database');
 
 // //connect with sequelize
- db
-   .authenticate()
-   .then(() => {
-     console.log('Connection has been established successfully.');
-   })
-   .catch(err => {
-     console.error('Unable to connect to the database:', err);
+db
+  .authenticate()
+  .then(() => {
+    console.log('Connection has been established successfully.');
+  })
+  .catch(err => {
+    console.error('Unable to connect to the database:', err);
   });
 
 //MMO routes

@@ -20,17 +20,4 @@ class Snake {
     drawRect(getPlotX(this.x), getPlotY(this.y), 1, 1, this.colors[1]); // draws head cell
   }
 
-  turn(n) {
-    // emit new direction
-    socket.emit("update dir", n);
-
-    /* Changes snake direction to corresponding number */
-    switch (n) {
-      case (0) : this.direction.x = 0; this.direction.y = -1; break;    // turn UP
-      case (1) : this.direction.x = 1; this.direction.y = 0; break;     // turn RIGHT
-      case (2) : this.direction.x = 0; this.direction.y = 1; break;     // turn DOWN
-      case (3) : this.direction.x = -1; this.direction.y = 0; break;    // turn LEFT
-    }
-  }
-
 }

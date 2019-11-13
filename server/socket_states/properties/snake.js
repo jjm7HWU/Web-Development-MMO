@@ -20,8 +20,6 @@ class Snake {
 
     /* Changes snake position according to current directions */
     update(arena) {
-
-      // updates snake's position
       this.x += this.direction.x;
       this.y += this.direction.y;
 

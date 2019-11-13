@@ -20,10 +20,25 @@ class Snake {
 
     /* Changes snake position according to current directions */
     update(arena) {
-
-      // updates snake's position
       this.x += this.direction.x;
       this.y += this.direction.y;
+
+      // gets cell at new head position
+      let cell = this.atTile(snake.x, snake.y);
+
+      // collision detection
+      if (typeof(cell) == "object") {
+
+        switch (cell.getType()) {
+          case("Food"):
+            // food detected
+            snake.eatStack += cell.nutrition;
+            cell.respawn();
+            break;
+        }
+
+      }
+
 
       if (this.isAlive) {
 

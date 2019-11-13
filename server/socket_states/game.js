@@ -49,6 +49,7 @@ class GameState {
             // changes snake direction
             this.snakes[i].turn(dir);
 
+            // move snake body
             this.arena = this.snakes[i].update(this.arena);
         }
     }

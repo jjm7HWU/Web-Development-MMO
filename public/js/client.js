@@ -1,9 +1,3 @@
-function update() {
-  // Update all entities
-  player.update();
-  for (const snake of snakes) snake.update();
-}
-
 function display() {
   // Display canvas
   displayBackground();
@@ -41,6 +35,5 @@ let {snakes, foods} = createEntities(); // create entities (TEMPORARY - to be do
 /* Main game loop */
 setInterval(
   function() {
-    update();
     display();
 }, 200); // call every 200 milliseconds

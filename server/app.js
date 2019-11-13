@@ -14,9 +14,6 @@ const publicDir = path.join(__dirname, '../../public');
 // Load BodyParser 
 const bodyParser = require('body-parser');
 
-// Body parser
-app.use(bodyParser.urlencoded({extended: false}));
-
 //load db
  const db = require('./config/database');
 
@@ -46,6 +43,11 @@ app.get("/", (req, res) => {
 app.get("/game", (req, res) => {
     res.sendFile( path.join(__dirname, "../public/game.html") )
 })
+
+// Body parser
+app.use(bodyParser.urlencoded({extended: false}));
+
+
 
 
 // exports the app instance

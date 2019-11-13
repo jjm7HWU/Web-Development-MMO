@@ -30,7 +30,7 @@ router.post('/add', (req,res) => {
         highscore,
         last_time_online
     })
-     .then(player =>res.redirect('/mmo'))
+     .then(player =>res.redirect('/signup'))
      .catch(err => console.log(err));
 
 })

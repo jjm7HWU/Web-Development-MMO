@@ -42,14 +42,14 @@
  <button class="open-button" onclick="openForm()">LOGIN</button>
 
  <div class="form-popup" id="myForm">
-   <form action="/action_page.php" class="form-container">
+   <form class="form-container">
      <h1>Login</h1>
 
      <label for="email"><b>Email</b></label>
      <input type="text" placeholder="UserName" name="Email" required>
 
      <label for="psw"><b>Password</b></label>
-     <input type="password" placeholder="Password" name="psw" required>
+     <input type="password"  placeholder="Password" name="psw" required>
 
      <button type="submit" class="btn">Login</button>
      <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
@@ -57,6 +57,13 @@
  </div>
 
  <script>
+
+   function register() {
+    var xhttp = new XMLHttpRequest();
+
+  xhttp.open("GET", "/mmo" + Math.random(), true);
+  xhttp.send();
+   }
  function openForm() {
    document.getElementById("myForm").style.display = "block";
  }
@@ -64,6 +71,12 @@
  function closeForm() {
    document.getElementById("myForm").style.display = "none";
  }
+  // const form {
+  //   username: document.getElementById("username"),
+  //   password: document.getElementById("password"),
+  //   submit: document.getElementById("submit")
+  // }
+  // console.log(form);
  </script>
 
   <!-- //////////////////////////////////////////////////////////// -->         
@@ -71,7 +84,7 @@
   <button class="open-button2" onclick="openForm2()">Sign UP</button>
 
  <div class="form-popup2" id="myForm2">
-     <form class="form-container2" action="/mmo/add" method="POST" >
+     <form class="form-container2">
        <h1>Sign Up</h1>
    
        <label for="email"><b>Email</b></label>

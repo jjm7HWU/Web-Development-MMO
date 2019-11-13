@@ -3,20 +3,15 @@ class Arena {
   constructor() {
     this.width = 100;
     this.height = 100;
-    this.grid = this.createArena(this.width, this.height);
-  }
-
-  createArena(width, height) {
+    this.grid = [];
     // create grid of width x height
-    let grid = [];
-    for (let i = 0; i < width; i++) {
+    for (let i = 0; i < this.width; i++) {
       let column = [];
-      for (let j = 0; j < height; j++) {
+      for (let j = 0; j < this.height; j++) {
         column.push(-1);
       }
-      grid.push(column);
+      this.grid.push(column);
     }
-    return grid;
   }
 
   setTile(x, y, value) {

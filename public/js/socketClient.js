@@ -1,4 +1,4 @@
-function display() {
+function display(foods, snakes, arena) {
   // Display canvas
   displayBackground();
 
@@ -64,13 +64,11 @@ socket.on("chat message", function(msg)
     console.log("Server message: " + msg)
 })
 
-let foods;
-
 // on game state
 socket.on("game state", function(gameState)
 {
-  foods = gameState.foods;
-  snakes = gameState.snakes;
-  arena = gameState.arena;
-  display();
+  let foods = gameState.foodItems;
+  let snakes = gameState.snakes;
+  let arena = gameState.arena;
+  display(foods, snakes, arena);
 })

@@ -17,7 +17,6 @@ router.get('/', (req,res) =>
     })
     .catch(err=>console.log(err)));
 
-module.exports = router;
 
 //add info in db
 router.post('/add', (req,res) => {
@@ -35,4 +34,5 @@ router.post('/add', (req,res) => {
 
 })
 
+module.exports = router;
 

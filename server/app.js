@@ -4,15 +4,24 @@ const path = require("path");
 // loads expressjs module
 const express = require("express");
 
+// adding the cors module
+var cors = require('cors')
+
+// Load BodyParser 
+const bodyParser = require('body-parser');
+
 // Instantiates the app
 const app = express();
 
+// using the cors module
+app.use(cors())
+
+// Body parser
+app.use(bodyParser.urlencoded({extended: false}));
 
 // stores the public directory path
 const publicDir = path.join(__dirname, '../../public');
 
-// Load BodyParser 
-const bodyParser = require('body-parser');
 
 //load db
  const db = require('./config/database');
@@ -44,8 +53,6 @@ app.get("/game", (req, res) => {
     res.sendFile( path.join(__dirname, "../public/game.html") )
 })
 
-// Body parser
-app.use(bodyParser.urlencoded({extended: false}));
 
 
 

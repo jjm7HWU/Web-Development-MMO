@@ -48,29 +48,6 @@ class Arena {
     }
   }
 
-  detectCollisions() {
-
-    for (let snake of snakes) {
-
-      // gets cell at new head position
-      let cell = this.atTile(snake.x, snake.y);
-
-      // collision detection
-      if (typeof(cell) == "object") {
-
-        switch (cell.getType()) {
-          case("Food"):
-            // food detected
-            snake.eatStack += cell.nutrition;
-            cell.respawn();
-            break;
-        }
-
-      }
-
-    }
-  }
-
 }
 
 // exporting objects

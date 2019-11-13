@@ -61,7 +61,7 @@ socket.on("chat message", function(msg)
     // appends text to ul html element
     appendLi(msg);
 
-    console.log("Server message: " + msg)
+    console.log("Server message: " + msg);
 })
 
 // on game state

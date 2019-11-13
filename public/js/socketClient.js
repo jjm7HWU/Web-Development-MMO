@@ -1,4 +1,4 @@
-function display(foods, snakes, arena) {
+function display(foods, player, snakes, arena) {
   // Display canvas
   displayBackground();
 
@@ -61,7 +61,7 @@ socket.on("chat message", function(msg)
     // appends text to ul html element
     appendLi(msg);
 
-    console.log("Server message: " + msg)
+    console.log("Server message: " + msg);
 })
 
 // on game state
@@ -70,5 +70,6 @@ socket.on("game state", function(gameState)
   let foods = gameState.foodItems;
   let snakes = gameState.snakes;
   let arena = gameState.arena;
-  display(foods, snakes, arena);
+  let player = snakes[socket.id]; // TODO
+  display(foods, player, snakes, arena);
 })

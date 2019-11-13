@@ -23,6 +23,23 @@ class Snake {
       this.x += this.direction.x;
       this.y += this.direction.y;
 
+      // gets cell at new head position
+      let cell = arena.atTile(this.x, this.y);
+
+      // collision detection
+      if (typeof(cell) == "object") {
+
+        switch (cell.getType()) {
+          case("Food"):
+            // food detected
+            this.eatStack += cell.nutrition;
+            cell.respawn();
+            break;
+        }
+
+      }
+
+
       if (this.isAlive) {
 
         // removes end of tail

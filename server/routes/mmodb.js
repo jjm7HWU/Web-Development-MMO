@@ -22,8 +22,6 @@ router.get('/', (req,res) => {
 router.post('/add', (req,res) => {
     const { email, password } = req.body;
 
-    console.log("email: " + email + ", password: " + password)
-
     //Insert into player table
     player.create({
         email,

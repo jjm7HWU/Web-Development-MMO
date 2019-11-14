@@ -6,7 +6,10 @@ function display(foods, player, snakes, arena) {
   _player = new Snake(player);
 
   // Cast and display all entities
-  for (const food of foods) food.display();
+  for (const food of foods) {
+    _food = new Food(food);
+    _food.display();
+  }
   _player.display();
   for (const snake of snakes) {
     _snake = new Snake(snake);

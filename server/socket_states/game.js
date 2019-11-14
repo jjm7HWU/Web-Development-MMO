@@ -10,16 +10,14 @@ class GameState {
     // initializes the object
     constructor()
     {
+        this.arena = new ArenaFile.Arena(100,100);
         // initialises the players array
-        this.snakes = [];
-        this.arena = new ArenaFile.Arena(10,10);
+        [this.snakes, this.foodItems, this.arena] = this.initializeEntities(this.arena);
+        console.log("the food");
+        console.log(this.foodItems);
 
         // hold directions
         this.dirs = []
-
-        // create food items
-        // create random food items across
-        this.foodItems = []
     }
 
     // update gameState
@@ -131,6 +129,18 @@ class GameState {
     // display directions
     displayDirs(){
         console.log(this.dirs)
+    }
+
+    initializeEntities(arena) {
+      let snakes = [];
+
+      // Add 100 random food
+      let foods = [];
+      for (let c = 0; c < 100; c++) {
+        foods.push(new FoodFile.Food(arena));
+      }
+
+      return [snakes, foods, arena];
     }
 
 };

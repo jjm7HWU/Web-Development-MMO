@@ -1,8 +1,11 @@
 
 class Snake {
 
+  constructor(obj) {
+    obj && Object.assign(this, obj);
+  }
+
   display() {
-    // TODO: Integrate PixiJS. This implementation is temporary.
     ctx.lineWidth = 20;
     ctx.strokeStyle = this.colors[1];
     ctx.moveTo(CENTER_X*TILE_SIZE+30, CENTER_Y*TILE_SIZE+30);

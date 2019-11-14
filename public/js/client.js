@@ -14,3 +14,6 @@ document.addEventListener("keydown", event => {
 // create canvas and get context
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
+
+// configure initial measurements
+configureCanvasMeasurements(canvas.width, canvas.height);

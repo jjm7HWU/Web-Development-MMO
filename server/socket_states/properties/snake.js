@@ -38,6 +38,9 @@ class Snake {
         }
 
       }
+      else if (cell === -2) {
+        this.isAlive = false;
+      }
 
 
       if (this.isAlive) {

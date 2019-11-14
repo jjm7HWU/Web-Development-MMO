@@ -1,5 +1,9 @@
 class Food {
 
+  constructor(obj) {
+    obj && Object.assign(this, obj);
+  }
+
   display() {
     // get plotting coordinates
     let X = getPlotX(this.x);

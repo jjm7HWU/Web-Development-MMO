@@ -1,11 +1,14 @@
 
 class Snake {
 
+  constructor(obj) {
+    obj && Object.assign(this, obj);
+  }
+
   display() {
-    // TODO: Integrate PixiJS. This implementation is temporary.
     ctx.lineWidth = 20;
     ctx.strokeStyle = this.colors[1];
-    ctx.moveTo(CENTER_X*TILE_SIZE+30, CENTER_Y*TILE_SIZE+30);
+    ctx.moveTo(Math.floor((CENTER_X+0.5)*TILE_SIZE), Math.floor((CENTER_Y+0.5)*TILE_SIZE));
     ctx.beginPath();
     let X, Y;
     for (const point of this.trail) {

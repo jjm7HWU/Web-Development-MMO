@@ -48,9 +48,41 @@ router.post("/login", (req, res) => {
 
 
 router.post("/logout", (req, res) => {
-    //logout player
+    //logout player and last_time_online
+    const {email, last_time_online} = req.body;
+    player.update(
+        {
+            last_time_online
+        },
+        {
+            where:{
+                email
+            }
+        }
+    )
+    .then(player => res.send(player) )
+    .catch(err=> res.status(500).send(err));
+
 
     res.send(req.body)
+})
+
+//update highscore
+router.post('/highscore', (req,res) => {
+    const {email,highscore} = req.body;
+    player.update(
+        {
+            highscore
+        },
+        {
+            where:{
+                email
+            }
+        }
+    )
+    .then(player => res.send(player) )
+    .catch(err=> res.status(500).send(err));
+
 })
 
 

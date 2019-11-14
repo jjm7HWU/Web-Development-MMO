@@ -62,7 +62,7 @@ module.exports = {
     return output;
   },
 
-  createEntities() {
+  initializeEntities() {
     let snakes = [];
 
     // Add 100 random food

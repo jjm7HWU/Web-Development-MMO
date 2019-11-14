@@ -8,12 +8,12 @@ let app;
 // TEMPORARY PORT -- REMOVE BEFORE DEPLOYMENT !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 process.env.PORT = 5000
 
-try 
+try
 {
     // loads the instance into the variable
     app = require("./app");
 
-} catch (error) 
+} catch (error)
 {
     // logs an error if anything unexpected happens while initializing the app
     console.log(error)
@@ -56,10 +56,10 @@ io.on("connection", function (socket) {
     // add new player to game state
     gameState.addPlayer(socket);
 
-    
+
     // streams the game state after adding a player
     streamGameState()
-  
+
     socket.on('chat message', function(msg) {
         io.emit('chat message', msg);
     });
@@ -67,12 +67,12 @@ io.on("connection", function (socket) {
     socket.on("update dir", function(dir) {
         gameState.updateDir(socket, dir)
     })
-  
+
     socket.on("disconnect", function () {
         console.log("user disconnect")
 
         gameState.removePlayer(socket);
-    
+
         // streams the game state after removing a player
         streamGameState()
 
@@ -85,4 +85,4 @@ io.on("connection", function (socket) {
 // sends the global game state to everybody
 setInterval(function() {
     streamGameState()
-}, 1000)
+}, 200)

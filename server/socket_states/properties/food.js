@@ -12,9 +12,13 @@ class Food {
     }
 
     respawn(arena) {
-      // respawn at random position
+      /* Respawn at random empty position */
       this.x = random(1,98);
       this.y = random(1,98);
+      while (arena.atTile(this.x, this.y) != "-1") {
+        this.x = random(1,98);
+        this.y = random(1,98);
+      }
       arena.setTile(this.x, this.y, this);
       return arena;
     }

@@ -33,6 +33,12 @@ function getPlotX(x) {
   function displayBackground() {
     /* Draw background grid */
     drawRect(0, 0, X_VIEW, Y_VIEW, BACKGROUND_COLOR_1) // fill/clear canvas
+
+    /* get grid bounds for plotting */
+    let xBounds = {
+      left: (player.x - X_PERIPHERAL <= 0) ? player.x - X_PERIPHERAL : 0
+    }
+
     for (let x = 0; x < X_VIEW; x++) {
       for (let y = 0; y < Y_VIEW; y++) {
         drawSquare(x, y, 1, 1, BACKGROUND_COLOR_2); // draw grid box

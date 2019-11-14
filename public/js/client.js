@@ -6,6 +6,10 @@ document.addEventListener("keydown", event => {
     case (68) : n = 1; break; // D KEY to go right
     case (83) : n = 2; break; // S KEY to go down
     case (65) : n = 3; break; // A KEY to go left
+    case (38) : n = 0; break; // W KEY to go up
+    case (39) : n = 1; break; // D KEY to go right
+    case (40) : n = 2; break; // S KEY to go down
+    case (37) : n = 3; break; // A KEY to go left
     default : n = -1; break;
   }
   if (n != -1) socket.emit("update dir", n);
@@ -14,3 +18,6 @@ document.addEventListener("keydown", event => {
 // create canvas and get context
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
+
+// configure initial measurements
+configureCanvasMeasurements(canvas.width, canvas.height);

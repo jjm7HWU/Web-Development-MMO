@@ -48,17 +48,19 @@ form {
 
 /* form inputs */
 form input {
-             border: 5px;
+            border: 5px;
             padding: 10px;
             width: 88%;
-            float: left;
+            /* float: left; */
            }
 
 /* button for form */
 form button {
+          
             width: 10.5%;
             background: rgb(130, 224, 255);
             border: none; padding: 10px;
+          
             }
 
 button:hover {

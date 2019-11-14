@@ -8,7 +8,7 @@ class Snake {
       this.id = id;
       this.x = x; this.y = y;
       this.direction = {x:0, y:1}; // snake initially heading downwards
-      this.colors = ["#ff0022", "#ffee11"];
+      this.colors = randomColor();
       this.eatStack = 0;
       this.length = 1;
       this.trail = []

@@ -2,16 +2,23 @@ function display(foods, player, snakes, arena) {
   // Display canvas
   displayBackground();
 
-  // Display all entities
+  // cast player
+  _player = new Snake(player);
+
+  // Cast and display all entities
   for (const food of foods) food.display();
-  player.display();
-  for (const snake of snakes) snake.display();
+  _player.display();
+  for (const snake of snakes) {
+    _snake = new Snake(snake);
+    _snake.display();
+  }
 
-  // Display all entities' heads (temporary implementation)
-  player.displayHead();
-  for (const snake of snakes) snake.displayHead();
-
-  // TODO: Display interface
+  // Cast and display all entities' heads (temporary implementation)
+  _player.displayHead();
+  for (const snake of snakes) {
+    _snake = new Snake(snake);
+    _snake.displayHead();
+  }
 }
 
 // initialise websocket
@@ -64,12 +71,20 @@ socket.on("chat message", function(msg)
     console.log("Server message: " + msg);
 })
 
+var player;
+
 // on game state
 socket.on("game state", function(gameState)
 {
+  // retrieve entities from game state
   let foods = gameState.foodItems;
   let snakes = gameState.snakes;
   let arena = gameState.arena;
-  let player = snakes[socket.id]; // TODO
+  // identify player
+  player = snakes.find(function(snake){
+    return snake.id == socket.id;
+  });
+
+  // display entities
   display(foods, player, snakes, arena);
 })

@@ -11,12 +11,8 @@ class GameState {
     constructor()
     {
         this.arena = new ArenaFile.Arena(100,100);
-        console.log("display arena2");
-        this.arena.display();
         // initialises the players array
         [this.snakes, this.foodItems, this.arena] = this.initializeEntities(this.arena);
-        console.log("the food");
-        console.log(this.foodItems);
 
         // hold directions
         this.dirs = []
@@ -49,8 +45,6 @@ class GameState {
           }
       }
 
-      this.displayPlayers();
-
       this.displayDirs();
     }
 
@@ -82,7 +76,12 @@ class GameState {
         const id = socket.id;
 
         // it initialises the a player instance
-        var newSnake = new SnakeFile.Snake(0,0,id);
+        var initialPos ={
+            x: Math.floor(this.arena.width/2),
+            y: Math.floor(this.arena.height/2)
+        }
+
+        var newSnake = new SnakeFile.Snake(initialPos.x,initialPos.y,id);
 
         // it pushes a player instance
         this.snakes.push(newSnake);
@@ -92,6 +91,7 @@ class GameState {
 
         // it pushes a change position
         this.dirs.push(-1);
+
     }
 
     // removes a player from a state

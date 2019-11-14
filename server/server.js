@@ -6,7 +6,7 @@ let app;
 
 
 // TEMPORARY PORT -- REMOVE BEFORE DEPLOYMENT !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-process.env.PORT = 5000
+var port = process.env.PORT || 5000;
 
 try
 {
@@ -21,7 +21,7 @@ try
 
 
 // Instantiates the server instance
-const server = app.listen(process.env.PORT, () => {
+const server = app.listen(port, () => {
     // logs the message if everything is fine
     console.log("Server is up on port " + process.env.PORT)
 })

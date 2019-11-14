@@ -15,8 +15,12 @@ router.get('/', (req,res) => {
     // })
     // .catch(err=> res.status(500).send(err));
 
+    console.log(req.body)
+    let body = req.body;
 
-    res.send(req.body)
+    res.send({
+        string: "Hello Guys"
+    })
 })
 
 
@@ -42,6 +46,8 @@ router.post('/register', (req,res) => {
 // login router
 router.post("/login", (req, res) => {
     // login player
+
+    console.log(req.body)
     res.send(req.body)
 
 })

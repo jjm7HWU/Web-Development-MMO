@@ -7,8 +7,7 @@ const moment= require ('moment');
 //time
 let now = new Date();
 
-//Get mmodb list 
-
+// Get mmodb list 
 router.get('/', (req,res) => {
     // player.findAll()
     // .then(players => {
@@ -16,24 +15,44 @@ router.get('/', (req,res) => {
     // })
     // .catch(err=> res.status(500).send(err));
 
-    res.send("Hello")
+
+    res.send(req.body)
 })
 
 
-//add info in db
-router.post('/add', (req,res) => {
-    const { email, password } = req.body;
 
-    //Insert into player table
-    player.create({
-        email,
-        password,
-        highscore: 0,
-        last_time_online: now
-    })
-     .then(player => res.send(player) )
-     .catch(err=> res.status(500).send(err));
+// register router
+router.post('/register', (req,res) => {
+    // const { email, password } = req.body;
+
+    // //Insert into player table
+    // player.create({
+    //     email,
+    //     password,
+    //     highscore: 0,
+    //     last_time_online: now
+    // })
+    //  .then(player => res.send(player) )
+    //  .catch(err=> res.status(500).send(err));
+
+
+    res.send(req.body)
 })
+
+// login router
+router.post("/login", (req, res) => {
+    // login player
+    res.send(req.body)
+
+})
+
+
+router.post("/logout", (req, res) => {
+    //logout player
+
+    res.send(req.body)
+})
+
 
 module.exports = router;
 

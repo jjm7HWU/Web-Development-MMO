@@ -3,16 +3,7 @@ class Arena {
   constructor(width=10, height=10) {
     this.width = width;
     this.height = height;
-    this.grid = [];
-    // create grid of width x height
-    for (let i = 0; i < this.width; i++) {
-      let column = [];
-      for (let j = 0; j < this.height; j++) {
-        column.push(-1);
-      }
-      console.log(column);
-      this.grid.push(column);
-    }
+    this.grid = this.createArena(this.width, this.height);
   }
 
   display() {
@@ -29,6 +20,17 @@ class Arena {
       }
       grid.push(column);
     }
+
+    // place walls
+    for (let i = 0; i < width; i++) {
+      grid[i][0] = -2;
+      grid[i][height-2] = -2;
+    }
+    for (let j = 0; j < height; j++) {
+      grid[0][j] = -2;
+      grid[width-2][j] = -2;
+    }
+
     return grid;
   }
 

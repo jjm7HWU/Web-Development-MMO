@@ -11,6 +11,8 @@ class GameState {
     constructor()
     {
         this.arena = new ArenaFile.Arena(100,100);
+        console.log("display arena2");
+        this.arena.display();
         // initialises the players array
         [this.snakes, this.foodItems, this.arena] = this.initializeEntities(this.arena);
         console.log("the food");
@@ -26,30 +28,30 @@ class GameState {
     }
 
     updateSnakes(){
-        this.updateSnakeDirections();
+      // loops through the directions array
+      for(var i = 0; i < this.snakes.length; i++)
+      {
+          // stores each position
+          var dir = this.dirs[i];
 
-        console.log("dirs before reseting them")
-        this.displayDirs();
+          var snake = this.snakes[i];
 
+          // changes snake direction
+          snake.turn(dir);
 
-        console.log("dirs after reseting them")
-        this.displayDirs();
-    }
+          // move snake body
+          this.arena = snake.update(this.arena);
 
-    // updates each snake directions
-    updateSnakeDirections(){
-        // loops through the directions array
-        for(var i = 0; i < this.snakes.length; i++)
-        {
-            // stores each position
-            var dir = this.dirs[i];
+          if (!snake.isAlive) {
+            console.log("DIE");
+            var id = snake.id;
+            this.removePlayerID(id);
+          }
+      }
 
-            // changes snake direction
-            this.snakes[i].turn(dir);
+      this.displayPlayers();
 
-            // move snake body
-            this.arena = this.snakes[i].update(this.arena);
-        }
+      this.displayDirs();
     }
 
     updateDir(socket, dir)
@@ -97,6 +99,12 @@ class GameState {
     {
         // stores the socket id
         var id = socket.id;
+        this.removePlayerID(id);
+
+    }
+
+    removePlayerID(id)
+    {
 
         let tempIndex = -1;
 

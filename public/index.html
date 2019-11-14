@@ -98,7 +98,11 @@ function register() {
           }
           };
           xhttp.open("GET", "/mmo", true);
-        xhttp.send();
+          xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+          xhttp.send(JSON.stringify({
+            username: "jose",
+            password: "sdfgsg"
+          }))
   }
 
           function openForm2() {

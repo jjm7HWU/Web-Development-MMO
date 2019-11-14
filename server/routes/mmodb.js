@@ -46,6 +46,8 @@ router.post('/register', (req,res) => {
 // login router
 router.post("/login", (req, res) => {
     // login player
+
+    console.log(req.body)
     res.send(req.body)
 
 })

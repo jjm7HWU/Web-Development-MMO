@@ -46,18 +46,44 @@
      <h1>Login</h1>
 
      <label for="email"><b>Email</b></label>
-     <input type="text" placeholder="UserName" name="Email" required>
+     <input type="text" placeholder="UserName" name="Email">
 
      <label for="psw"><b>Password</b></label>
-     <input type="password"  placeholder="Password" name="psw" required>
+     <input type="password"  placeholder="Password" name="psw" >
 
-     <button type="submit" class="btn">Login</button>
+     <button type="button" class="btn" onclick="login()">Login</button>
      <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
    </form>
  </div>
 
  <script>
+   function login() {
 
+      // POST 
+
+      let data = {
+        username: "teja",
+        password: "234234"
+      };
+
+      fetch("/mmo/login", {
+        headers: {
+          "Content-Type": "application/json",                                                                                                
+          "Access-Control-Origin": "*"
+        },
+        method: "POST",
+        body: JSON.stringify(data)
+      })
+      .then( responseJSON => responseJSON.json())
+      .then( body => {
+        console.log(body)
+      })
+      .catch( error => {
+        console.error(error)
+      })
+
+      
+    }
    
  function openForm() {
    document.getElementById("myForm").style.display = "block";
@@ -88,24 +114,22 @@
      </form>
      <!-- <button type="submit" onclick="register()">register2</button> -->
      <script>
-
+       
+       
           function register() {
-            // ajax get request
-            var xmlhttp = new XMLHttpRequest();
-            xmlhttp.onreadystatechange = function() {
-              if (this.readyState == 4 && this.status == 200) {
-                // parse JSON
-                let object = JSON.parse(this.responseText);
-                console.log(object)
-              }
-            };
 
-            // this is the data to be 
-            let data;
+            // GET 
+            fetch("/mmo")
+            .then( responseJSON => responseJSON.json() )
+            .then( body => {
+              console.log(body)
+            })
+            .catch( error => {
+              console.error(error)
+            });
 
-            xmlhttp.open('GET', "/mmo");
-            // xmlhttp.setRequestHeader() // set headers
-            xmlhttp.send();
+            
+
           }
 
           function openForm2() {

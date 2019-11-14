@@ -24,11 +24,11 @@ class Arena {
     // place walls
     for (let i = 0; i < width; i++) {
       grid[i][0] = -2;
-      grid[i][height-2] = -2;
+      grid[i][height-1] = -2;
     }
     for (let j = 0; j < height; j++) {
       grid[0][j] = -2;
-      grid[width-2][j] = -2;
+      grid[width-1][j] = -2;
     }
 
     return grid;

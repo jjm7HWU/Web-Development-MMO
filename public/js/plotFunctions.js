@@ -37,13 +37,13 @@ function getPlotX(x) {
     /* get bounds for plotting grid - shows edge of world */
     let xBounds = {
       left: (player.x > X_PERIPHERAL) ? 0 : X_PERIPHERAL - player.x + 1,
-      right: (player.x < arena.width - X_PERIPHERAL - 2) ? X_VIEW : CENTER_X + arena.width - player.x - 2
-    }
+      right: (player.x < arena.width - X_PERIPHERAL - 1) ? X_VIEW : CENTER_X + arena.width - player.x - 1
+    };
 
     let yBounds = {
       top: (player.y > Y_PERIPHERAL) ? 0 : Y_PERIPHERAL - player.y + 1,
-      bottom: (player.y < arena.height - Y_PERIPHERAL - 2) ? Y_VIEW : CENTER_Y + arena.height - player.y - 2
-    }
+      bottom: (player.y < arena.height - Y_PERIPHERAL - 1) ? Y_VIEW : CENTER_Y + arena.height - player.y - 1
+    };
 
     for (let x = xBounds.left; x < xBounds.right; x++) {
       for (let y = yBounds.top; y < yBounds.bottom; y++) {

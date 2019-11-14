@@ -40,6 +40,7 @@ class Snake {
       }
       else if (cell === -2) {
         this.isAlive = false;
+        console.log("Ya brick")
       }
 
 

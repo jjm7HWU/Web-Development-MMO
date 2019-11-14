@@ -59,11 +59,16 @@
  <script>
 
    function register() {
-    var xhttp = new XMLHttpRequest();
 
-  xhttp.open("GET", "/mmo" + Math.random(), true);
-  xhttp.send();
-   }
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange=function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("demo").innerHTML = this.responseText;
+    }
+    };
+    xhttp.open("GET", "/mmo" + Math.random(), true);
+    xhttp.send();
+    }
  function openForm() {
    document.getElementById("myForm").style.display = "block";
  }

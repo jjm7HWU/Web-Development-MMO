@@ -10,11 +10,13 @@ let now = new Date();
 //Get mmodb list 
 
 router.get('/', (req,res) => {
-    player.findAll()
-    .then(players => {
-        res.send(players)
-    })
-    .catch(err=> res.status(500).send(err));
+    // player.findAll()
+    // .then(players => {
+    //     res.send(players)
+    // })
+    // .catch(err=> res.status(500).send(err));
+
+    res.send("Hello")
 })
 
 

@@ -33,7 +33,7 @@ class Snake {
           case("Food"):
             // food detected
             this.eatStack += cell.nutrition;
-            cell.respawn();
+            cell.respawn(arena);
             break;
         }
 

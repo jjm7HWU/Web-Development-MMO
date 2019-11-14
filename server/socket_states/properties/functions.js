@@ -61,6 +61,7 @@ function decToHex(decimal) {
 
 function randomColor() {
   /* Return random hexadecimal color code */
+  console.log("getting random color");
   return "#"+decToHex(random(0,255))+decToHex(random(0,255))+decToHex(random(0,255));
 }
 

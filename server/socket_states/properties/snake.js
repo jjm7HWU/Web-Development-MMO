@@ -8,12 +8,12 @@ class Snake {
       this.id = id;
       this.x = x; this.y = y;
       this.direction = {x:0, y:1}; // snake initially heading downwards
-      this.colors = randomColor();
+      this.colors = [randomColor(), randomColor()];
       this.eatStack = 0;
       this.length = 1;
       this.trail = []
       for (let c = 0; c < this.length; c++) {
-        this.trail.push([this.x, this.y+c]);
+        this.trail.push([this.x, this.y-c]);
       }
       this.isAlive = true;
     }

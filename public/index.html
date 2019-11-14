@@ -17,7 +17,7 @@
          <marquee direction="left" scrolldelay="0"> <a id="s1" href="https://www.animatedimages.org/cat-snakes-290.htm"><img src="https://www.animatedimages.org/data/media/290/animated-snake-image-0022.gif" border="0" alt="animated-snake-image-0022" /></a></marquee>
          
          <!-- Main heading -->
-         <h1> THE SNAKES </h1>
+         <h1> THE PYTHONS IO</h1>
          
          <!-- Animated snake-2 -->
          <marquee direction="left" scrolldelay="0"><a id="s2" href="https://www.animatedimages.org/cat-snakes-290.htm"><img src="https://www.animatedimages.org/data/media/290/animated-snake-image-0022.gif" border="0" alt="animated-snake-image-0022" /></a></marquee>
@@ -42,14 +42,14 @@
  <button class="open-button" onclick="openForm()">LOGIN</button>
 
  <div class="form-popup" id="myForm">
-   <form action="/action_page.php" class="form-container">
+   <form class="form-container">
      <h1>Login</h1>
 
      <label for="email"><b>Email</b></label>
      <input type="text" placeholder="UserName" name="Email" required>
 
      <label for="psw"><b>Password</b></label>
-     <input type="password" placeholder="Password" name="psw" required>
+     <input type="password"  placeholder="Password" name="psw" required>
 
      <button type="submit" class="btn">Login</button>
      <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
@@ -57,6 +57,8 @@
  </div>
 
  <script>
+
+   
  function openForm() {
    document.getElementById("myForm").style.display = "block";
  }
@@ -64,14 +66,15 @@
  function closeForm() {
    document.getElementById("myForm").style.display = "none";
  }
+  
  </script>
 
   <!-- //////////////////////////////////////////////////////////// -->         
-      <!-- Sign Up Button -->
-  <button class="open-button2" onclick="openForm2()">Sign UP</button>
+      <!-- Register Button -->
+  <button class="open-button2" onclick="openForm2()">Register</button>
 
  <div class="form-popup2" id="myForm2">
-     <form class="form-container2" action="/mmo/add" method="POST" >
+     <form class="form-container2">
        <h1>Sign Up</h1>
    
        <label for="email"><b>Email</b></label>
@@ -80,10 +83,24 @@
        <label for="password"><b>Password</b></label>
        <input type="password" placeholder="Password" name="password" values={{password}} required>
    
-       <button type="submit" class="btn2">Sing Up</button>
+       <button type="submit" class="btn2" onclick="register()">Sing Up</button>
        <button type="button" class="btn cancel2" onclick="closeForm2()">Close</button>
      </form>
+     <!-- <button type="submit" onclick="register()">register2</button> -->
      <script>
+
+function register() {
+
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange=function() {
+        if (this.readyState == 4 && this.status == 200) {
+          console.log(this.response)
+          }
+          };
+          xhttp.open("GET", "/mmo", true);
+        xhttp.send();
+  }
+
           function openForm2() {
             document.getElementById("myForm2").style.display = "block";
           }

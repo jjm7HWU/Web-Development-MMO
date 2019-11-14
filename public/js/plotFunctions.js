@@ -34,13 +34,19 @@ function getPlotX(x) {
     /* Draw background grid */
     drawRect(0, 0, X_VIEW, Y_VIEW, BACKGROUND_COLOR_1) // fill/clear canvas
 
-    /* get grid bounds for plotting */
+    /* get bounds for plotting grid - shows edge of world */
     let xBounds = {
-      left: (player.x - X_PERIPHERAL <= 0) ? player.x - X_PERIPHERAL : 0
+      left: (player.x > X_PERIPHERAL) ? 0 : X_PERIPHERAL - player.x + 1,
+      right: (player.x < arena.width - X_PERIPHERAL - 2) ? X_VIEW : CENTER_X + arena.width - player.x - 2
     }
 
-    for (let x = 0; x < X_VIEW; x++) {
-      for (let y = 0; y < Y_VIEW; y++) {
+    let yBounds = {
+      top: (player.y > Y_PERIPHERAL) ? 0 : Y_PERIPHERAL - player.y + 1,
+      bottom: (player.y < arena.height - Y_PERIPHERAL - 2) ? Y_VIEW : CENTER_Y + arena.height - player.y - 2
+    }
+
+    for (let x = xBounds.left; x < xBounds.right; x++) {
+      for (let y = yBounds.top; y < yBounds.bottom; y++) {
         drawSquare(x, y, 1, 1, BACKGROUND_COLOR_2); // draw grid box
       }
     }

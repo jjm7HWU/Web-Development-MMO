@@ -75,6 +75,7 @@ socket.on("chat message", function(msg)
 })
 
 var player;
+var arena;
 
 // on game state
 socket.on("game state", function(gameState)
@@ -82,7 +83,7 @@ socket.on("game state", function(gameState)
   // retrieve entities from game state
   let foods = gameState.foodItems;
   let snakes = gameState.snakes;
-  let arena = gameState.arena;
+  arena = gameState.arena;
   // identify player
   player = snakes.find(function(snake){
     return snake.id == socket.id;

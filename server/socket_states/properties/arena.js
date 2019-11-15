@@ -7,7 +7,8 @@ class Arena {
   }
 
   display() {
-    console.log(this.grid);
+    for (let row of this.grid)
+      console.log(row);
   }
 
   createArena(width, height) {
@@ -36,28 +37,47 @@ class Arena {
 
   setTile(x, y, value) {
     // set tile (x,y) to value
-    this.grid[x][y] = value;
+    if (0 <= x < this.width && 0 <= y < this.height) {
+      this.grid[x][y] = value;
+    }
   }
 
   atTile(x, y) {
     // return value at tile (x,y)
-    return this.grid[x][y];
+    if (0 <= x < this.width && 0 <= y < this.height) {
+      return this.grid[x][y];
+    }
+    else {
+      return -2;
+    }
   }
 
-  placeSnake(id, trail) {
+  placeSnake(snake) {
+    let id = snake.id;
+    let trail = snake.trail;
     // place the snake on the grid
     for (let cell of trail) {
-      this.grid[cell[0]][cell[1]] = id;
+      this.setTile(cell[0], cell[1], id);
     }
   }
 
-  removeSnake(id, trail) {
+  removeSnake(snake) {
+    let id = snake.id;
+    let trail = snake.trail;
     // remove the snake from the grid
+    console.log("okkk");
+    console.log(this.atTile(snake.x, snake.y));
+    console.log(snake.id);
     for (let cell of trail) {
-      if (this.grid[cell[0]][cell[1]] == id) {
-        this.grid[cell[0]][cell[1]] = -1;
+      if (this.atTile(cell[0], cell[1]) == id) {
+        this.setTile(cell[0], cell[1], -1);
       }
     }
+    if (this.atTile(snake.x, snake.y) == id) {
+      this.setTile(snake.x, snake.y, -1);
+      console.log("setting to -1");
+    }
+    console.log(this.atTile(snake.x, snake.y));
   }
 
 }

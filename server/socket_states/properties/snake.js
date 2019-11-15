@@ -66,10 +66,6 @@ class Snake {
         arena.setTile(this.x, this.y, this.id);
       }
 
-      // removes end of tail and adds new head position to body
-      this.trail.pop();
-      this.trail.unshift([this.x, this.y]);
-
       return arena;
     }
 

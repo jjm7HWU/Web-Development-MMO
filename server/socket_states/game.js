@@ -41,8 +41,8 @@ class GameState {
           if (!snake.isAlive) {
             var id = snake.id;
 
-            // remove snake from grid and from array of snake
-            this.arena.removeSnake(snake.id, snake.trail);
+            // remove snake from grid and from array of snakes
+            this.arena.removeSnake(snake);
             this.removePlayerID(id);
           }
       }
@@ -89,7 +89,7 @@ class GameState {
         this.snakes.push(newSnake);
 
         // maps snake body on grid
-        this.arena.placeSnake(newSnake.id, newSnake.trail);
+        this.arena.placeSnake(newSnake);
 
         // it pushes a change position
         this.dirs.push(-1);

@@ -41,6 +41,7 @@ class GameState {
           if (!snake.isAlive) {
             console.log("DIE");
             var id = snake.id;
+            this.arena.removeSnake(snake.id, snake.trail);
             this.removePlayerID(id);
           }
       }
@@ -117,7 +118,7 @@ class GameState {
             // if snake is being removed
             if (isTheID)
             {
-                tempIndex = index
+                tempIndex = index;
             }
 
             // return value

@@ -39,8 +39,14 @@ class Snake {
 
       }
       else if (cell === -2) {
+        // player hit edge of world
         this.isAlive = false;
         console.log("Ya brick")
+      }
+      else if (cell !== -1 && cell !== this.id) {
+        // player hit other snake
+        this.isAlive = false;
+        console.log("hit another snake");
       }
 
 
@@ -57,7 +63,7 @@ class Snake {
 
         // adds new head position to body
         this.trail.unshift([this.x, this.y]);
-        arena.setTile(this.x, this.y, 0);
+        arena.setTile(this.x, this.y, this.id);
       }
 
       // removes end of tail and adds new head position to body

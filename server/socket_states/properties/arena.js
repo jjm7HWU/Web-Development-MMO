@@ -50,6 +50,14 @@ class Arena {
     }
   }
 
+  removeSnake(id, trail) {
+    for (let cell of trail) {
+      if (this.grid[cell[0]][cell[1]] === id) {
+        this.grid[cell[0]][cell[1]] = -1;
+      }
+    }
+  }
+
 }
 
 // exporting objects

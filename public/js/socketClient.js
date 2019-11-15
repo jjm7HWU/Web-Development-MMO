@@ -8,7 +8,7 @@ function display(foods, player, snakes, arena) {
   // Cast and display all entities
   for (const food of foods) {
     _food = new Food(food);
-    _food.display();
+    if (0 <= _food.x <= player.x+X_PERIPHERAL && 0 <= _food.y <= player.y+Y_PERIPHERAL) _food.display();
   }
   _player.display();
   for (const snake of snakes) {

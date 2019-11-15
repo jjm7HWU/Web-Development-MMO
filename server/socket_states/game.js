@@ -39,8 +39,9 @@ class GameState {
           this.arena = snake.update(this.arena);
 
           if (!snake.isAlive) {
-            console.log("DIE");
             var id = snake.id;
+
+            // remove snake from grid and from array of snake
             this.arena.removeSnake(snake.id, snake.trail);
             this.removePlayerID(id);
           }

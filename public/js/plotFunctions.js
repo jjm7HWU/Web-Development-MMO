@@ -4,13 +4,12 @@ function getPlotX(x) {
   }
 
   function getPlotY(y) {
-     // get vertical canvas position of y relative to player head's position
+    // get vertical canvas position of y relative to player head's position
     return CENTER_Y + (y - player.y);
   }
 
   function drawSquare(x, y, width, height, color=RED, thickness=0.02) {
-     /* draw square at canvas position (x,y) without filling it */
-     // TODO: Integrate PixiJS. This implementation is temporary.
+    /* draw square at canvas position (x,y) without filling it */
     ctx.lineWidth = thickness * TILE_SIZE;
     ctx.strokeStyle = color;
     let X = x*TILE_SIZE;

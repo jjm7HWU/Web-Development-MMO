@@ -45,12 +45,14 @@ class Arena {
   }
 
   placeSnake(id, trail) {
+    // place the snake on the grid
     for (let cell of trail) {
       this.grid[cell[0]][cell[1]] = id;
     }
   }
 
   removeSnake(id, trail) {
+    // remove the snake from the grid
     for (let cell of trail) {
       if (this.grid[cell[0]][cell[1]] == id) {
         this.grid[cell[0]][cell[1]] = -1;

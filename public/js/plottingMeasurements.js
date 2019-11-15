@@ -15,7 +15,8 @@ var CANVAS_HEIGHT; // actual height of canvas in browser
 
 
 function configureCanvasMeasurements(canvas_width) {
-  CANVAS_WIDTH = canvas_width;
+  // make sure canvas width is integer to prevents blurring
+  CANVAS_WIDTH = Math.floor(canvas_width);
 
   // determine new height according to new width to maintain width:height ratio
   CANVAS_HEIGHT = Math.floor((9/15) * CANVAS_WIDTH);

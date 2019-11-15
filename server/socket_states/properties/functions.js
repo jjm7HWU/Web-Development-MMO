@@ -10,7 +10,6 @@ function getPlotY(y) {
 
 function drawSquare(x, y, width, height, color=RED, thickness=0.02) {
    /* draw square at canvas position (x,y) without filling it */
-   // TODO: Integrate PixiJS. This implementation is temporary.
   ctx.lineWidth = thickness * TILE_SIZE;
   ctx.strokeStyle = color;
   let X = x*TILE_SIZE;
@@ -67,9 +66,10 @@ function randomColor() {
 
 
 function initializeEntities() {
+  // array for storing all snake objects
   let snakes = [];
 
-  // Add 100 random food
+  // add 100 random food and store in array of food objects
   let foods = [];
   for (let c = 0; c < 100; c++) {
     foods.push(new Food());

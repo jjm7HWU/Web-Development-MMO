@@ -107,28 +107,15 @@ class GameState {
 
     removePlayerID(id)
     {
+        // finds index of snake with given id
+        let tempIndex = this.snakes.findIndex(function(tempSnake) {
+          return tempSnake.isTheID(id);
+        });
 
-        let tempIndex = -1;
-
-        // removes the snake that meets the condition
-        this.snakes = this.snakes.filter( function (tempSnake, index)
-        {
-            // checks the id of each player
-            var isTheID = tempSnake.isTheID(id);
-
-            // if snake is being removed
-            if (isTheID)
-            {
-                tempIndex = index;
-            }
-
-            // return value
-            return !isTheID;
-        })
-
-        // if the index was found, remove the change index as well
-        if ( tempIndex != -1) this.dirs.splice(tempIndex, 1)
-
+        if ( tempIndex != -1) {               // if snake was found
+          this.snakes.splice(tempIndex, 1);   // remove snake
+          this.dirs.splice(tempIndex, 1);     // remove change index
+        }
     }
 
     // displays the players

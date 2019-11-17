@@ -26,9 +26,19 @@ class Snake {
       // gets cell at new head position
       let cell = arena.atTile(this.x, this.y);
 
-      // collision detection
-      if (typeof(cell) == "object") {
+      // check for collisions at new head position
+      this.checkForCollisions(arena, cell);
 
+      // if no collision detected then update snake's trail
+      if (this.isAlive) arena = this.moveSnakeBody(arena);
+
+      return arena;
+    }
+
+    /* Check for any collisions at head of snake */
+    checkForCollisions(arena, cell) {
+      if (typeof(cell) == "object")
+      {
         switch (cell.getType()) {
           case("Food"):
             // food detected
@@ -38,33 +48,32 @@ class Snake {
         }
 
       }
-      else if (cell === -2) {
-        // player hit edge of world
+      else if (cell === -2) // player hit edge of world
+      {
         this.isAlive = false;
         console.log("Ya brick")
       }
-      else if (cell !== -1 && cell !== this.id) {
-        // player hit other snake
+      else if (cell !== -1 && cell !== this.id) // player hit other snake
+      {
         this.isAlive = false;
         console.log("hit another snake");
       }
+    }
 
-
-      if (this.isAlive) {
-
-        // removes end of tail
-        if (this.eatStack == 0) {
-          let tail = this.trail.pop();
-          arena.setTile(tail[0], tail[1], -1);
-        }
-        else { // unless snake is eating
-          this.eatStack--;
-        }
-
-        // adds new head position to body
-        this.trail.unshift([this.x, this.y]);
-        arena.setTile(this.x, this.y, this.id);
+    /* Move snake's body forward */
+    moveSnakeBody(arena) {
+      // removes end of tail
+      if (this.eatStack == 0) {
+        let tail = this.trail.pop();
+        arena.setTile(tail[0], tail[1], -1);
       }
+      else { // unless snake is eating
+        this.eatStack--;
+      }
+
+      // adds new head position to body
+      this.trail.unshift([this.x, this.y]);
+      arena.setTile(this.x, this.y, this.id);
 
       return arena;
     }

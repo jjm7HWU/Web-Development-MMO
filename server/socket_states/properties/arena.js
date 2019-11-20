@@ -6,11 +6,6 @@ class Arena {
     this.grid = this.createArena(this.width, this.height);
   }
 
-  display() {
-    for (let row of this.grid)
-      console.log(row);
-  }
-
   createArena(width, height) {
     // create grid of width x height
     let grid = [];
@@ -65,9 +60,6 @@ class Arena {
     let id = snake.id;
     let trail = snake.trail;
     // remove the snake from the grid
-    console.log("okkk");
-    console.log(this.atTile(snake.x, snake.y));
-    console.log(snake.id);
     for (let cell of trail) {
       if (this.atTile(cell[0], cell[1]) == id) {
         this.setTile(cell[0], cell[1], -1);
@@ -75,9 +67,7 @@ class Arena {
     }
     if (this.atTile(snake.x, snake.y) == id) {
       this.setTile(snake.x, snake.y, -1);
-      console.log("setting to -1");
     }
-    console.log(this.atTile(snake.x, snake.y));
   }
 
 }

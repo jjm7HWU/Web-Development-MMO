@@ -2,7 +2,7 @@
 function register() {
         //post
     let data = {
-        username: "teja",
+        email: "teja",
         password: "234234",
       };
 

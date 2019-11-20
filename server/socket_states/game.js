@@ -47,7 +47,6 @@ class GameState {
           }
       }
 
-      this.displayDirs();
     }
 
     updateDir(socket, dir)
@@ -118,16 +117,6 @@ class GameState {
           this.snakes.splice(tempIndex, 1);       // remove snake entity
           this.dirs.splice(tempIndex, 1);         // remove change index
         }
-    }
-
-    // displays the players
-    displayPlayers() {
-        console.log(this.snakes)
-    }
-
-    // display directions
-    displayDirs(){
-        console.log(this.dirs)
     }
 
     initializeEntities(arena) {

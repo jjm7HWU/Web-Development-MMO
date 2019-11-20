@@ -10,8 +10,8 @@ function instructions(){
 // POST 
 
 let data = {
-  username: "teja",
-  password: "234234"
+  email: "teja",
+  last_time_online: "2000/50/40"
 };
 
 fetch("/mmo/logout", {
@@ -31,7 +31,7 @@ fetch("/mmo/logout", {
 })
 }
 // Score request with ajax
-function score() {
+/*function score() {
 
   // POST 
 
@@ -57,11 +57,11 @@ function score() {
     console.error(error)
   })
 }
-
+*/
 
 
 window.addEventListener('beforeunload', function (e) {
   e.preventDefault();
   e.returnValue = '';
   logout()
-});
+})

@@ -4,7 +4,7 @@ body{
 	}
 
 /* Main heading */
-h1{
+#p{
 	  color:yellow;
 	  size: 50px;
 	  padding: 3px;
@@ -12,6 +12,9 @@ h1{
 	  border-style: dotted;
 	  border-radius: 5px;
   }
+
+
+
 
 /* Animated snake-1 */
 #s1 img{
@@ -89,6 +92,16 @@ form button:hover {
 	/* width: 300px; */
 	width:50%;
   }
+
+/*  Popup Title */
+#l{
+	color:yellow;
+	size: 50px;
+	padding: 3px;
+	text-align: center;
+	border-style: dotted;
+	border-radius: 5px;
+}
 
   /* The popup form - hidden by default */
   .form-popup {
@@ -256,7 +269,7 @@ hr {
 
 
 /* /////////////////////////////////////////////////////////////////////////////////// */
- 						/* SignUp Button */
+ 						/* Register Button */
 
  /* Button used to open the contact form - fixed at the bottom of the page */
  .open-button2 {
@@ -273,6 +286,15 @@ hr {
 	/* width: 300px; */
 	width: 49%;
   }
+/* register Title popup */
+  #r{
+	color:yellow;
+	size: 50px;
+	padding: 3px;
+	text-align: center;
+	border-style: dotted;
+	border-radius: 5px;
+}
 
   /* The popup form - hidden by default */
   .form-popup2 {

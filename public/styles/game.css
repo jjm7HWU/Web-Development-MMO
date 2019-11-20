@@ -6,6 +6,37 @@
 
 
 /* messages unordered list element */
+/* score Title */
+.Score{
+color: yellow;
+font-size: 40px;
+padding-left: 950px;
+}
+
+/* score */
+.score-out{
+  color: yellow;
+  font-size: 35px;
+}
+
+/* logout button and score */
+.top-box{
+  /* background:yellow; */
+  padding: 10px;
+  position: fixed;
+  width: 100%;
+  border-radius: 5px;
+  text-decoration-color: yellow;
+  bottom: 90%;
+}
+
+.logout{
+  width: 20%;
+  color:black;
+  background-color: yellow;
+  font-size: 20px;
+
+}
 
 
  div.relative {
@@ -36,7 +67,7 @@ body {
 /* group chart box */
 
 form {
-      background:yellow;
+      background-color:yellow;
       padding: 10px;
       position: fixed;
       bottom: 0;

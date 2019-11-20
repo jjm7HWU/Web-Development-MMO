@@ -41,7 +41,7 @@
  <button class="open-button" onclick="openForm()">Login</button>
 
  <div class="form-popup" id="myForm">
-   <form class="form-container">
+   <form class="form-container" onsubmit="return false">
      <h1 id="l">Login</h1>
 
      <label for="email"><b>Email</b></label>
@@ -60,7 +60,7 @@
   <button class="open-button2" onclick="openForm2()">Register</button>
 
  <div class="form-popup2" id="myForm2">
-     <form class="form-container2">
+     <form class="form-container2" onsubmit="return false">
        <h1 id="r">Register</h1>
    
        <label for="email"><b>Email</b></label>
@@ -69,7 +69,7 @@
        <label for="password"><b>Password</b></label>
        <input type="password" placeholder="Password" name="password" values={{password}} required>
    
-       <button type="submit" class="btn2" onclick="register()">Register</button>
+       <button class="btn2" onclick="register()">Register</button>
        <button type="button" class="btn cancel2" onclick="closeForm2()">Close</button>
      </form>
    </div>

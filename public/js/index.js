@@ -11,10 +11,8 @@ function register() {
               console.error(error)
             });
 
-            
-
           }
-
+// register popup
 function openForm2() {
             document.getElementById("myForm2").style.display = "block";
           }
@@ -51,7 +49,7 @@ function login() {
       
             
           }
-         
+// login popup         
 function openForm() {
          document.getElementById("myForm").style.display = "block";
        }

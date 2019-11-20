@@ -1,15 +1,26 @@
 // register request with ajax
 function register() {
+        //post
+    let data = {
+        username: "teja",
+        password: "234234",
+      };
 
-            // GET 
-            fetch("/mmo")
-            .then( responseJSON => responseJSON.json() )
-            .then( body => {
-              console.log(body)
-            })
-            .catch( error => {
-              console.error(error)
-            });
+      fetch("/mmo/register", {
+        headers: {
+          "Content-Type": "application/json",                                                                                                
+          "Access-Control-Origin": "*"
+        },
+        method: "POST",
+        body: JSON.stringify(data)
+      })
+      .then( responseJSON => responseJSON.json())
+      .then( body => {
+        console.log(body)
+      })
+      .catch( error => {
+        console.error(error)
+      })
 
           }
 // register popup
@@ -28,7 +39,7 @@ function login() {
       
             let data = {
               username: "teja",
-              password: "234234"
+              password: "234234",
             };
       
             fetch("/mmo/login", {

@@ -66,7 +66,10 @@ router.post("/logout", (req, res) => {
             }
         }
     )
-    .then(player => res.send(player) )
+    .then(player => {
+        res.send(player)
+        console.log(12343132432414341241342)
+    })
     .catch(err=> res.status(500).send(err));
 
 

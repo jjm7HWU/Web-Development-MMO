@@ -23,7 +23,7 @@ try
 // Instantiates the server instance
 const server = app.listen(port, () => {
     // logs the message if everything is fine
-    console.log("Server is up on port " + process.env.PORT)
+    console.log("Server is up on port " + port)
 })
 
 

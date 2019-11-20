@@ -60,16 +60,16 @@ router.post("/login", (req, res) => {
     // login player
     const { id, password } = req.body;
 
-    player.findOne({ where: {id} }).then(player => {
+    player.findOne({ where: id }).then(player => {
         var hashedPassword = player.password;
         
-        bcrypt.compare(password, hashedPassword, function(err, res) {
-            if (err || !res) {
+        bcrypt.compare(password, hashedPassword, function(err, result) {
+            if (err) {
                 res.status(500).send("Internal error")
             }
 
             // final request
-            res.send(req.body)
+            res.send(player)
 
         })
 
@@ -80,7 +80,9 @@ router.post("/login", (req, res) => {
 router.post("/logout", (req, res) => {
     //logout player and last_time_online
     const {email, last_time_online} = req.body;
-    console.log(12343132432414341241342)
+    
+    console.log("logout")
+
     player.update(
         {
             last_time_online

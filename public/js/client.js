@@ -19,6 +19,7 @@ document.addEventListener("keydown", event => {
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 
+ctx.imageSmoothingEnabled = false;
 
 // configure initial measurements
 configureCanvasMeasurements(canvas.width);

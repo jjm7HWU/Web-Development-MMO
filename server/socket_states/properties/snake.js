@@ -67,6 +67,7 @@ class Snake {
       }
       else { // unless snake is eating
         this.eatStack--;
+        this.length++;
       }
 
       // adds new head position to body

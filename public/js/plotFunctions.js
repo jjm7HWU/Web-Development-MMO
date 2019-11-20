@@ -52,20 +52,29 @@ function displayBackground() {
   ctx.stroke();
 }
 
-function getCellCurve(prevPosition, nextPosition) {
+function getBodyCurve(prevPosition, currentPosition, nextPosition) {
+  /* Get the correct curve for a part of a snake's body */
 
-  if (prevPosition == undefined || nextPosition == undefined) return {shape: 1, angle: 0};
+  // parse body cells to be connected by curve
+  let prev = {x: prevPosition[0], y: prevPosition[1]};
+  let curr = {x: currentPosition[0], y: currentPosition[1]};
+  let next = {x: nextPosition[0], y: nextPosition[1]};
 
-  let curve = {shape: undefined, angle: undefined};
+  if (prev.x == next.x) return {shape: 0, angle: 0};    // snake going straight up or down
+  if (prev.y == next.y) return {shape: 0, angle: 90};   // snake going to the left or right
 
-  if (prevPosition[0] == nextPosition[0])
-    curve = {shape: 0, angle: 0};
-  else if (prevPosition[1] == nextPosition[1])
-    curve = {shape: 0, angle: 90};
-  else
-    curve = {shape: 1, angle: 0};
+  // initialize output
+  let curve = {shape: 1, angle: 0};
 
-  if (curve.shape == undefined || curve.angle == undefined) return 0/0;
+  // run through cases and get appropriate angle to be used when creating curve
+  if (curr.y == prev.y && next.y > curr.y && curr.x > prev.x) curve.angle = 0;
+  else if (curr.y == prev.y && next.y > curr.y && curr.x < prev.x) curve.angle = 270;
+  else if (curr.y == prev.y && next.y < curr.y && curr.x > prev.x) curve.angle = 90;
+  else if (curr.y == prev.y && next.y < curr.y && curr.x < prev.x) curve.angle = 180;
+  else if (curr.x == prev.x && next.x > curr.x && curr.y > prev.y) curve.angle = 180;
+  else if (curr.x == prev.x && next.x > curr.x && curr.y < prev.y) curve.angle = 270;
+  else if (curr.x == prev.x && next.x < curr.x && curr.y > prev.y) curve.angle = 90;
+  else if (curr.x == prev.x && next.x < curr.x && curr.y < prev.y) curve.angle = 0;
 
   return curve;
 }

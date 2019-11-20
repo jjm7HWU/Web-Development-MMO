@@ -26,12 +26,11 @@
 
           <hr color="yellow" size="5">
     <body>
+      <section>
          <!-- Animated center image -->
-         <!-- <a id="s3" href="game.html"><img src="https://www.animatedimages.org/data/media/290/animated-snake-image-0002.gif" alt="animated-snake-image-0002" /></a>  -->
-         <!--  <a id="s3" href="game.html"><img src="https://www.animatedimages.org/data/media/290/animated-snake-image-0021.gif"alt="animated-snake-image-0021" /></a> -->
          <a id="s3" bordercolor="red"><img src="https://www.animatedimages.org/data/media/290/animated-snake-image-0043.gif"alt="animated-snake-image-0043" /></a>
+  
          <!-- UserName and Start Button -->
-
        <form action="game.html">
             <input id="nickname" type="text" name="nickname" placeholder="NickName">
             <input id="button" type="submit" placeholder=" START  " />
@@ -55,46 +54,7 @@
      <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
    </form>
  </div>
-
- <script>
-   function login() {
-
-      // POST 
-
-      let data = {
-        username: "teja",
-        password: "234234"
-      };
-
-      fetch("/mmo/login", {
-        headers: {
-          "Content-Type": "application/json",                                                                                                
-          "Access-Control-Origin": "*"
-        },
-        method: "POST",
-        body: JSON.stringify(data)
-      })
-      .then( responseJSON => responseJSON.json())
-      .then( body => {
-        console.log(body)
-      })
-      .catch( error => {
-        console.error(error)
-      })
-
-      
-    }
    
- function openForm() {
-   document.getElementById("myForm").style.display = "block";
- }
-
- function closeForm() {
-   document.getElementById("myForm").style.display = "none";
- }
-  
- </script>
-
   <!-- //////////////////////////////////////////////////////////// -->         
       <!-- Register Button -->
   <button class="open-button2" onclick="openForm2()">Register</button>
@@ -112,39 +72,13 @@
        <button type="submit" class="btn2" onclick="register()">Register</button>
        <button type="button" class="btn cancel2" onclick="closeForm2()">Close</button>
      </form>
-     <!-- <button type="submit" onclick="register()">register2</button> -->
-     <script>
-       
-       
-          function register() {
-
-            // GET 
-            fetch("/mmo")
-            .then( responseJSON => responseJSON.json() )
-            .then( body => {
-              console.log(body)
-            })
-            .catch( error => {
-              console.error(error)
-            });
-
-            
-
-          }
-
-          function openForm2() {
-            document.getElementById("myForm2").style.display = "block";
-          }
-          
-          function closeForm2() {
-            document.getElementById("myForm2").style.display = "none";
-          }
-          </script>
    </div>
-     
-    <footer>
-   
-    </footer>
-    
+  </section>       
   </body>
+
+  <footer>
+   
+    </footer>  
+  <!-- linking js files -->
+  <script type="text/javascript" src="js/index.js"></script>
 </html>

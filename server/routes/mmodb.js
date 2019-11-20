@@ -80,6 +80,7 @@ router.post("/login", (req, res) => {
 router.post("/logout", (req, res) => {
     //logout player and last_time_online
     const {email, last_time_online} = req.body;
+    console.log(12343132432414341241342)
     player.update(
         {
             last_time_online
@@ -91,13 +92,11 @@ router.post("/logout", (req, res) => {
         }
     )
     .then(player => {
-        res.send(player)
-        console.log(12343132432414341241342)
+        console.log('retrieving player')
+        console.log(player)
     })
     .catch(err=> res.status(500).send(err));
 
-
-    res.send(req.body)
 })
 
 //update highscore

@@ -42,8 +42,6 @@ let gameState = new game_state.GameState();
 let streamGameState = () => {
     gameState.update()
     io.sockets.emit("game state", gameState)
-    gameState.displayPlayers()
-    gameState.displayDirs()
 }
 
 

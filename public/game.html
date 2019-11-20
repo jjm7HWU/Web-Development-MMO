@@ -17,14 +17,55 @@
 
 <!-- <h1> THE SNAKE </h1> -->
 <!--<hr color="yellow" size="5">-->
-<body>
+<body onload="instructions()">
   <!-- game canvas -->
   <div class="relative">
       <canvas id="canvas" width="1500" height="900"></canvas>
+      <div class="top-box">
+        <button class="logout" onclick="logout">Logout</button>
+        <h class="Score">Score:</h>
+        <h class="score-out" id="score-out">0</h>
+    </div>
+
          <div class="absolute">
            <ul id="messages"></ul>
          </div>
  </div>
+
+ <script>
+    function instructions(){
+      alert("HEllO");
+    }
+ </script>
+
+ <script>
+ function logout() {
+
+// POST 
+
+let data = {
+  username: "teja",
+  password: "234234"
+};
+
+fetch("/mmo/logout", {
+  headers: {
+    "Content-Type": "application/json",                                                                                                
+    "Access-Control-Origin": "*"
+  },
+  method: "POST",
+  body: JSON.stringify(data)
+})
+.then( responseJSON => responseJSON.json())
+.then( body => {
+  console.log(body)
+})
+.catch( error => {
+  console.error(error)
+})
+
+
+}</script>
 
     <form id="formInput">
       <input id="m" autocomplete="off" /><button>Send</button>

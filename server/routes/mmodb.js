@@ -27,17 +27,17 @@ router.get('/', (req,res) => {
 
 // register router
 router.post('/register', (req,res) => {
-    // const { email, password } = req.body;
+     const { email, password } = req.body;
 
-    // //Insert into player table
-    // player.create({
-    //     email,
-    //     password,
-    //     highscore: 0,
-    //     last_time_online: now
-    // })
-    //  .then(player => res.send(player) )
-    //  .catch(err=> res.status(500).send(err));
+     //Insert into player table
+     player.create({
+         email,
+         password,
+         highscore: 0,
+         last_time_online: now
+     })
+      .then(player => res.send(player) )
+     .catch(err=> res.status(500).send(err));
 
 
     res.send(req.body)

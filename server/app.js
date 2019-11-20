@@ -77,11 +77,14 @@ bcrypt.genSalt(10, function( error, salt ) {
       if (err) throw new Error(err)
 
       console.log(res)
+      
+      console.log("\n\n\n\n\n")
     })
     
-    console.log("\n\n\n\n\n")
   })
 })
+
+
 
 
 // exports the app instance

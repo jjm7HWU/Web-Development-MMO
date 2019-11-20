@@ -3,6 +3,7 @@ const router = express.Router();
 const db = require ('../config/database');
 const player= require ('../models/mmodb');
 const moment= require ('moment');
+const bcrypt = require('bcryptjs');
 
 //time
 let now = new Date();
@@ -27,20 +28,31 @@ router.get('/', (req,res) => {
 
 // register router
 router.post('/register', (req,res) => {
-     const { email, password } = req.body;
+    const { email, password } = req.body;
+    
+    bcrypt.genSalt(10, function( error, salt ) {
+        bcrypt.hash(password, salt, function( error, hashedPassword ) {
+            if (error) {
+                res.status(500).send("Internal error")
+            }
+            
+            
+            //Insert into player table
+            player.create({
+                email,
+                password: hashedPassword,
+                highscore: 0,
+                last_time_online: now
+            })
+            .then(player => {
+                // final request
+                res.send(player) 
+            })
+            .catch(err=> res.status(500).send(err));
 
-     //Insert into player table
-     player.create({
-         email,
-         password,
-         highscore: 0,
-         last_time_online: now
-     })
-      .then(player => {res.send(player) })
-     .catch(err=> res.status(500).send(err));
+        })
+    })
 
-
-    res.send(req.body)
 })
 
 // login router
@@ -49,8 +61,17 @@ router.post("/login", (req, res) => {
     const { id, password } = req.body;
 
     player.findOne({ where: {id} }).then(player => {
+        var hashedPassword = player.password;
         
-        res.send(req.body)
+        bcrypt.compare(password, hashedPassword, function(err, res) {
+            if (err || !res) {
+                res.status(500).send("Internal error")
+            }
+
+            // final request
+            res.send(req.body)
+
+        })
 
       })
 })

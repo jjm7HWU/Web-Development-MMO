@@ -60,32 +60,6 @@ app.get("/game", (req, res) => {
 
 
 
-var bcrypt = require('bcryptjs');
-
-var s1 = "password";
-
-bcrypt.genSalt(10, function( error, salt ) {
-  bcrypt.hash(s1, salt, function( error, hashedPassword){
-    console.log(s1)
-    console.log("hashed password: " + hashedPassword)
-    console.log("\n")
-    
-    
-
-
-    bcrypt.compare(s1, hashedPassword, function(err, res) {
-      if (err) throw new Error(err)
-
-      console.log(res)
-      
-      console.log("\n\n\n\n\n")
-    })
-    
-  })
-})
-
-
-
 
 // exports the app instance
 module.exports = app;

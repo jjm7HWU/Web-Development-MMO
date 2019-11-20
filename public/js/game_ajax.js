@@ -1,10 +1,10 @@
-// logout request with ajax
+// instructions box
 function instructions(){
       alert("HEllO");
     }
  
  function logout() {
-
+// logout request with ajax
 // POST 
 
 let data = {

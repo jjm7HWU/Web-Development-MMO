@@ -36,7 +36,7 @@ router.post('/register', (req,res) => {
          highscore: 0,
          last_time_online: now
      })
-      .then(player => res.send(player) )
+      .then(player => {res.send(player) })
      .catch(err=> res.status(500).send(err));
 
 
@@ -46,10 +46,13 @@ router.post('/register', (req,res) => {
 // login router
 router.post("/login", (req, res) => {
     // login player
+    const { id, password } = req.body;
 
-    console.log(req.body)
-    res.send(req.body)
+    player.findOne({ where: {id} }).then(player => {
+        
+        res.send(req.body)
 
+      })
 })
 
 

@@ -38,8 +38,8 @@ function login() {
             // POST 
       
             let data = {
-              username: "teja",
-              password: "234234",
+              id:"123456",
+              password: "tfytfg"
             };
       
             fetch("/mmo/login", {

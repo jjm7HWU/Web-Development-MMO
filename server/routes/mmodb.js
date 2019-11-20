@@ -60,16 +60,16 @@ router.post("/login", (req, res) => {
     // login player
     const { id, password } = req.body;
 
-    player.findOne({ where: {id} }).then(player => {
+    player.findOne({ where: id }).then(player => {
         var hashedPassword = player.password;
         
-        bcrypt.compare(password, hashedPassword, function(err, res) {
-            if (err || !res) {
+        bcrypt.compare(password, hashedPassword, function(err, result) {
+            if (err) {
                 res.status(500).send("Internal error")
             }
 
             // final request
-            res.send(req.body)
+            res.send(player)
 
         })
 

@@ -1,3 +1,5 @@
+const TO_RADIANS = Math.PI/180; // multiply for degrees to radians
+
 const X_VIEW = 25; // horizontal render distance from snake head
 const Y_VIEW = 15; // vertical render distance from snake head
 

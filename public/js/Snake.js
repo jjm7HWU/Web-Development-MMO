@@ -14,7 +14,6 @@ class Snake {
       X = getPlotX(point[0]); Y = getPlotY(point[1]);
 
       cellCurve = getCellCurve(prevPoint, nextPoint);
-      console.log(cellCurve.angle);
 
       skin = skins[cellCurve.shape];
 

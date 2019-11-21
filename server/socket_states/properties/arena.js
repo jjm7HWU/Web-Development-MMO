@@ -66,10 +66,16 @@ class Arena {
 
     // iterate through each cell
     for (let cell of trail) {
-      if (this.atTile(cell[0], cell[1]) == id) {              // if cell is not occupied by other snake
+      let cellValue = this.atTile(cell[0], cell[1]);
+      if (cellValue == id) {                                  // if cell is not occupied by other snake
         let food = new FoodFile.Food(this, cell[0], cell[1]); // create food item
         newFoodItems.push(food);                              // and store item
         this.setTile(cell[0], cell[1], food);                 // replace cell with food item
+      }
+      else if (typeof(cellValue) == "object") {
+        if (cellValue.getType() == "Food") {                  // or if food item is already there
+          cellValue.nutrition++;                              // make food bigger
+        }
       }
     }
     if (this.atTile(snake.x, snake.y) == id) {                // if snake head position not occupied by other snake

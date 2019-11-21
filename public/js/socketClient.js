@@ -1,6 +1,9 @@
 function display(frameCounter, foods, player, snakes, arena) {
+
+  currentOffset = getCurrentOffset(frameCounter);
+
   // Display canvas
-  displayBackground();
+  displayBackground(frameCounter);
 
   // cast player
   _player = new Snake(player);
@@ -15,13 +18,10 @@ function display(frameCounter, foods, player, snakes, arena) {
     _snake = new Snake(snake);
     _snake.display();
   }
+}
 
-  // Cast and display all entities' heads (temporary implementation)
-  _player.displayHead();
-  for (const snake of snakes) {
-    _snake = new Snake(snake);
-    _snake.displayHead();
-  }
+for (let i = 0; i < 100000; i++) {
+
 }
 
 // initialise websocket

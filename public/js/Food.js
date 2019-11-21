@@ -10,7 +10,7 @@ class Food {
     let Y = getPlotY(this.y);
 
     // draw food item at specified frame
-    foodAnimation.display(X, Y, frameIndex);
+    foodAnimation.display(X+currentOffset.x, Y+currentOffset.y, frameIndex);
   }
 
 }

@@ -24,5 +24,6 @@ ctx.imageSmoothingEnabled = false;
 // configure initial measurements
 configureCanvasMeasurements(canvas.width);
 
-let skins = fetchSkins();
-let foodAnimation = new SpriteAnimation("food", 6);
+var skins = fetchSkins();
+var foodAnimation = new SpriteAnimation("food", 6);
+var currentOffset;

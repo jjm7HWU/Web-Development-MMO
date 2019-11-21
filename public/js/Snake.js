@@ -12,8 +12,8 @@ class Snake {
       let nextPoint = this.trail[index+1] || undefined; // get point after (closer to tail)
 
       // calculate grid position for plotting current point
-      let X = getPlotX(point[0]);
-      let Y = getPlotY(point[1]);
+      let X = getPlotX(point[0])+currentOffset.x;
+      let Y = getPlotY(point[1])+currentOffset.y;
 
       // determine the shape and angle that the current point should be
       let cellCurve = getBodyCurve(prevPoint, point, nextPoint);
@@ -25,12 +25,14 @@ class Snake {
       skin.display(X*TILE_SIZE, Y*TILE_SIZE, cellCurve.angle); // draws cell
     }
 
-    this.displayTail(); // draws tip of tail (to be replaced)
+    // draw head and tail of snake
+    this.displayHead();
+    this.displayTail();
   }
 
   displayHead() {
     /* Display the head of the snake */
-    drawRect(getPlotX(this.x), getPlotY(this.y), 1, 1, this.colors[1]);
+    drawRect(getPlotX(this.x)+currentOffset.x, getPlotY(this.y)+currentOffset.y, 1, 1, this.colors[1]);
     ctx.stroke();
   }
 
@@ -38,7 +40,7 @@ class Snake {
     /* Display the tip of the snake's tail */
     let index = this.trail.length - 1;
     let point = this.trail[index];
-    drawRect(getPlotX(point[0]), getPlotY(point[1]), 1, 1, this.colors[1]);
+    drawRect(getPlotX(point[0])+currentOffset.x, getPlotY(point[1])+currentOffset.y, 1, 1, this.colors[1]);
     ctx.stroke();
   }
 

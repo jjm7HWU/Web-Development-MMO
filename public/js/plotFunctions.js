@@ -78,7 +78,7 @@ function getBodyCurve(prevPosition, currentPosition, nextPosition) {
   return curve;
 }
 
-function fetchSkins() {]
+function fetchSkins() {
   /* Fetch the snake skins found in the imgs directory */
   let skins = [];
 

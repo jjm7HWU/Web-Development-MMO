@@ -1,3 +1,5 @@
+const FoodFile = require("./food");
+
 class Arena {
 
   constructor(width=10, height=10) {
@@ -57,17 +59,25 @@ class Arena {
   }
 
   removeSnake(snake) {
+    /* remove the snake from the grid and replace each cell with food */
     let id = snake.id;
     let trail = snake.trail;
-    // remove the snake from the grid
+    var newFoodItems = [];
+
+    // iterate through each cell
     for (let cell of trail) {
-      if (this.atTile(cell[0], cell[1]) == id) {
-        this.setTile(cell[0], cell[1], -1);
+      if (this.atTile(cell[0], cell[1]) == id) {              // if cell is not occupied by other snake
+        let food = new FoodFile.Food(this, cell[0], cell[1]); // create food item
+        newFoodItems.push(food);                              // and store item
+        this.setTile(cell[0], cell[1], food);                 // replace cell with food item
       }
     }
-    if (this.atTile(snake.x, snake.y) == id) {
-      this.setTile(snake.x, snake.y, -1);
+    if (this.atTile(snake.x, snake.y) == id) {                // if snake head position not occupied by other snake
+      this.setTile(snake.x, snake.y, -1);                     // set head to food
     }
+
+    // return new food object
+    return newFoodItems;
   }
 
 }

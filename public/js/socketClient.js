@@ -20,6 +20,8 @@ function display(frameCounter, foods, player, snakes, arena) {
   }
 }
 
+
+
 // initialise websocket
 var socket = io();
 

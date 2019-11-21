@@ -4,14 +4,13 @@ class Food {
     obj && Object.assign(this, obj);
   }
 
-  display() {
+  display(frameIndex) {
     // get plotting coordinates
     let X = getPlotX(this.x);
     let Y = getPlotY(this.y);
 
-    // draw food
-    drawRect(X, Y, 1, 1, this.colors[1]);
-    drawSquare(X, Y, 1, 1, this.colors[0], 0.1);
+    // draw food item at specified frame
+    foodAnimation.display(X+currentOffset.x, Y+currentOffset.y, frameIndex);
   }
 
 }

@@ -8,6 +8,7 @@ class Food {
     constructor(arena, x=null, y=null) {
       this.colors = ["#edca6b","#d9b44e"];
       this.nutrition = 5; // length added to snake that eats this
+      this.frameIndex = 0;
       this.respawn(arena, x, y);
     }
 

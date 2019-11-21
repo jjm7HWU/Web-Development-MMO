@@ -78,21 +78,24 @@ function getBodyCurve(prevPosition, currentPosition, nextPosition) {
   return curve;
 }
 
-function fetchSkins() {
+function fetchSkins() {]
+  /* Fetch the snake skins found in the imgs directory */
   let skins = [];
 
-  for (let skinIndex = 1; skinIndex < 3; skinIndex++) {
-    let skin1 = new Sprite("skin"+skinIndex+"_straight.png");
-    let skin2 = new Sprite("skin"+skinIndex+"_corner.png");
-    skins.push(skin1, skin2);
+  for (let skinIndex = 1; skinIndex < 3; skinIndex++) {       // iterate through each skin index
+    let skin1 = new Sprite("skin"+skinIndex+"_straight.png"); // load the straight body part
+    let skin2 = new Sprite("skin"+skinIndex+"_corner.png");   // load the curved body part
+    skins.push(skin1, skin2);                                 // store images
   }
 
   return skins;
 }
 
 function getCurrentOffset(frameCounter) {
-  return {
-    x: -FRAME_OFFSET*frameCounter*player.direction.x,
-    y: -FRAME_OFFSET*frameCounter*player.direction.y
-  };
+  /* Get current offset value for rendering each image equivalent to the mantissa of the player's head position */
+
+  let xOffset = (player.direction.x == 0) ? 0 : 0.5*player.direction.x - FRAME_OFFSET*frameCounter*player.direction.x; // horizontal offset
+  let yOffset = (player.direction.y == 0) ? 0 : 0.5*player.direction.y - FRAME_OFFSET*frameCounter*player.direction.y; // vertical offset
+
+  return {x: xOffset, y: yOffset};
 }

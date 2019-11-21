@@ -66,7 +66,7 @@ class Arena {
 
     // iterate through each cell
     for (let cell of trail) {
-      let cellValue = this.atTile(cell[0], cell[1]);
+      let cellValue = this.atTile(cell[0], cell[1]);          // get cell at body position
       if (cellValue == id) {                                  // if cell is not occupied by other snake
         let food = new FoodFile.Food(this, cell[0], cell[1]); // create food item
         newFoodItems.push(food);                              // and store item

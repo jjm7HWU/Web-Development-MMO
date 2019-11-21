@@ -8,24 +8,6 @@ const bcrypt = require('bcryptjs');
 //time
 let now = new Date();
 
-// Get mmodb list 
-router.get('/', (req,res) => {
-    // player.findAll()
-    // .then(players => {
-    //     res.send(players)
-    // })
-    // .catch(err=> res.status(500).send(err));
-
-    console.log(req.body)
-    let body = req.body;
-
-    res.send({
-        string: "Hello Guys"
-    })
-})
-
-
-
 // register router
 router.post('/register', (req,res) => {
     const { email, password } = req.body;
@@ -67,11 +49,11 @@ router.post("/login", (req, res) => {
             if (err || !result) {
                 res.status(500).send("Internal error")
             }
-
+            
             console.log(result)
 
             // final request
-            res.send(player)
+            
 
         })
 

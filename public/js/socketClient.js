@@ -24,6 +24,8 @@ function display(foods, player, snakes, arena) {
   }
 }
 
+
+
 // initialise websocket
 var socket = io();
 

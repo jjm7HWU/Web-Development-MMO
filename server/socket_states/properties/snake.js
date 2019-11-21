@@ -9,8 +9,9 @@ class Snake {
       this.x = x; this.y = y;
       this.direction = {x:0, y:1}; // snake initially heading downwards
       this.colors = [randomColor(), randomColor()];
+      this.skinIndex = random(1,2);
       this.eatStack = 0;
-      this.length = 1;
+      this.length = 5;
       this.trail = []
       for (let c = 0; c < this.length; c++) {
         this.trail.push([this.x, this.y-c]);

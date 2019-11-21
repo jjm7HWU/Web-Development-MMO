@@ -41,8 +41,9 @@ class GameState {
           if (!snake.isAlive) {
             var id = snake.id;
 
-            // remove snake from grid and from array of snakes
-            this.arena.removeSnake(snake);
+            // remove snake from grid and from array of snakes and replace snake body with food
+            let newFoodItems = this.arena.removeSnake(snake);
+            this.foodItems = this.foodItems.concat(newFoodItems);
             this.removePlayerID(id);
           }
       }
@@ -111,11 +112,12 @@ class GameState {
           return tempSnake.isTheID(id);
         });
 
-        if ( tempIndex != -1) {                   // if snake was found
-          let tempSnake = this.snakes[tempIndex]; // get snake
-          this.arena.removeSnake(tempSnake);      // remove snake form grid
-          this.snakes.splice(tempIndex, 1);       // remove snake entity
-          this.dirs.splice(tempIndex, 1);         // remove change index
+        if ( tempIndex != -1) {                                 // if snake was found
+          let tempSnake = this.snakes[tempIndex];               // get snake
+          let newFoodItems = this.arena.removeSnake(tempSnake); // remove snake form grid and get new food items
+          this.foodItems = this.foodItems.concat(newFoodItems); // add new food items
+          this.snakes.splice(tempIndex, 1);                     // remove snake entity
+          this.dirs.splice(tempIndex, 1);                       // remove change index
         }
     }
 

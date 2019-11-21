@@ -64,11 +64,13 @@ router.post("/login", (req, res) => {
 
     player.findOne({ where: id }).then(player => {
         var hashedPassword = player.password;
-        
+        console.log(password)
         bcrypt.compare(password, hashedPassword, function(err, result) {
-            if (err) {
+            if (err || !result) {
                 res.status(500).send("Internal error")
             }
+
+            console.log(result)
 
             // final request
             res.send(player)

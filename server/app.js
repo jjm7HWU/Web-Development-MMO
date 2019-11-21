@@ -58,25 +58,6 @@ app.get("/game", (req, res) => {
 
 
 
-// var jwt = require('jsonwebtoken');
-
-// var secret = "secret"
-
-// var token = jwt.sign({ data: 'email_user' }, secret, { expiresIn: "6h" });
-
-// console.log(token);
-
-
-// try 
-// {
-//   var decoded = jwt.verify(token, secret);
-//   console.log("decoded")
-//   console.log(decoded)
-//   console.log(decoded.data)
-// } catch (error) {
-//   console.log("Error")
-//   console.log(error)
-// }
 
 // exports the app instance
 module.exports = app;

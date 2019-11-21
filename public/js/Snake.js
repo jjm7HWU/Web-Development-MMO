@@ -6,7 +6,7 @@ class Snake {
 
   display() {
     // iterate through each point on the body excluding the tips
-    for (var index = 1; index < this.trail.length-1; index++) {
+    for (var index = this.trail.length-2; index > 0; index--) {
       let point = this.trail[index];                    // get current point
       let prevPoint = this.trail[index-1] || undefined; // get point before (closer to head)
       let nextPoint = this.trail[index+1] || undefined; // get point after (closer to tail)

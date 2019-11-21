@@ -32,7 +32,7 @@ class Snake {
 
   displayHead() {
     /* Display the head of the snake */
-    drawRect(getPlotX(this.x)+currentOffset.x, getPlotY(this.y)+currentOffset.y, 1, 1, this.colors[1]);
+    drawRect(getPlotX(this.x), getPlotY(this.y), 1, 1, this.colors[1]);
     ctx.stroke();
   }
 

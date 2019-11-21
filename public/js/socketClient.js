@@ -96,7 +96,7 @@ socket.on("game state", function(gameState)
   let frameCounter = 0;
 
   const callback = (millis) => {
-    if (millis-lastTime > 33) {                             // every 33ms
+    if (millis-lastTime > 30) {                             // every 33ms
       display(frameCounter, foods, player, snakes, arena);  // display entities
       frameCounter++;                                       // count animation frame
       lastTime = millis;                                    // record time at end of this loop

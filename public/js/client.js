@@ -25,3 +25,4 @@ ctx.imageSmoothingEnabled = false;
 configureCanvasMeasurements(canvas.width);
 
 let skins = fetchSkins();
+let foodAnimation = new SpriteAnimation("food", 6);

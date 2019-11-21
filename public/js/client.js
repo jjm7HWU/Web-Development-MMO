@@ -19,6 +19,15 @@ document.addEventListener("keydown", event => {
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 
+function resizeCanvas(){
+  var width= window.innerWidth;
+  var height= window.innerHeight;
+  canvas.innerHeight = height;
+  canvas.innerWidth = width;
+}
+
+resizeCanvas();
+
 ctx.imageSmoothingEnabled = false;
 
 // configure initial measurements

@@ -44,11 +44,11 @@
    <form class="form-container" onsubmit="return false">
      <h1 id="l">Login</h1>
 
-     <label for="email"><b>Email</b></label>
-     <input type="text" placeholder="UserName" name="email">
+     <label for="email" ><b>Email</b></label>
+     <input type="text" id="l-email" placeholder="UserName" name="email">
 
      <label for="password"><b>Password</b></label>
-     <input type="password"  placeholder="Password" name="password" >
+     <input type="password" id="l-psw" placeholder="Password" name="password" >
 
      <button class="btn" onclick="login()">Login</button>
      <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
@@ -64,10 +64,10 @@
        <h1 id="r">Register</h1>
    
        <label for="email"><b>Email</b></label>
-       <input type="text" placeholder="Email" name="email" values={{email}} required>
+       <input type="text" id="r-email" placeholder="Email" name="email" values={{email}} required>
    
        <label for="password"><b>Password</b></label>
-       <input type="password" placeholder="Password" name="password" values={{password}} required>
+       <input type="password" id="r-psw"placeholder="Password" name="password" values={{password}} required>
    
        <button class="btn2" onclick="register()">Register</button>
        <button type="button" class="btn cancel2" onclick="closeForm2()">Close</button>
@@ -75,7 +75,9 @@
    </div>
   </section>       
   </body>
+<script>
 
+</script>
   <footer>
    
     </footer>  

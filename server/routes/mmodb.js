@@ -29,7 +29,9 @@ router.get('/', (req,res) => {
 // register router
 router.post('/register', (req,res) => {
     const { email, password } = req.body;
-    
+    console.log(email)
+    console.log(password)
+    console.log(req.body)
     bcrypt.genSalt(10, function( error, salt ) {
         bcrypt.hash(password, salt, function( error, hashedPassword ) {
             if (error) {

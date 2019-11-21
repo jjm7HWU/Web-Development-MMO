@@ -78,3 +78,15 @@ function getBodyCurve(prevPosition, currentPosition, nextPosition) {
 
   return curve;
 }
+
+function fetchSkins() {
+  let skins = [];
+
+  for (let skinIndex = 1; skinIndex < 3; skinIndex++) {
+    let skin1 = new Sprite("skin"+skinIndex+"_straight.png");
+    let skin2 = new Sprite("skin"+skinIndex+"_corner.png");
+    skins.push(skin1, skin2);
+  }
+
+  return skins;
+}

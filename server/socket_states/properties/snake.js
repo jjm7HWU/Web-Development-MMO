@@ -9,6 +9,7 @@ class Snake {
       this.x = x; this.y = y;
       this.direction = {x:0, y:1}; // snake initially heading downwards
       this.colors = [randomColor(), randomColor()];
+      this.skinIndex = random(1,2);
       this.eatStack = 0;
       this.length = 5;
       this.trail = []

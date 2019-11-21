@@ -19,7 +19,7 @@ class Snake {
       let cellCurve = getBodyCurve(prevPoint, point, nextPoint);
 
       // get the image of the shape
-      let skin = skins[cellCurve.shape];
+      let skin = skins[2*(this.skinIndex-1) + cellCurve.shape];
 
       // draw the image at the appropriate angle
       skin.display(X*TILE_SIZE, Y*TILE_SIZE, cellCurve.angle); // draws cell

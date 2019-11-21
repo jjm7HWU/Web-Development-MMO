@@ -1,9 +1,13 @@
 // register request with ajax
 function register() {
         //post
-    let data = {
-        email: "teja",
-        password: "234234",
+    
+      let email = document.getElementById('r-email').value
+      let password = document.getElementById('r-psw').value
+
+      let data = {
+        email,
+        password
       };
 
       fetch("/mmo/register", {
@@ -17,9 +21,13 @@ function register() {
       .then( responseJSON => responseJSON.json())
       .then( body => {
         console.log(body)
+        
       })
       .catch( error => {
         console.error(error)
+
+
+
       })
 
           }
@@ -36,10 +44,13 @@ function closeForm2() {
 function login() {
 
             // POST 
-      
+
+            let email = document.getElementById('l-email').value
+            let password = document.getElementById('l-psw').value
+    
             let data = {
-              email: "teja",
-              password: "234234",
+              email,
+              password
             };
       
             fetch("/mmo/login", {

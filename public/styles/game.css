@@ -122,4 +122,6 @@ button:hover {
   padding: 0;
   width: 100%;
   margin: 0;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
 }

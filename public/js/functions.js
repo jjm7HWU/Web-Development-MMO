@@ -22,6 +22,6 @@ function randomColor() {
 }
 
 function redirectPlayer() {
-  // TODO
-  console.log("redirected to main page");
+  /* Redirect player to home screen */
+  window.location.href = "http://localhost:5000/"; // temporary location - will only work remotely
 }

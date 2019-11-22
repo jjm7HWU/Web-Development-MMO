@@ -37,10 +37,10 @@ class Snake {
 
     /* Display the head of the snake */
     let skin = skins[3*(this.skinIndex-1) + 2];           // get the image of the head
-    let headBearing = this.getDirectionNumber();          // determine the bearing the snake is facing
+    let bearing = this.getDirectionNumber();              // determine the bearing the snake is facing
     let X = getPlotX(this.x);                             // calculate horizontal grid position of head
     let Y = getPlotY(this.y);                             // calculate vertical grid position of head
-    skin.display(X*TILE_SIZE, Y*TILE_SIZE, 90*headAngle); // draw head
+    skin.display(X*TILE_SIZE, Y*TILE_SIZE, 90*bearing);   // draw head
   }
 
   displayTail() {

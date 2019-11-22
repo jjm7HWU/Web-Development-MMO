@@ -49,8 +49,8 @@ class Snake {
     if (!this.isAlive) return; // snake is dead so do not display
 
     /* Display the tip of the snake's tail */
-    let index = this.trail.length - 1;
-    let point = this.trail[index];
+    let index = this.trail.length - 1;                    // get index of tail
+    let point = this.trail[index];                        // get coordinate of tail
     let skin = skins[3*(this.skinIndex-1) + 3];           // get the image of the tail
     let bearing = 0;                                      // TODO
     let X = getPlotX(point[0])+currentOffset.x;           // calculate horizontal grid position of tail

@@ -18,6 +18,9 @@ function display(frameCounter, foods, player, snakes, arena) {
     _snake = new Snake(snake);
     _snake.display();
   }
+
+  // update interface
+  document.getElementById("score-out").innerHTML = player.length;
 }
 
 

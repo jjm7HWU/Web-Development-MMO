@@ -27,25 +27,37 @@ class GameState {
       // loops through the directions array
       for(var i = 0; i < this.snakes.length; i++)
       {
-          // stores each position
-          var dir = this.dirs[i];
+        // stores each position
+        var dir = this.dirs[i];
 
-          var snake = this.snakes[i];
+        var snake = this.snakes[i];
+
+        if (snake.isAlive) {
 
           // changes snake direction
           snake.turn(dir);
 
           // move snake body
           this.arena = snake.update(this.arena);
+        }
 
-          if (!snake.isAlive) {
-            var id = snake.id;
+        if (!snake.isAlive) {
 
-            // remove snake from grid and from array of snakes and replace snake body with food
+          if (snake.despawnCounter === 10) {
+            // remove snake from grid and replace snake body on grid with food
             let newFoodItems = this.arena.removeSnake(snake);
             this.foodItems = this.foodItems.concat(newFoodItems);
+          }
+          else if (snake.despawnCounter === 0) {
+            // remove snake from array of snakes
+            var id = snake.id;
             this.removePlayerID(id);
           }
+          else {
+            // count down to despawn
+            snake.despawnCounter--;
+          }
+        }
       }
 
     }

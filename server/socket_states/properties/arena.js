@@ -82,6 +82,9 @@ class Arena {
       this.setTile(snake.x, snake.y, -1);                     // set head to food
     }
 
+    // destroy snake body
+    snake.trail = [];
+
     // return new food object
     return newFoodItems;
   }

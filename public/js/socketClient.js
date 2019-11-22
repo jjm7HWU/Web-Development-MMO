@@ -88,10 +88,10 @@ socket.on("game state", function(gameState)
   snakes = gameState.snakes;
   arena = gameState.arena;
 
-  // identify player
+  // identify player if found, otherwise do not change player value
   player = snakes.find(function(snake){
     return snake.id == socket.id;
-  });
+  }) || player;
 
   /* local loop for showing animated frames between server game loop */
 

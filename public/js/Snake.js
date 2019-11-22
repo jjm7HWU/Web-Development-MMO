@@ -5,6 +5,8 @@ class Snake {
   }
 
   display() {
+    if (!this.isAlive) return; // snake is dead so do not display
+
     // iterate through each point on the body excluding the tips
     for (var index = this.trail.length-2; index > 0; index--) {
       let point = this.trail[index];                    // get current point
@@ -31,12 +33,16 @@ class Snake {
   }
 
   displayHead() {
+    if (!this.isAlive) return; // snake is dead so do not display
+
     /* Display the head of the snake */
     drawRect(getPlotX(this.x), getPlotY(this.y), 1, 1, this.colors[1]);
     ctx.stroke();
   }
 
   displayTail() {
+    if (!this.isAlive) return; // snake is dead so do not display
+
     /* Display the tip of the snake's tail */
     let index = this.trail.length - 1;
     let point = this.trail[index];

@@ -93,6 +93,7 @@ function fetchSkins() {
 
 function getCurrentOffset(frameCounter) {
   /* Get current offset value for rendering each image equivalent to the mantissa of the player's head position */
+  if (!player.isAlive) return {x: 0, y: 0}; // snake is dead so offset remains same
 
   let xOffset = (player.direction.x == 0) ? 0 : 0.5*player.direction.x - FRAME_OFFSET*frameCounter*player.direction.x; // horizontal offset
   let yOffset = (player.direction.y == 0) ? 0 : 0.5*player.direction.y - FRAME_OFFSET*frameCounter*player.direction.y; // vertical offset

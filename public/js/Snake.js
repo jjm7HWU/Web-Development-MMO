@@ -7,6 +7,9 @@ class Snake {
   display() {
     if (!this.isAlive) return; // snake is dead so do not display
 
+    // draw tail of snake
+    this.displayTail();
+
     // iterate through each point on the body excluding the tips
     for (var index = this.trail.length-2; index > 0; index--) {
       let point = this.trail[index];                    // get current point
@@ -27,9 +30,8 @@ class Snake {
       skin.display(X*TILE_SIZE, Y*TILE_SIZE, cellCurve.angle); // draws cell
     }
 
-    // draw head and tail of snake
+    // draw head of snake
     this.displayHead();
-    this.displayTail();
   }
 
   displayHead() {
@@ -49,8 +51,11 @@ class Snake {
     /* Display the tip of the snake's tail */
     let index = this.trail.length - 1;
     let point = this.trail[index];
-    drawRect(getPlotX(point[0])+currentOffset.x, getPlotY(point[1])+currentOffset.y, 1, 1, this.colors[1]);
-    ctx.stroke();
+    let skin = skins[3*(this.skinIndex-1) + 3];           // get the image of the tail
+    let bearing = 0;                                      // TODO
+    let X = getPlotX(point[0])+currentOffset.x;           // calculate horizontal grid position of tail
+    let Y = getPlotY(point[1])+currentOffset.y;           // calculate vertical grid position of tail
+    skin.display(X*TILE_SIZE, Y*TILE_SIZE, 90*bearing);   // draw tail
   }
 
   getDirectionNumber() {

@@ -8,54 +8,38 @@ div.relative {
 }
 
 div.absolute {
-  background-color:white;
+  background: none;
   position: absolute;
   bottom: 45px;
   left: 0;
   width: 300px;
   opacity: 0.50;
-  border: 3px solid #73AD21;
   margin-bottom: 20px;
-}
-
-#m {
-  color: black;
 }
 
 body {
   background-color:#fffce3;
 }
 
-form {
-  background-color:yellow;
-  padding: 10px;
+#messages-form {
+  display: block;
   position: fixed;
   bottom: 0;
-  width: 98%;
-  border-radius: 5px;
-  text-decoration-color: yellow;
+  left: 0;
+  width: 100%;
+  height: 5%;
 }
 
-form input {
-  border: 5px;
-  padding: 10px;
-  width: 88%;
-}
-
-form button {
-  width: 10.5%;
-  background: rgb(130, 224, 255);
-  border: none; padding: 10px;
-}
-
-button:hover {
-  background-color: #e5e9dc;
+#message-input {
+  width: 100%;
+  height: 100%;
+  border: 1px black solid;
+  font-size: 30px;
 }
 
 .canvas-box {
   position: absolute;
   display: block;
-  /*background-color: blue;*/
   width: 20%;
   height: 5%;
 }

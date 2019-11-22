@@ -30,7 +30,7 @@ var socket = io();
 
 // elements variables
 var form = document.getElementById("messages-form")
-var input = document.getElementById("m");
+var input = document.getElementById("message-input");
 var messages = document.getElementById("messages")
 
 

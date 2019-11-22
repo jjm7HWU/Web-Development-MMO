@@ -92,9 +92,8 @@ class Snake {
       }
     }
 
-    isTheID(id)
-    {
-        return this.id == id;
+    isTheID(id) {
+      return this.id == id;
     }
 
     isAlive() {
@@ -102,13 +101,14 @@ class Snake {
     }
 
     getDirectionNumber() {
+      /* Returns direction index of direction that player is moving */
       if (this.direction.x == 0) {
-        if (this.direction.y == -1) return 0;
-        else return 2;
+        if (this.direction.y == -1) return 0; // player heading up
+        else return 2;                        // player heading down
       }
       else {
-        if (this.direction.x == 1) return 1;
-        else return 3;
+        if (this.direction.x == -1) return 3; // player heading left
+        else return 1;                        // player heading right
       }
     }
 

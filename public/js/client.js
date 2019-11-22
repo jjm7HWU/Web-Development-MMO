@@ -1,6 +1,5 @@
 /* Event listener for handling key presses */
 document.addEventListener("keydown", event => {
-  event.preventDefault();     // prevents scrolling and tab selection
   var n;
   switch (event.keyCode) {
     case (87) : n = 0; break; // W KEY to go up

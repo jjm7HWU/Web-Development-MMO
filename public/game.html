@@ -47,7 +47,7 @@ fetch("/mmo/logout", {
 
     <canvas id="canvas" height="900"></canvas>
 
-    <button type="button" class="canvas-button" onclick="logout()">Logout</button>
+    <a href="index.html" type="button" class="canvas-button" onclick="logout()">Logout</a>
 
     <div id="score-box" class="canvas-box">
       <span>Score:</span>
@@ -61,7 +61,7 @@ fetch("/mmo/logout", {
   </section>
 
   <form id="messages-form">
-    <input id="message-input" autocomplete="off" />
+    <input id="message-input" autocomplete="off" /><button>Send</button>
   </form>
 
 </body>

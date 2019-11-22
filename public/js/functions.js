@@ -20,3 +20,8 @@ function randomColor() {
   /* Return random hexadecimal color code */
   return "#"+decToHex(random(0,255))+decToHex(random(0,255))+decToHex(random(0,255));
 }
+
+function redirectPlayer() {
+  // TODO
+  console.log("redirected to main page");
+}

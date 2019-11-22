@@ -100,3 +100,9 @@ function getCurrentOffset(frameCounter) {
 
   return {x: xOffset, y: yOffset};
 }
+
+function gameOverTransition() {
+  ctx.globalAlpha = 1/player.despawnCounter;
+  drawRect(0, 0, X_VIEW, Y_VIEW, BACKGROUND_COLOR_2);
+  ctx.globalAlpha = 1;
+}

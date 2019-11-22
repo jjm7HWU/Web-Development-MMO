@@ -47,6 +47,7 @@ class GameState {
             // remove snake from grid and replace snake body on grid with food
             let newFoodItems = this.arena.removeSnake(snake);
             this.foodItems = this.foodItems.concat(newFoodItems);
+            snake.despawnCounter--;
           }
           else if (snake.despawnCounter === 0) {
             // remove snake from array of snakes

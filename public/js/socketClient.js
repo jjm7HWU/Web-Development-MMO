@@ -8,15 +8,20 @@ function display(frameCounter, foods, player, snakes, arena) {
   // cast player
   _player = new Snake(player);
 
-  // Cast and display all entities
-  for (const food of foods) {
-    _food = new Food(food);
-    if (0 <= _food.x <= player.x+X_PERIPHERAL && 0 <= _food.y <= player.y+Y_PERIPHERAL) _food.display(frameCounter);
-  }
-  _player.display();
-  for (const snake of snakes) {
-    _snake = new Snake(snake);
-    _snake.display();
+  if (_player.despawnCounter > 0) {
+
+    // Cast and display all entities
+    for (const food of foods) {
+      _food = new Food(food);
+      if (0 <= _food.x <= player.x+X_PERIPHERAL && 0 <= _food.y <= player.y+Y_PERIPHERAL) _food.display(frameCounter);
+    }
+    _player.display();
+    for (const snake of snakes) {
+      _snake = new Snake(snake);
+      _snake.display();
+    }
+
+    if (!_player.isAlive) gameOverTransition();
   }
 
   // update interface
@@ -92,6 +97,8 @@ socket.on("game state", function(gameState)
   player = snakes.find(function(snake){
     return snake.id == socket.id;
   }) || player;
+
+  if (player.despawnCounter == 0) redirectPlayer();
 
   /* local loop for showing animated frames between server game loop */
 

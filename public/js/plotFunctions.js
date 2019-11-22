@@ -85,7 +85,8 @@ function fetchSkins() {
   for (let skinIndex = 1; skinIndex < 3; skinIndex++) {       // iterate through each skin index
     let skin1 = new Sprite("skin"+skinIndex+"_straight.png"); // load the straight body part
     let skin2 = new Sprite("skin"+skinIndex+"_corner.png");   // load the curved body part
-    skins.push(skin1, skin2);                                 // store images
+    let skin3 = new Sprite("skin"+skinIndex+"_head.png");     // load the head
+    skins.push(skin1, skin2, skin3);                          // store images
   }
 
   return skins;
@@ -102,7 +103,12 @@ function getCurrentOffset(frameCounter) {
 }
 
 function gameOverTransition() {
+  // transparency of layer drawn on screen gets progressively decreases
   ctx.globalAlpha = 1/player.despawnCounter;
+
+  // draw layer
   drawRect(0, 0, X_VIEW, Y_VIEW, BACKGROUND_COLOR_2);
+
+  // remove transparency for drawing shapes
   ctx.globalAlpha = 1;
 }

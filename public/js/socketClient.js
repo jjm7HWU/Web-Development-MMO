@@ -98,7 +98,10 @@ socket.on("game state", function(gameState)
     return snake.id == socket.id;
   }) || player;
 
-  if (player.despawnCounter == 0) redirectPlayer();
+  if (player.despawnCounter == 0) { // player must now despawn
+    redirectPlayer();               // redirect to homepage
+    return;                         // leave block
+  }
 
   /* local loop for showing animated frames between server game loop */
 

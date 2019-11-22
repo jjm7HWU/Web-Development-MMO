@@ -21,7 +21,7 @@ class Snake {
       let cellCurve = getBodyCurve(prevPoint, point, nextPoint);
 
       // get the image of the shape
-      let skin = skins[2*(this.skinIndex-1) + cellCurve.shape];
+      let skin = skins[3*(this.skinIndex-1) + cellCurve.shape];
 
       // draw the image at the appropriate angle
       skin.display(X*TILE_SIZE, Y*TILE_SIZE, cellCurve.angle); // draws cell
@@ -36,8 +36,11 @@ class Snake {
     if (!this.isAlive) return; // snake is dead so do not display
 
     /* Display the head of the snake */
-    drawRect(getPlotX(this.x), getPlotY(this.y), 1, 1, this.colors[1]);
-    ctx.stroke();
+    let skin = skins[3*(this.skinIndex-1) + 2];           // get the image of the head
+    let headBearing = this.getDirectionNumber();          // determine the bearing the snake is facing
+    let X = getPlotX(this.x);                             // calculate horizontal grid position of head
+    let Y = getPlotY(this.y);                             // calculate vertical grid position of head
+    skin.display(X*TILE_SIZE, Y*TILE_SIZE, 90*headAngle); // draw head
   }
 
   displayTail() {
@@ -48,6 +51,18 @@ class Snake {
     let point = this.trail[index];
     drawRect(getPlotX(point[0])+currentOffset.x, getPlotY(point[1])+currentOffset.y, 1, 1, this.colors[1]);
     ctx.stroke();
+  }
+
+  getDirectionNumber() {
+    /* Returns direction index of direction that player is moving */
+    if (this.direction.x == 0) {
+      if (this.direction.y == -1) return 0; // player heading up
+      else return 2;                        // player heading down
+    }
+    else {
+      if (this.direction.x == -1) return 3; // player heading left
+      else return 1;                        // player heading right
+    }
   }
 
 }

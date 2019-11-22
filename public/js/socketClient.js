@@ -26,7 +26,7 @@ function display(frameCounter, foods, player, snakes, arena) {
 var socket = io();
 
 // elements variables
-var form = document.getElementById("formInput")
+var form = document.getElementById("messages-form")
 var input = document.getElementById("m");
 var messages = document.getElementById("messages")
 

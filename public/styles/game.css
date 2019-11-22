@@ -1,115 +1,101 @@
-
-/* Game styles */
 * {
-      box-sizing: border-box;
-  }
-
-
-/* messages unordered list element */
-/* score Title */
-.Score{
-color: yellow;
-font-size: 40px;
-padding-left: 950px;
+  box-sizing: border-box;
+  font-family: Fjalla One, sans-serif;
 }
 
-/* score */
-.score-out{
-  color: yellow;
-  font-size: 35px;
+div.relative {
+  position: relative;
 }
 
-/* logout button and score */
-.top-box{
-  /* background:yellow; */
-  padding: 10px;
-  position: fixed;
-  width: 100%;
-  border-radius: 5px;
-  text-decoration-color: yellow;
-  bottom: 90%;
+div.absolute {
+  background-color:white;
+  position: absolute;
+  bottom: 45px;
+  left: 0;
+  width: 300px;
+  opacity: 0.50;
+  border: 3px solid #73AD21;
+  margin-bottom: 20px;
 }
 
-.logout{
-  width: 20%;
-  color:black;
-  background-color: yellow;
-  font-size: 20px;
-
+#m {
+  color: black;
 }
-
-
- div.relative {
-              position: relative;
-              }
-
- div.absolute {
-              background-color:white;
-              position: absolute;
-              bottom: 45px;
-              left: 0;
-              width: 300px;
-              opacity: 0.50;
-              border: 3px solid #73AD21;
-              margin-bottom: 20px;
-              }
-#m{
-        color: black;
-  }
-
-/* Chat styles */
-/* body color */
 
 body {
-	 background-color:#fffce3;
-     }
-
-/* group chart box */
+  background-color:#fffce3;
+}
 
 form {
-      background-color:yellow;
-      padding: 10px;
-      position: fixed;
-      bottom: 0;
-      width: 98%;
-      border-radius: 5px;
-      text-decoration-color: yellow;
+  background-color:yellow;
+  padding: 10px;
+  position: fixed;
+  bottom: 0;
+  width: 98%;
+  border-radius: 5px;
+  text-decoration-color: yellow;
+}
 
-     }
-
-/* form inputs */
 form input {
-            border: 5px;
-            padding: 10px;
-            width: 88%;
-            /* float: left; */
-           }
+  border: 5px;
+  padding: 10px;
+  width: 88%;
+}
 
-/* button for form */
 form button {
-
-            width: 10.5%;
-            background: rgb(130, 224, 255);
-            border: none; padding: 10px;
-
-            }
+  width: 10.5%;
+  background: rgb(130, 224, 255);
+  border: none; padding: 10px;
+}
 
 button:hover {
-              background-color: #e5e9dc;
-             }
+  background-color: #e5e9dc;
+}
+
+.canvas-box {
+  position: absolute;
+  display: block;
+  /*background-color: blue;*/
+  width: 20%;
+  height: 5%;
+}
+
+.canvas-box span {
+  font-size: 40px;
+}
+
+.canvas-button {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  font-size: 40px;
+  background: none;
+  border: none;
+}
+
+#score-box {
+  top: 0px;
+  left: 0px;
+}
+
+#logout-box {
+  top: 0px;
+  right: 0px;
+}
 
 #messages {
-            list-style-type: none;
-            margin: 0; padding: 0;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 
 #messages li {
-             padding: 5px 10px;
-             }
+  padding: 5px 10px;
+}
 
 #messages li:nth-child(odd) {
-                            background: #eee;
-                            }
+  background: #eee;
+}
 
 #canvascontainer {
   width: 100%;

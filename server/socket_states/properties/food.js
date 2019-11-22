@@ -7,7 +7,8 @@ class Food {
     /* spawn food randomly */
     constructor(arena, x=null, y=null) {
       this.colors = ["#edca6b","#d9b44e"];
-      this.nutrition = 5; // length added to snake that eats this
+      this.nutrition = 1; // length added to snake that eats this
+      this.frameIndex = random(0,5);
       this.respawn(arena, x, y);
     }
 

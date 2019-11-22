@@ -1,5 +1,6 @@
 /* Event listener for handling key presses */
 document.addEventListener("keydown", event => {
+  event.preventDefault();     // prevents scrolling and tab selection
   var n;
   switch (event.keyCode) {
     case (87) : n = 0; break; // W KEY to go up
@@ -19,9 +20,20 @@ document.addEventListener("keydown", event => {
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 
+function resizeCanvas(){
+  var width= window.innerWidth;
+  var height= window.innerHeight;
+  canvas.innerHeight = height;
+  canvas.innerWidth = width;
+}
+
+resizeCanvas();
+
 ctx.imageSmoothingEnabled = false;
 
 // configure initial measurements
 configureCanvasMeasurements(canvas.width);
 
-let skins = fetchSkins();
+var skins = fetchSkins();
+var foodAnimation = new SpriteAnimation("food", 6);
+var currentOffset;

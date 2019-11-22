@@ -80,7 +80,7 @@ class Snake {
 
     turn(n) {
       /* Changes snake direction to corresponding number */
-      // TODO: send to server message that you are going in direction n
+      if ((this.getDirectionNumber() + 2) % 4 == n) return;
       switch (n)
       {
         // do nothing
@@ -92,13 +92,24 @@ class Snake {
       }
     }
 
-    isTheID(id)
-    {
-        return this.id == id;
+    isTheID(id) {
+      return this.id == id;
     }
 
     isAlive() {
       return this.isAlive;
+    }
+
+    getDirectionNumber() {
+      /* Returns direction index of direction that player is moving */
+      if (this.direction.x == 0) {
+        if (this.direction.y == -1) return 0; // player heading up
+        else return 2;                        // player heading down
+      }
+      else {
+        if (this.direction.x == -1) return 3; // player heading left
+        else return 1;                        // player heading right
+      }
     }
 
   }

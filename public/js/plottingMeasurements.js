@@ -12,6 +12,8 @@ const Y_PERIPHERAL = Math.floor((Y_VIEW-1)/2);; // distance from snake head to t
 
 var TILE_SIZE; // height and width of each grid square
 
+var FRAME_OFFSET = 1 / 6; // portion of tile offset per frame
+
 var CANVAS_WIDTH; // actual width of canvas in browser
 var CANVAS_HEIGHT; // actual height of canvas in browser
 
@@ -26,6 +28,6 @@ function configureCanvasMeasurements(canvas_width) {
   // set height of canvas to new height
   canvas.setAttribute("height", CANVAS_HEIGHT+"px");
 
-  // calculate new dimensions of each place on grid
+  // configure measurements
   TILE_SIZE = Math.floor(CANVAS_WIDTH / X_VIEW);
 }

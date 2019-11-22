@@ -1,106 +1,93 @@
 <!DOCTYPE html>
-<html lang="en">
-    <header>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Home page</title>
-        <link rel="stylesheet" type="text/css" href="./styles/main.css">
-      
-    </header>
+<html>
 
-    <hr color="yellow" size="5">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>anacond.io</title>
+  <link rel="stylesheet" href="styles/main.css"/>
+  <link href="https://fonts.googleapis.com/css?family=Fjalla+One&display=swap" rel="stylesheet"> <link href="https://fonts.googleapis.com/css?family=Fjalla+One&display=swap" rel="stylesheet">
+</head>
 
-    <head>
+<body>
 
-         <!-- Animated snake-1 -->
-         <marquee direction="left" scrolldelay="0"> <a id="s1" href="https://www.animatedimages.org/cat-snakes-290.htm"><img src="https://www.animatedimages.org/data/media/290/animated-snake-image-0022.gif" border="0" alt="animated-snake-image-0022" /></a></marquee>
-         
-         <!-- Main heading -->
-         <h1 id="p"> PYTHONS.IO</h1>
-         
-         <!-- Animated snake-2 -->
-         <marquee direction="left" scrolldelay="0"><a id="s2" href="https://www.animatedimages.org/cat-snakes-290.htm"><img src="https://www.animatedimages.org/data/media/290/animated-snake-image-0022.gif" border="0" alt="animated-snake-image-0022" /></a></marquee>
-    
-     </head>
+  <div class="account">
+    <input id="openlogin" type="button" class="open-button" value="Login" onclick="openForm('loginform')"/>
+    <input id="openregistration" type="button" class="open-button" value="Register" onclick="openForm('registrationform')"/>
+  </div>
 
-          <hr color="yellow" size="5">
-    <body>
-      <section>
-         <!-- Animated center image -->
-         <a id="s3" bordercolor="red"><img src="https://www.animatedimages.org/data/media/290/animated-snake-image-0043.gif"alt="animated-snake-image-0043" /></a>
-  
-         <!-- UserName and Start Button -->
-       <form action="game.html">
-            <input id="nickname" type="text" name="nickname" placeholder="NickName">
-            <input id="button" type="submit" placeholder=" START  " />
-       </form>
-<button type="button" class="open-IForm" onclick="IForm()">INSTRUCTIONS</button>
-<div id="IForm">
-    <span onclick="document.getElementById('IForm').style.display='none'" class="close" title="Close Modal">&times;</span>
-<h1>INSTRUCTIONS</h1>
-<img id="keys" src="imgs/keys.png">
-<img id="touch" src="imgs/touch.png">
+  <div id="loginform" class="formcontainer">
 
-<button type="button" class="close-IForm" onclick="closeIForm()">CLOSE</button>
-</div>
-<script>
-function IForm() {
-            document.getElementById("IForm").style.display = "block";
-          }
+    <form onsubmit="return false">
 
-function closeIForm() {
-             document.getElementById("IForm").style.display = "none";
-          }          
-</script>
+      <div class="headingcontainer">
+        <h1 class="heading">Login</h1>
+      </div>
 
+      <div class="formprompt">
+        <label for="email">Email</label>
+        <input type="text" id="l-email" placeholder="Username" name="Email">
+      </div>
 
+      <div class="formprompt">
+        <label for="psw">Password</label>
+        <input type="text" id="l-psw" placeholder="Password" name="psw" >
+      </div>
 
-         <!-- /////////////////////////////////// -->
-        <!-- Login Button -->
- <button class="open-button" onclick="openForm()">Login</button>
+      <button type="button" class="formbutton" onclick="closeForm('loginform')">Close</button>
+      <button type="button" class="formbutton" onclick="login()">Login</button>
 
- <div class="form-popup" id="myForm">
-   <form class="form-container" onsubmit="return false">
-     <h1 id="l">Login</h1>
+    </form>
 
-     <!-- <label for="email" ><b>Email</b></label> -->
-     <input type="text" id="l-email" placeholder="UserName" name="email">
+  </div>
 
-     <!-- <label for="password"><b>Password</b></label> -->
-     <input type="password" id="l-psw" placeholder="Password" name="password" >
+  <div id="registrationform" class="formcontainer">
 
-     <button class="btn" onclick="login()">Login</button>
-     <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+   <form onsubmit="return false">
+     <div class="headingcontainer">
+       <h1 class="heading">Register</h1>
+     </div>
+
+     <div class="formprompt">
+       <label for="email">Email</label>
+       <input type="text" id="r-email" class="formtextbox" placeholder="Email" name="email" values={{email}} required>
+     </div>
+
+     <div class="formprompt">
+       <label for="password">Password</label>
+       <input type="text" id="r-psw" placeholder="Password" name="password" values={{password}} required>
+     </div>
+
+     <button type="button" class="formbutton" onclick="closeForm('registrationform')">Close</button>
+     <button type="button" class="formbutton" onclick="register()">Register</button>
+
    </form>
+
  </div>
-   
-  <!-- //////////////////////////////////////////////////////////// -->         
-      <!-- Register Button -->
-  <button class="open-button2" onclick="openForm2()">Register</button>
 
- <div class="form-popup2" id="myForm2">
-     <form class="form-container2" onsubmit="return false">
-       <h1 id="r">Register</h1>
-   
-       <label for="email"><b>Email</b></label>
-       <input type="text" id="r-email" placeholder="Email" name="email" values={{email}} required>
-   
-       <label for="password"><b>Password</b></label>
-       <input type="password" id="r-psw"placeholder="Password" name="password" values={{password}} required>
-   
-       <button class="btn2" onclick="register()">Register</button>
-       <button type="button" class="btn cancel2" onclick="closeForm2()">Close</button>
-     </form>
-   </div>
-  </section>       
-  </body>
-<script>
+  <div class="container">
 
-</script>
-  <footer>
-   
-    </footer>  
-  <!-- linking js files -->
+    <div id="logocontainer">
+      <h1 id="anacondio">anacond.io</h1>
+    </div>
+
+    <form action="game.html">
+
+      <div id="namecontainer">
+        <input id="nickname" type="text" name="nickname" placeholder="Nickname"/>
+      </div>
+
+      <input id="play" type="submit" value="PLAY">
+
+    </form>
+
+    <span id="tips"></span>
+
+  </div>
+
   <script type="text/javascript" src="js/index.js"></script>
+
+</body>
+
 </html>

@@ -4,5 +4,5 @@ const WHITE = "#ffffff";
 const RED = "#ff0000";
 const GREEN = "#00ff00";
 
-const BACKGROUND_COLOR_1 = "#000000"; // color of grid lines separating tiles
-const BACKGROUND_COLOR_2 = "#d1e0e0"; // color of tiles
+const BACKGROUND_COLOR_1 = "#ffffff"; // color of tiles
+const BACKGROUND_COLOR_2 = "#f2f2f2"; // color of grid lines separating tiles

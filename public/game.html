@@ -15,7 +15,7 @@
 
 </head>
 
-<body onload="instructions()" onunload="logout()" >
+<body onunload="logout()" >
 
   <header>
     <!-- header -->
@@ -53,7 +53,7 @@ fetch("/mmo/logout", {
   <section class="relative">
       <canvas id="canvas" width="1500" height="900"></canvas>
       <div class="top-box">
-        <button type="button" class="logout" onclick="logout()">Logout</button>
+        <button href="index.html" type="button" class="logout" onclick="logout()">Logout</button>
         <h class="Score">Score:</h>
         <h class="score-out" id="score-out">0</h>
     </div>

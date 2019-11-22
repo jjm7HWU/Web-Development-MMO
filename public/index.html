@@ -35,6 +35,26 @@
             <input id="nickname" type="text" name="nickname" placeholder="NickName">
             <input id="button" type="submit" placeholder=" START  " />
        </form>
+<button type="button" class="open-IForm" onclick="IForm()">INSTRUCTIONS</button>
+<div id="IForm">
+    <span onclick="document.getElementById('IForm').style.display='none'" class="close" title="Close Modal">&times;</span>
+<h1>INSTRUCTIONS</h1>
+<img id="keys" src="imgs/keys.png">
+<img id="touch" src="imgs/touch.png">
+
+<button type="button" class="close-IForm" onclick="closeIForm()">CLOSE</button>
+</div>
+<script>
+function IForm() {
+            document.getElementById("IForm").style.display = "block";
+          }
+
+function closeIForm() {
+             document.getElementById("IForm").style.display = "none";
+          }          
+</script>
+
+
 
          <!-- /////////////////////////////////// -->
         <!-- Login Button -->
@@ -44,10 +64,10 @@
    <form class="form-container" onsubmit="return false">
      <h1 id="l">Login</h1>
 
-     <label for="email" ><b>Email</b></label>
+     <!-- <label for="email" ><b>Email</b></label> -->
      <input type="text" id="l-email" placeholder="UserName" name="email">
 
-     <label for="password"><b>Password</b></label>
+     <!-- <label for="password"><b>Password</b></label> -->
      <input type="password" id="l-psw" placeholder="Password" name="password" >
 
      <button class="btn" onclick="login()">Login</button>

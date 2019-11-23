@@ -10,17 +10,27 @@ function display(frameCounter, foods, player, snakes, arena) {
 
   if (_player.despawnCounter > 0) {
 
-    // Cast and display all entities
-    for (const food of foods) {
-      _food = new Food(food);
-      if (0 <= _food.x <= player.x+X_PERIPHERAL && 0 <= _food.y <= player.y+Y_PERIPHERAL) _food.display(frameCounter);
+    /* cast and display all food items in area surrounding player*/
+    for (let gridX = player.x-X_PERIPHERAL-1; gridX < player.x+X_PERIPHERAL+1; gridX++) {
+      for (let gridY = player.y-Y_PERIPHERAL-1; gridY < player.y+Y_PERIPHERAL+1; gridY++) {
+
+        let cell = _arena.atTile(gridX, gridY); // get cell
+
+        if (typeOfCell(cell) == "Food") {       // cell is food
+          _cell = new Food(cell);               // cast to food object
+          _cell.display(frameCounter);          // display food object
+        }
+      }
     }
+
+    /* display player and all other snakes */
     _player.display();
     for (const snake of snakes) {
       _snake = new Snake(snake);
       _snake.display();
     }
 
+    // display transition on screen if player is despawning
     if (!_player.isAlive) gameOverTransition();
   }
 
@@ -84,6 +94,7 @@ var foods;
 var snakes;
 var player;
 var arena;
+var _arena;
 
 // on game state
 socket.on("game state", function(gameState)
@@ -92,6 +103,7 @@ socket.on("game state", function(gameState)
   foods = gameState.foodItems;
   snakes = gameState.snakes;
   arena = gameState.arena;
+  _arena = new Arena(arena);
 
   // identify player if found, otherwise do not change player value
   player = snakes.find(function(snake){

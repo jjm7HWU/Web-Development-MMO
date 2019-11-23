@@ -56,3 +56,13 @@ function getTurnDirectionTouch(initialPosition, positionNow) {
     return (getSine(yChange) == -1) ? 0 : 2;        // UP returns -1, DOWN returns 2
   }
 }
+
+function typeOfCell(cell) {
+  /* Specify type of given cell */
+  if (typeof(cell) == "object") {
+    return cell.type;
+  }
+  else {
+    return;
+  }
+}

@@ -2,52 +2,33 @@
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 
-var intialTouchX = null;
-var initialTouchY = null;
+var intialTouch = {x: null, y: null};
 
+/* Event listener for detecting finger press on touch screen */
 document.addEventListener("touchstart", event => {
-  var touchPos = event.touches[0];
-  initialTouchX = touchPos.clientX;
-  initialTouchY = touchPos.clientY;
+  initialTouch = getTouchPosition(event);
 }, false);
 
-document.addEventListener("touchend", event => {
-  initialTouchX = null;
-  initialTouchY = null;
-}, false);
-
+/* Event listener for finger moving on touch screen */
 document.addEventListener("touchmove", event => {
-  if (initialTouchX == null | initialTouchY == null) return;
+  // if screen no longer being touched then leave block
+  if (initialTouch.x == null | initialTouch.y == null) return;
 
-  var touchPos = event.touches[0];
+  // get current position of finger
+  var positionNow = getTouchPosition(event);
 
-  var xNow = touchPos.clientX;
-  var yNow = touchPos.clientY;
+  // determine which direction the player must move
+  var n = getTurnDirectionTouch(initialTouch, positionNow);
 
-  var xChange = xNow - initialTouchX;
-  var yChange = yNow - initialTouchY;
-
-  var moveDirection;
-  var n = -1;
-  if (Math.abs(xChange) > Math.abs(yChange)) {
-    if (getSine(xChange) == -1) {
-      n = 3;
-    }
-    else {
-      n = 1;
-    }
-  }
-  else {
-    if (getSine(yChange) == -1) {
-      n = 0;
-    }
-    else {
-      n = 2;
-    }
-  }
-
+  // attempt to turn player
   if (n != -1) socket.emit("update dir", n);
 
+}, false);
+
+/* Event listener for detecting finger leaving touch screen */
+document.addEventListener("touchend", event => {
+  // screen is not being touched - no finger positions
+  initialTouch = {x: null, y:null};
 }, false);
 
 /* Event listener for handling key presses */
@@ -64,6 +45,7 @@ document.addEventListener("keydown", event => {
     case (37) : n = 3; break; // LEFT ARROW KEY to go left
     default : n = -1; break;
   }
+  // attempt to turn player
   if (n != -1) socket.emit("update dir", n);
 });
 

@@ -91,10 +91,7 @@ class GameState {
         const id = socket.id;
 
         // it initialises the a player instance
-        var initialPos ={
-            x: Math.floor(this.arena.width/2),
-            y: Math.floor(this.arena.height/2)
-        }
+        var initialPos = this.findSpawnLocation();
 
         var newSnake = new SnakeFile.Snake(initialPos.x,initialPos.y,id);
 
@@ -144,6 +141,23 @@ class GameState {
       }
 
       return [snakes, foods, arena];
+    }
+
+    findSpawnLocation() {
+      /* Find random spawn location for player */
+
+      // pick initial position
+      let spawnX = FunctionsFile.random(1,this.arena.width-2);
+      let spawnY = FunctionsFile.random(1,this.arena.height-2);
+
+      // while the spawn point is not free continue to search
+      while (this.arena.atTile(spawnX,spawnY) != -1 || this.arena.atTile(spawnX,spawnY-1) != -1 || this.arena.atTile(spawnX,spawnY-2) != -1) {
+        let spawnX = FunctionsFile.random(1,this.arena.width-2);
+        let spawnY = FunctionsFile.random(1,this.arena.height-2);
+      }
+
+      // return spawn point
+      return {x: spawnX, y: spawnY};
     }
 
 };

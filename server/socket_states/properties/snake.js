@@ -10,7 +10,7 @@ class Snake {
       this.direction = {x:0, y:1};  // snake initially heading downwards
       this.skinIndex = random(1,2);
       this.eatStack = 0;
-      this.length = 5;
+      this.length = 3;
       this.trail = [];
       for (let c = 0; c < this.length; c++) {
         this.trail.push([this.x, this.y-c]);

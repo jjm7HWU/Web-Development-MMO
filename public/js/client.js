@@ -1,3 +1,30 @@
+// create canvas and get context
+const canvas = document.getElementById("canvas");
+const ctx = canvas.getContext("2d");
+
+document.addEventListener("touchstart", event => {
+  console.log(event);
+  var touchPos = event.touches[0];
+  console.log(touchPos);
+  var xTouch = touchPos.clientX;
+  var yTouch = touchPos.clientY;
+  document.getElementById("temp").innerHTML = xTouch+"/"+yTouch;
+}, false);
+
+document.addEventListener("touchend", event => {
+  console.log(event);
+}, false);
+document.addEventListener("touchcancel", event => {
+  console.log(event);
+}, false);
+document.addEventListener("touchmove", event => {
+  console.log(event);
+}, false);
+
+document.addEventListener("mousedown", event => {
+  document.getElementById("temp").innerHTML = "click";
+});
+
 /* Event listener for handling key presses */
 document.addEventListener("keydown", event => {
   var n;
@@ -14,17 +41,6 @@ document.addEventListener("keydown", event => {
   }
   if (n != -1) socket.emit("update dir", n);
 });
-
-document.addEventListener("touchstart", event => {
-  var touchPos = event.touches;
-  var xTouch = touchPos.clientX;
-  var yTouch = touchPos.clientY;
-  document.getElementById("temp").innerHTML = xTouch+"/"+yTouch;
-}, false);
-
-// create canvas and get context
-const canvas = document.getElementById("canvas");
-const ctx = canvas.getContext("2d");
 
 function resizeCanvas(){
   var width= window.innerWidth;

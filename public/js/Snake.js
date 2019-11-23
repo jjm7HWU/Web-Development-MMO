@@ -51,22 +51,24 @@ class Snake {
     /* Display the tip of the snake's tail */
     let index = this.trail.length - 1;                    // get index of tail
     let point = this.trail[index];                        // get coordinate of tail
+    let point2 = this.trail[index-1];                     // get coordinate of cell attached to tail
     let skin = skins[4*(this.skinIndex-1) + 3];           // get the image of the tail
-    let bearing = 0;                                      // TODO
+    let bearing = this.getDirectionNumber(                // determine the bearing of tail
+      point2[0]-point[0], point2[1]-point[1]);
     let X = getPlotX(point[0])+currentOffset.x;           // calculate horizontal grid position of tail
     let Y = getPlotY(point[1])+currentOffset.y;           // calculate vertical grid position of tail
     skin.display(X*TILE_SIZE, Y*TILE_SIZE, 90*bearing);   // draw tail
   }
 
-  getDirectionNumber() {
-    /* Returns direction index of direction that player is moving */
-    if (this.direction.x == 0) {
-      if (this.direction.y == -1) return 0; // player heading up
-      else return 2;                        // player heading down
+  getDirectionNumber(x=this.direction.x, y=this.direction.y) {
+    /* Returns direction index of cell or of direction that player is moving */
+    if (x == 0) {
+      if (y == -1) return 0;  // cell heading up
+      else return 2;          // cell heading down
     }
     else {
-      if (this.direction.x == -1) return 3; // player heading left
-      else return 1;                        // player heading right
+      if (x == -1) return 3;  // cell heading left
+      else return 1;          // cell heading right
     }
   }
 

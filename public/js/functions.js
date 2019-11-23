@@ -25,3 +25,7 @@ function redirectPlayer() {
   /* Redirect player to home screen */
   window.location.href = "http://localhost:5000/"; // temporary location - will only work remotely
 }
+
+function getSine(n) {
+  return (n < 0) ? -1 : 1;
+}

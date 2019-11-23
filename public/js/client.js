@@ -2,28 +2,53 @@
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 
+var intialTouchX = null;
+var initialTouchY = null;
+
 document.addEventListener("touchstart", event => {
-  console.log(event);
   var touchPos = event.touches[0];
-  console.log(touchPos);
-  var xTouch = touchPos.clientX;
-  var yTouch = touchPos.clientY;
-  document.getElementById("temp").innerHTML = xTouch+"/"+yTouch;
+  initialTouchX = touchPos.clientX;
+  initialTouchY = touchPos.clientY;
 }, false);
 
 document.addEventListener("touchend", event => {
-  console.log(event);
-}, false);
-document.addEventListener("touchcancel", event => {
-  console.log(event);
-}, false);
-document.addEventListener("touchmove", event => {
-  console.log(event);
+  initialTouchX = null;
+  initialTouchY = null;
 }, false);
 
-document.addEventListener("mousedown", event => {
-  document.getElementById("temp").innerHTML = "click";
-});
+document.addEventListener("touchmove", event => {
+  if (initialTouchX == null | initialTouchY == null) return;
+
+  var touchPos = event.touches[0];
+
+  var xNow = touchPos.clientX;
+  var yNow = touchPos.clientY;
+
+  var xChange = xNow - initialTouchX;
+  var yChange = yNow - initialTouchY;
+
+  var moveDirection;
+  var n = -1;
+  if (Math.abs(xChange) > Math.abs(yChange)) {
+    if (getSine(xChange) == -1) {
+      n = 3;
+    }
+    else {
+      n = 1;
+    }
+  }
+  else {
+    if (getSine(yChange) == -1) {
+      n = 0;
+    }
+    else {
+      n = 2;
+    }
+  }
+
+  if (n != -1) socket.emit("update dir", n);
+
+}, false);
 
 /* Event listener for handling key presses */
 document.addEventListener("keydown", event => {

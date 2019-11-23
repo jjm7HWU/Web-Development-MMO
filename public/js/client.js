@@ -15,6 +15,13 @@ document.addEventListener("keydown", event => {
   if (n != -1) socket.emit("update dir", n);
 });
 
+document.addEventListener("touchstart", event => {
+  var touchPos = event.touches;
+  var xTouch = touchPos.clientX;
+  var yTouch = touchPos.clientY;
+  document.getElementById("temp").innerHTML = xTouch+"/"+yTouch;
+}, false);
+
 // create canvas and get context
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");

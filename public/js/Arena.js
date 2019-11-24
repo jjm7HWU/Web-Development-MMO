@@ -1,27 +1,24 @@
 class Arena {
 
-  constructor() {
-    this.width = 100;
-    this.height = 100;
-    this.grid = [];
-    // create grid of width x height
-    for (let i = 0; i < this.width; i++) {
-      let column = [];
-      for (let j = 0; j < this.height; j++) {
-        column.push(-1);
-      }
-      this.grid.push(column);
-    }
+  constructor(obj) {
+    obj && Object.assign(this, obj);
   }
 
   setTile(x, y, value) {
     // set tile (x,y) to value
-    this.grid[x][y] = value;
+    if (0 <= x && x < this.width && 0 <= y && y < this.height) {
+      this.grid[x][y] = value;
+    }
   }
 
   atTile(x, y) {
     // return value at tile (x,y)
-    return this.grid[x][y];
+    if (0 <= x && x < this.width && 0 <= y && y < this.height) {
+      return this.grid[x][y];
+    }
+    else {
+      return -2;
+    }
   }
 
 }

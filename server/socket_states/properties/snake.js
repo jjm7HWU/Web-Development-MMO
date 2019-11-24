@@ -7,16 +7,16 @@ class Snake {
     {
       this.id = id;
       this.x = x; this.y = y;
-      this.direction = {x:0, y:1}; // snake initially heading downwards
-      this.colors = [randomColor(), randomColor()];
+      this.direction = {x:0, y:1};  // snake initially heading downwards
       this.skinIndex = random(1,2);
       this.eatStack = 0;
-      this.length = 5;
-      this.trail = []
+      this.length = 3;
+      this.trail = [];
       for (let c = 0; c < this.length; c++) {
         this.trail.push([this.x, this.y-c]);
       }
       this.isAlive = true;
+      this.despawnCounter = 10;
     }
 
     /* Changes snake position according to current directions */

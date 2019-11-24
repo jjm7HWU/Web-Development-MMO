@@ -13,4 +13,8 @@ class Food {
     foodAnimation.display(X+currentOffset.x, Y+currentOffset.y, (frameIndex+this.frameIndex)%6);
   }
 
+  getType() {
+    return "Food";
+  }
+
 }

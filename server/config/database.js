@@ -2,8 +2,8 @@
 const Sequelize = require('sequelize');
 
 //Create connection with sequelize
-module.exports = new Sequelize('mmotest', 'df33', '12345', {
-  host: 'localhost',
+module.exports = new Sequelize('heroku_1fa46b55d9fa001', 'b1866cd0990886', 'bae005fc', {
+  host: 'eu-cdbr-west-02.cleardb.net',
   dialect:'mysql'
 });
 

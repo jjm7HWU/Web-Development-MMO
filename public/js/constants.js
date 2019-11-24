@@ -1,6 +1,7 @@
 /* color codes */
 const BLACK = "#000000";
 const WHITE = "#ffffff";
+const GRAY = "#888888"
 const RED = "#ff0000";
 const GREEN = "#00ff00";
 

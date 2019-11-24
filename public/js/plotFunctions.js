@@ -85,7 +85,9 @@ function fetchSkins() {
   for (let skinIndex = 1; skinIndex < 3; skinIndex++) {       // iterate through each skin index
     let skin1 = new Sprite("skin"+skinIndex+"_straight.png"); // load the straight body part
     let skin2 = new Sprite("skin"+skinIndex+"_corner.png");   // load the curved body part
-    skins.push(skin1, skin2);                                 // store images
+    let skin3 = new Sprite("skin"+skinIndex+"_head.png");     // load the head
+    let skin4 = new Sprite("skin"+skinIndex+"_tail.png");     // load the tail
+    skins.push(skin1, skin2, skin3, skin4);                   // store images
   }
 
   return skins;
@@ -93,9 +95,21 @@ function fetchSkins() {
 
 function getCurrentOffset(frameCounter) {
   /* Get current offset value for rendering each image equivalent to the mantissa of the player's head position */
+  if (!player.isAlive) return {x: 0, y: 0}; // snake is dead so offset remains same
 
   let xOffset = (player.direction.x == 0) ? 0 : 0.5*player.direction.x - FRAME_OFFSET*frameCounter*player.direction.x; // horizontal offset
   let yOffset = (player.direction.y == 0) ? 0 : 0.5*player.direction.y - FRAME_OFFSET*frameCounter*player.direction.y; // vertical offset
 
   return {x: xOffset, y: yOffset};
+}
+
+function gameOverTransition() {
+  // transparency of layer drawn on screen gets progressively decreases
+  ctx.globalAlpha = 1/player.despawnCounter;
+
+  // draw layer
+  drawRect(0, 0, X_VIEW, Y_VIEW, BACKGROUND_COLOR_2);
+
+  // remove transparency for drawing shapes
+  ctx.globalAlpha = 1;
 }

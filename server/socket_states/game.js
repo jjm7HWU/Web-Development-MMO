@@ -27,25 +27,38 @@ class GameState {
       // loops through the directions array
       for(var i = 0; i < this.snakes.length; i++)
       {
-          // stores each position
-          var dir = this.dirs[i];
+        // stores each position
+        var dir = this.dirs[i];
 
-          var snake = this.snakes[i];
+        var snake = this.snakes[i];
+
+        if (snake.isAlive) {
 
           // changes snake direction
           snake.turn(dir);
 
           // move snake body
           this.arena = snake.update(this.arena);
+        }
 
-          if (!snake.isAlive) {
-            var id = snake.id;
+        if (!snake.isAlive) {
 
-            // remove snake from grid and from array of snakes and replace snake body with food
+          if (snake.despawnCounter === 10) {
+            // remove snake from grid and replace snake body on grid with food
             let newFoodItems = this.arena.removeSnake(snake);
             this.foodItems = this.foodItems.concat(newFoodItems);
+            snake.despawnCounter--;
+          }
+          else if (snake.despawnCounter === 0) {
+            // remove snake from array of snakes
+            var id = snake.id;
             this.removePlayerID(id);
           }
+          else {
+            // count down to despawn
+            snake.despawnCounter--;
+          }
+        }
       }
 
     }
@@ -78,10 +91,7 @@ class GameState {
         const id = socket.id;
 
         // it initialises the a player instance
-        var initialPos ={
-            x: Math.floor(this.arena.width/2),
-            y: Math.floor(this.arena.height/2)
-        }
+        var initialPos = this.findSpawnLocation();
 
         var newSnake = new SnakeFile.Snake(initialPos.x,initialPos.y,id);
 
@@ -131,6 +141,18 @@ class GameState {
       }
 
       return [snakes, foods, arena];
+    }
+
+    findSpawnLocation() {
+      /* Find random spawn location for player until a free space is found */
+      let spawnX, spawnY;
+      do {
+        spawnX = FunctionsFile.random(1,this.arena.width-2);
+        spawnY = FunctionsFile.random(1,this.arena.height-2);
+      } while (this.arena.atTile(spawnX,spawnY) != -1 || this.arena.atTile(spawnX,spawnY-1) != -1 || this.arena.atTile(spawnX,spawnY-2) != -1)
+
+      // return spawn point
+      return {x: spawnX, y: spawnY};
     }
 
 };

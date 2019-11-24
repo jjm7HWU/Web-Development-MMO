@@ -34,14 +34,14 @@ class Arena {
 
   setTile(x, y, value) {
     // set tile (x,y) to value
-    if (0 <= x < this.width && 0 <= y < this.height) {
+    if (0 <= x && x < this.width && 0 <= y && y < this.height) {
       this.grid[x][y] = value;
     }
   }
 
   atTile(x, y) {
     // return value at tile (x,y)
-    if (0 <= x < this.width && 0 <= y < this.height) {
+    if (0 <= x && x < this.width && 0 <= y && y < this.height) {
       return this.grid[x][y];
     }
     else {
@@ -81,6 +81,9 @@ class Arena {
     if (this.atTile(snake.x, snake.y) == id) {                // if snake head position not occupied by other snake
       this.setTile(snake.x, snake.y, -1);                     // set head to food
     }
+
+    // destroy snake body
+    snake.trail = [];
 
     // return new food object
     return newFoodItems;

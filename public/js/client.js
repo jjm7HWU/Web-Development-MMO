@@ -12,7 +12,7 @@ document.addEventListener("touchstart", event => {
 /* Event listener for finger moving on touch screen */
 document.addEventListener("touchmove", event => {
   // if screen no longer being touched then leave block
-  if (initialTouch.x == null | initialTouch.y == null) return;
+  if (initialTouch.x == null || initialTouch.y == null) return;
 
   // get current position of finger
   var positionNow = getTouchPosition(event);

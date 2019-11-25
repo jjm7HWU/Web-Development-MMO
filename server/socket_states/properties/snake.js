@@ -12,6 +12,7 @@ class Snake {
       this.eatStack = 0;                      // counter for foods yet to be added to body
       this.isAlive = true;                    // snake is alive until they crash
       this.length = 3;                        // length of snake
+      this.score = this.length;               // score of snake
 
       // create array of cell positions
       this.trail = [];
@@ -72,6 +73,7 @@ class Snake {
       else { // unless snake is eating
         this.eatStack--;
         this.length++;
+        this.score = this.length;
       }
 
       // adds new head position to body
@@ -113,6 +115,10 @@ class Snake {
         if (this.direction.x == -1) return 3; // player heading left
         else return 1;                        // player heading right
       }
+    }
+
+    getScore() {
+      return this.score;
     }
 
   }

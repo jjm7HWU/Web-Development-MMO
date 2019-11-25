@@ -35,6 +35,8 @@ function display(frameCounter, foods, player, snakes, arena) {
       _snake.display();
     }
 
+    writeText("Hey", 5, 5);
+
     // display transition on screen if player is despawning
     if (!_player.isAlive) gameOverTransition();
   }

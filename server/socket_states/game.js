@@ -180,10 +180,17 @@ class GameState {
     findSpawnLocation() {
       /* Find random spawn location for player until a free space is found */
       let spawnX, spawnY;
-      do {
+      let isValid = false;
+      while (!isValid) {
         spawnX = FunctionsFile.random(1,this.arena.width-2);
-        spawnY = FunctionsFile.random(1,this.arena.height-2);
-      } while (this.arena.atTile(spawnX,spawnY) != -1 || this.arena.atTile(spawnX,spawnY-1) != -1 || this.arena.atTile(spawnX,spawnY-2) != -1)
+        spawnY = FunctionsFile.random(1,this.arena.height-8);
+        isValid = true;
+        for (let yCounter = -2; yCounter < 4; yCounter++) {
+          if (this.arena.atTile(spawnX,spawnY+yCounter) != -1) {
+            isValid = false; break;
+          }
+        }
+      }
 
       // return spawn point
       return {x: spawnX, y: spawnY};

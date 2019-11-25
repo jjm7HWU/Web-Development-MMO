@@ -5,15 +5,17 @@ const player= require ('../models/mmodb');
 const moment= require ('moment');
 const bcrypt = require('bcryptjs');
 
+// auth middleware
+const { isLoggedIn } = require("../middleware/auth")
+
 //time
 let now = new Date();
 
 // register router
 router.post('/register', (req,res) => {
     const { email, password } = req.body;
-    console.log(email)
-    console.log(password)
-    console.log(req.body)
+    
+
     bcrypt.genSalt(10, function( error, salt ) {
         bcrypt.hash(password, salt, function( error, hashedPassword ) {
             if (error) {
@@ -63,7 +65,7 @@ router.post("/login", (req, res) => {
 })
 
 
-router.post("/logout", (req, res) => {
+router.post("/logout", isLoggedIn, isLoggedIn, (req, res) => {
     //logout player and last_time_online
     const {email, last_time_online} = req.body;
     
@@ -88,7 +90,7 @@ router.post("/logout", (req, res) => {
 })
 
 //update highscore
-router.post('/highscore', (req,res) => {
+router.post('/highscore', isLoggedIn, (req,res) => {
     const {email,highscore} = req.body;
     player.update(
         {

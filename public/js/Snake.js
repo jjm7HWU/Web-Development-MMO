@@ -43,6 +43,12 @@ class Snake {
     let X = getPlotX(this.x);                             // calculate horizontal grid position of head
     let Y = getPlotY(this.y);                             // calculate vertical grid position of head
     skin.display(X*TILE_SIZE, Y*TILE_SIZE, 90*bearing);   // draw head
+
+    /* Display image extending from head */
+    skin = skins[5*(this.skinIndex-1) + 4];               // get the image of the neck
+    X = getPlotX(this.x) - this.direction.x;              // calculate horizontal grid position of neck
+    Y = getPlotY(this.y) - this.direction.y;              // calculate vertical grid position of neck
+    skin.display(X*TILE_SIZE, Y*TILE_SIZE, 90*bearing);   // draw neck
   }
 
   displayTail() {

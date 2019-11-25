@@ -5,17 +5,21 @@ const {random, randomColor, decToHex} = require("./functions");
 class Snake {
     constructor(x,y, id = null)
     {
-      this.id = id;
-      this.x = x; this.y = y;
-      this.direction = {x:0, y:1};  // snake initially heading downwards
-      this.skinIndex = random(1,2);
-      this.eatStack = 0;
-      this.length = 3;
+      this.id = id;                           // socket id
+      this.x = x; this.y = y;                 // initial position
+      this.direction = {x:0, y:1};            // snake initially heading downwards
+      this.skinIndex = random(1,2);           // index of skin image
+      this.eatStack = 0;                      // counter for foods yet to be added to body
+      this.isAlive = true;                    // snake is alive until they crash
+      this.length = 3;                        // length of snake
+
+      // create array of cell positions
       this.trail = [];
       for (let c = 0; c < this.length; c++) {
         this.trail.push([this.x, this.y-c]);
       }
-      this.isAlive = true;
+
+      // number of frames snake entity exists on server after death until they completely despawn
       this.despawnCounter = 10;
     }
 
@@ -41,15 +45,14 @@ class Snake {
       if (typeof(cell) == "object")
       {
         switch (cell.getType()) {
-          case("Food"):
-            // food detected
-            this.eatStack += cell.nutrition;
-            cell.respawn(arena);
+          case("Food"):                         // food detected
+            this.eatStack += cell.nutrition;    // record food to be eaten
+            cell.respawn(arena);                // respawn food
             break;
         }
 
       }
-      else if (cell === -2) // player hit edge of world
+      else if (cell === -2)                     // player hit edge of world
       {
         this.isAlive = false;
       }

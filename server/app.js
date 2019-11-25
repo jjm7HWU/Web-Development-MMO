@@ -22,8 +22,6 @@ app.use(bodyParser.json());
 // Body parser
 app.use(bodyParser.urlencoded({extended: false}));
 
-// stores the public directory path
-const publicDir = path.join(__dirname, '../../public');
 
 
 //load db
@@ -45,15 +43,21 @@ app.use('/mmo', require('./routes/mmodb'));
 // setting the public directory as a public static folder
 app.use(express.static("public"));
 
-console.log(publicDir)
+// get auth middleware
+const { isLoggedIn } = require("./middleware/auth")
 
-app.get("/", (req, res) => {
-    res.sendFile( path.join(__dirname, "/../public/index.html") )
+app.get("/", isLoggedIn, (req, res) => {
+  
+  console.log("home page loaded")
+  res.sendFile( path.join(__dirname, "/../views/index.html") )
 })
 
 
-app.get("/game", (req, res) => {
-    res.sendFile( path.join(__dirname, "../public/game.html") )
+app.get("/game", isLoggedIn, (req, res) => {
+  console.log("game page loaded")
+
+
+  res.sendFile( path.join(__dirname, "/../views/game.html") )
 })
 
 

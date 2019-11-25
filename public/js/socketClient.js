@@ -43,6 +43,8 @@ function display(frameCounter, foods, player, snakes, arena) {
 // initialise websocket
 var socket = io();
 
+socket.nickname = window.location.search;
+
 // elements variables
 var form = document.getElementById("messages-form")
 var input = document.getElementById("message-input");

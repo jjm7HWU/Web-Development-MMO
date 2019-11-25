@@ -2,7 +2,8 @@
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 
-var intialTouch = {x: null, y: null};
+var intialTouch = {x: null, y: null};   // no finger down on touch screen
+var isUsingChat = false;                // player is not using chat
 
 /* Event listener for detecting finger press on touch screen */
 document.addEventListener("touchstart", event => {
@@ -31,14 +32,15 @@ document.addEventListener("touchend", event => {
   initialTouch = {x: null, y:null};
 }, false);
 
-/* Event listener for handling key presses */
+/* Event listener for detecting key presses */
 document.addEventListener("keydown", event => {
+  if (isUsingChat) return;                            // user is currently using chat, so ignore keypress
   var n;
   switch (event.keyCode) {
-    case (87) : n = 0; break; // W KEY to go up
-    case (68) : n = 1; break; // D KEY to go right
-    case (83) : n = 2; break; // S KEY to go down
-    case (65) : n = 3; break; // A KEY to go left
+    case (87) : n = 0; break;                         // W KEY to go up
+    case (68) : n = 1; break;                         // D KEY to go right
+    case (83) : n = 2; break;                         // S KEY to go down
+    case (65) : n = 3; break;                         // A KEY to go left
     case (38) : event.preventDefault(); n = 0; break; // UP ARROW KEY to go up
     case (39) : event.preventDefault(); n = 1; break; // RIGHT ARROW KEY to go right
     case (40) : event.preventDefault(); n = 2; break; // DOWN ARROW KEY to go down
@@ -47,6 +49,17 @@ document.addEventListener("keydown", event => {
   }
   // attempt to turn player
   if (n != -1) socket.emit("update dir", n);
+});
+
+/* Event listener for mouse presses */
+document.addEventListener("click", event => {
+  // get element clicked by user
+  let target = event.target;
+
+  // determine if they are using chat
+  if (target == document.getElementById("message-input")) isUsingChat = true;     // if message box clicked, in chat
+  else if (target == document.getElementById("send-message")) isUsingChat = true; // if message sent, still in chat
+  else isUsingChat = false;                                                       // otherwise, no longer using chat
 });
 
 function resizeCanvas(){

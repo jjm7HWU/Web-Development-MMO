@@ -69,7 +69,7 @@ form.addEventListener("submit",function (e)
     input.value = "";
 
     // emit socket event
-    socket.emit("chat message", val)
+    socket.emit("chat message", val);
 })
 
 // append list html element to unordered list

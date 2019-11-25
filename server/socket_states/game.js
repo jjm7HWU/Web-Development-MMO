@@ -43,42 +43,6 @@ class GameState {
 
         if (!snake.isAlive) {
 
-/*
-          if (!snake.hasCommunicatedDespawn) {
-            snake.hasCommunicatedDespawn = true;
-            function highscore() {
-
-              // POST
-
-              var email = "teja"; //email of the player
-              var highscore = snake.score;
-              var data = {email,highscore};
-
-              fetch("/mmo/highscore", {
-                headers: {
-                  "Content-Type": "application/json",
-                  "Access-Control-Origin": "*"
-                },
-                method: "POST",
-                body: JSON.stringify(data)
-              })
-              .then( responseJSON => responseJSON.json())
-              .then( body => {
-                console.log(body)
-              })
-              .catch( error => {
-                alert(error)
-
-
-              })
-
-
-            }
-            highscore()
-
-          }
-*/
-
           if (snake.despawnCounter === 10) {
             // remove snake from grid and replace snake body on grid with food
             let newFoodItems = this.arena.removeSnake(snake);

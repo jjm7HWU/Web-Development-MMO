@@ -50,15 +50,13 @@ document.addEventListener("keydown", event => {
 });
 
 function resizeCanvas(){
-  var width= window.innerWidth;
-  var height= window.innerHeight;
-  canvas.innerHeight = height;
-  canvas.innerWidth = width;
+  var width= window.innerWidth;     // get full width of screen
+  var height= window.innerHeight;   // get full height of screen
+  canvas.innerWidth = width;        // set width of canvas to full width of screen
+  canvas.innerHeight = height;      // set height of canvas to full height of screen
 }
 
 resizeCanvas();
-
-ctx.imageSmoothingEnabled = false;
 
 // configure initial measurements
 configureCanvasMeasurements(canvas.width);

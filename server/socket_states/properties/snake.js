@@ -13,6 +13,7 @@ class Snake {
       this.isAlive = true;                    // snake is alive until they crash
       this.length = 3;                        // length of snake
       this.score = this.length;               // score of snake
+      this.hasCommunicatedDespawn = false;    // when dead, death has been signaled to server 
 
       // create array of cell positions
       this.trail = [];

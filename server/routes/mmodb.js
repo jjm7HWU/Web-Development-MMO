@@ -22,7 +22,6 @@ router.post('/register', (req,res) => {
                 res.status(500).send("Internal error")
             }
             
-            
             //Insert into player table
             player.create({
                 email,
@@ -44,9 +43,9 @@ router.post('/register', (req,res) => {
 // login router
 router.post("/login", (req, res) => {
     // login player
-    const { id, password } = req.body;
+    const { email, password } = req.body;
 
-    player.findOne({ where: id }).then(player => {
+    player.findOne({ where: email }).then(player => {
         var hashedPassword = player.password;
         console.log(password)
         bcrypt.compare(password, hashedPassword, function(err, result) {
@@ -92,19 +91,28 @@ router.post("/logout", isLoggedIn, isLoggedIn, (req, res) => {
 //update highscore
 router.post('/highscore', isLoggedIn, (req,res) => {
     const {email,highscore} = req.body;
-    player.update(
-        {
-            highscore
-        },
-        {
-            where:{
-                email
-            }
-        }
-    )
-    .then(player => res.send(player) )
-    .catch(err=> res.status(500).send(err));
 
+    player.findOne({ where: email }).then(player => {
+
+        var currentHighscore = player.highscore;
+
+            if (currentHighscore < highscore) {
+                
+                player.update(
+                    {
+                        highscore
+                    },
+                    {
+                        where:{
+                            email
+                        }
+                    }
+                )
+                .then(player => res.send(player) )
+                .catch(err=> res.status(500).send(err));
+            }
+
+        })
 })
 
 

@@ -87,7 +87,8 @@ function fetchSkins() {
     let skin2 = new Sprite("skin"+skinIndex+"_corner.png");   // load the curved body part
     let skin3 = new Sprite("skin"+skinIndex+"_head.png");     // load the head
     let skin4 = new Sprite("skin"+skinIndex+"_tail.png");     // load the tail
-    skins.push(skin1, skin2, skin3, skin4);                   // store images
+    let skin5 = new Sprite("skin"+skinIndex+"_neck.png");     // load the neck
+    skins.push(skin1, skin2, skin3, skin4, skin5);            // store images
   }
 
   return skins;

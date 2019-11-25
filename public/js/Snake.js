@@ -24,7 +24,7 @@ class Snake {
       let cellCurve = getBodyCurve(prevPoint, point, nextPoint);
 
       // get the image of the shape
-      let skin = skins[4*(this.skinIndex-1) + cellCurve.shape];
+      let skin = skins[5*(this.skinIndex-1) + cellCurve.shape];
 
       // draw the image at the appropriate angle
       skin.display(X*TILE_SIZE, Y*TILE_SIZE, cellCurve.angle); // draws cell
@@ -38,7 +38,7 @@ class Snake {
     if (!this.isAlive) return; // snake is dead so do not display
 
     /* Display the head of the snake */
-    let skin = skins[4*(this.skinIndex-1) + 2];           // get the image of the head
+    let skin = skins[5*(this.skinIndex-1) + 2];           // get the image of the head
     let bearing = this.getDirectionNumber();              // determine the bearing the snake is facing
     let X = getPlotX(this.x);                             // calculate horizontal grid position of head
     let Y = getPlotY(this.y);                             // calculate vertical grid position of head
@@ -52,7 +52,7 @@ class Snake {
     let index = this.trail.length - 1;                    // get index of tail
     let point = this.trail[index];                        // get coordinate of tail
     let point2 = this.trail[index-1];                     // get coordinate of cell attached to tail
-    let skin = skins[4*(this.skinIndex-1) + 3];           // get the image of the tail
+    let skin = skins[5*(this.skinIndex-1) + 3];           // get the image of the tail
     let bearing = this.getDirectionNumber(                // determine the bearing of tail
       point2[0]-point[0], point2[1]-point[1]);
     let X = getPlotX(point[0])+currentOffset.x;           // calculate horizontal grid position of tail

@@ -43,6 +43,40 @@ class GameState {
 
         if (!snake.isAlive) {
 
+          if (!snake.hasCommunicatedDespawn) {
+            snake.hasCommunicatedDespawn = true;
+            function highscore() {
+
+              // POST
+              
+              var email = "teja"; //email of the player
+              var highscore = snake.score;
+              var data = {email,highscore};
+  
+              fetch("/mmo/highscore", {
+                headers: {
+                  "Content-Type": "application/json",
+                  "Access-Control-Origin": "*"
+                },
+                method: "POST",
+                body: JSON.stringify(data)
+              })
+              .then( responseJSON => responseJSON.json())
+              .then( body => {
+                console.log(body)
+              })
+              .catch( error => {
+                alert(error)
+  
+  
+              })
+  
+  
+            }
+            highscore()
+
+          }
+
           if (snake.despawnCounter === 10) {
             // remove snake from grid and replace snake body on grid with food
             let newFoodItems = this.arena.removeSnake(snake);
@@ -146,10 +180,17 @@ class GameState {
     findSpawnLocation() {
       /* Find random spawn location for player until a free space is found */
       let spawnX, spawnY;
-      do {
+      let isValid = false;
+      while (!isValid) {
         spawnX = FunctionsFile.random(1,this.arena.width-2);
-        spawnY = FunctionsFile.random(1,this.arena.height-2);
-      } while (this.arena.atTile(spawnX,spawnY) != -1 || this.arena.atTile(spawnX,spawnY-1) != -1 || this.arena.atTile(spawnX,spawnY-2) != -1)
+        spawnY = FunctionsFile.random(1,this.arena.height-8);
+        isValid = true;
+        for (let yCounter = -2; yCounter < 4; yCounter++) {
+          if (this.arena.atTile(spawnX,spawnY+yCounter) != -1) {
+            isValid = false; break;
+          }
+        }
+      }
 
       // return spawn point
       return {x: spawnX, y: spawnY};

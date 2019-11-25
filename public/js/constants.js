@@ -1,7 +1,8 @@
 /* color codes */
 const BLACK = "#000000";
 const WHITE = "#ffffff";
-const GRAY = "#888888"
+const GRAY = "#888888";
+const LIGHT_GRAY = "#c7c7c7";
 const RED = "#ff0000";
 const GREEN = "#00ff00";
 

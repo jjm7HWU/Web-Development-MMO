@@ -11,14 +11,19 @@ function display(frameCounter, foods, player, snakes, arena) {
   if (_player.despawnCounter > 0) {
 
     /* cast and display all food items in area surrounding player*/
-    for (let gridX = player.x-X_PERIPHERAL-1; gridX < player.x+X_PERIPHERAL+1; gridX++) {
-      for (let gridY = player.y-Y_PERIPHERAL-1; gridY < player.y+Y_PERIPHERAL+1; gridY++) {
+    for (let gridX = player.x-X_PERIPHERAL-1; gridX < player.x+X_PERIPHERAL+2; gridX++) {
+      for (let gridY = player.y-Y_PERIPHERAL-1; gridY < player.y+Y_PERIPHERAL+2; gridY++) {
 
         let cell = _arena.atTile(gridX, gridY); // get cell
 
-        if (typeOfCell(cell) == "Food") {       // cell is food
-          _cell = new Food(cell);               // cast to food object
-          _cell.display(frameCounter);          // display food object
+        if (cell != null) {
+          if (typeOfCell(cell) == "Food") {       // cell is food
+            _cell = new Food(cell);               // cast to food object
+            _cell.display(frameCounter);          // display food object
+          }
+          else if (cell == -2) {
+            drawRect(getPlotX(gridX)+currentOffset.x, getPlotY(gridY)+currentOffset.y, 1, 1, LIGHT_GRAY); // draw grid box
+          }
         }
       }
     }
@@ -29,6 +34,8 @@ function display(frameCounter, foods, player, snakes, arena) {
       _snake = new Snake(snake);
       _snake.display();
     }
+
+    writeText("Hey", 5, 5);
 
     // display transition on screen if player is despawning
     if (!_player.isAlive) gameOverTransition();
@@ -42,6 +49,8 @@ function display(frameCounter, foods, player, snakes, arena) {
 
 // initialise websocket
 var socket = io();
+
+socket.nickname = window.location.search;
 
 // elements variables
 var form = document.getElementById("messages-form")

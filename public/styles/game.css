@@ -17,8 +17,8 @@ div.absolute {
   margin-bottom: 20px;
 }
 
-body {
-  background-color:#fffce3;
+html, body {
+  background-color: white;
 }
 
 #messages-form {

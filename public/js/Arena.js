@@ -17,7 +17,7 @@ class Arena {
       return this.grid[x][y];
     }
     else {
-      return -2;
+      return null;
     }
   }
 

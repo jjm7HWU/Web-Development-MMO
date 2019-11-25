@@ -16,9 +16,14 @@ function display(frameCounter, foods, player, snakes, arena) {
 
         let cell = _arena.atTile(gridX, gridY); // get cell
 
-        if (typeOfCell(cell) == "Food") {       // cell is food
-          _cell = new Food(cell);               // cast to food object
-          _cell.display(frameCounter);          // display food object
+        if (cell != null) {
+          if (typeOfCell(cell) == "Food") {       // cell is food
+            _cell = new Food(cell);               // cast to food object
+            _cell.display(frameCounter);          // display food object
+          }
+          else if (cell == -2) {
+            drawRect(getPlotX(gridX)+currentOffset.x, getPlotY(gridY)+currentOffset.y, 1, 1, GREEN); // draw grid box
+          }
         }
       }
     }

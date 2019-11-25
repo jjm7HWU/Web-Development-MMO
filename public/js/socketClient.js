@@ -22,7 +22,7 @@ function display(frameCounter, foods, player, snakes, arena) {
             _cell.display(frameCounter);          // display food object
           }
           else if (cell == -2) {
-            drawRect(getPlotX(gridX)+currentOffset.x, getPlotY(gridY)+currentOffset.y, 1, 1, GREEN); // draw grid box
+            drawRect(getPlotX(gridX)+currentOffset.x, getPlotY(gridY)+currentOffset.y, 1, 1, LIGHT_GRAY); // draw grid box
           }
         }
       }

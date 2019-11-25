@@ -117,6 +117,7 @@ function gameOverTransition() {
 
 function writeText(text, x, y) {
   ctx.font = "18px Georgia";
-  ctx.fillColor = BLACK;
-  ctx.fillText(text, x*TILE_SIZE, y*TILE_SIZE);
+  ctx.strokeColor = BLACK;
+  ctx.strokeText(text, x*TILE_SIZE, y*TILE_SIZE);
+  ctx.stroke();
 }

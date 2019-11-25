@@ -12,7 +12,7 @@ function display(frameCounter, foods, player, snakes, arena) {
 
     /* cast and display all food items in area surrounding player*/
     for (let gridX = player.x-X_PERIPHERAL-1; gridX < player.x+X_PERIPHERAL+1; gridX++) {
-      for (let gridY = player.y-Y_PERIPHERAL-1; gridY < player.y+Y_PERIPHERAL+1; gridY++) {
+      for (let gridY = player.y-Y_PERIPHERAL-1; gridY < player.y+Y_PERIPHERAL+2; gridY++) {
 
         let cell = _arena.atTile(gridX, gridY); // get cell
 

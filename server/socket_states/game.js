@@ -42,7 +42,7 @@ class GameState {
         }
 
         if (!snake.isAlive) {
-
+          /*
           if (!snake.hasCommunicatedDespawn) {
             snake.hasCommunicatedDespawn = true;
             function highscore() {
@@ -76,6 +76,7 @@ class GameState {
             highscore()
 
           }
+          */
 
           if (snake.despawnCounter === 10) {
             // remove snake from grid and replace snake body on grid with food

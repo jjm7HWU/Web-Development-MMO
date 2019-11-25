@@ -15,7 +15,7 @@ let now = new Date();
 router.post('/register', (req,res) => {
     const { email, password } = req.body;
     
-
+    //generate salt and hash the password
     bcrypt.genSalt(10, function( error, salt ) {
         bcrypt.hash(password, salt, function( error, hashedPassword ) {
             if (error) {
@@ -45,16 +45,15 @@ router.post("/login", (req, res) => {
     // login player
     const { email, password } = req.body;
 
+    //find the hashed password stored in the db 
     player.findOne({ where: email }).then(player => {
         var hashedPassword = player.password;
-        console.log(password)
+        //compare the 2 hash
         bcrypt.compare(password, hashedPassword, function(err, result) {
             if (err || !result) {
                 res.status(500).send("Internal error")
             }
             
-            console.log(result)
-
             // final request
             
 
@@ -69,7 +68,7 @@ router.post("/logout", isLoggedIn, isLoggedIn, (req, res) => {
     const {email, last_time_online} = req.body;
     
     console.log("logout")
-
+    // update de last time online in the db
     player.update(
         {
             last_time_online
@@ -91,11 +90,12 @@ router.post("/logout", isLoggedIn, isLoggedIn, (req, res) => {
 //update highscore
 router.post('/highscore', isLoggedIn, (req,res) => {
     const {email,highscore} = req.body;
-
+    // find one the actual highscore in  the db
     player.findOne({ where: email }).then(player => {
 
         var currentHighscore = player.highscore;
 
+            //store the new highscore if it is greater than the previous one
             if (currentHighscore < highscore) {
                 
                 player.update(

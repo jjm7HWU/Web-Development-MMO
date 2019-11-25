@@ -23,7 +23,7 @@ function randomColor() {
 
 function redirectPlayer() {
   /* Redirect player to home screen */
-  window.location.href = "/index.html"; // temporary location - will only work remotely
+  window.location.href = "/"; // temporary location - will only work remotely
 }
 
 function getSine(n) {

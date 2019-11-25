@@ -31,11 +31,23 @@ body {
 }
 
 #message-input {
-  width: 100%;
+  width: 90%;
   height: 100%;
   border: 1px black solid;
   font-size: 30px;
 }
+
+form button {
+
+  width: 10%;
+  height: 5%;
+  background:black;
+  border: none;
+  position: fixed;
+  color: white;
+  font-size:20px ;
+
+  }
 
 .canvas-box {
   position: absolute;
@@ -49,28 +61,25 @@ body {
 }
 
 .canvas-button {
-  position: absolute;
+  /* position: absolute; */
+  position: fixed;
   top: 0px;
   right: 0px;
   font-size: 40px;
   background: none;
   border: none;
+  color: black;
 }
 
 #score-box {
   top: 0px;
   left: 0px;
+  position: fixed;
 }
 
 #logout-box {
   top: 0px;
   right: 0px;
-}
-
-#messages {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
 }
 
 #messages li {
@@ -95,3 +104,5 @@ body {
   image-rendering: pixelated;
   image-rendering: crisp-edges;
 }
+
+

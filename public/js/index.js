@@ -24,7 +24,9 @@ function register() {
 
       })
       .catch( error => {
-        console.error(error)
+        alert(error)
+
+        ///
 
 
 
@@ -58,7 +60,9 @@ function login() {
               console.log(body)
             })
             .catch( error => {
-              console.error(error)
+              alert(error)
+
+
             })
 
 

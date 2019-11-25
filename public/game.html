@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css?family=Fjalla+One&display=swap" rel="stylesheet"> <link href="https://fonts.googleapis.com/css?family=Fjalla+One&display=swap" rel="stylesheet">
 </head>
 
-<body onunload="logout()" >
+<body onload="instructions()" onunload="logout()" >
 
   <script>
      function logout() {
@@ -47,6 +47,8 @@ fetch("/mmo/logout", {
 
     <canvas id="canvas" height="900"></canvas>
 
+    <button type="button" class="canvas-button" onclick="logout()">Logout</button>
+
     <div id="score-box" class="canvas-box">
       <span id="temp">Score: </span>
       <span id="score-out"></span>
@@ -59,7 +61,7 @@ fetch("/mmo/logout", {
   </section>
 
   <form id="messages-form">
-    <input id="message-input" autocomplete="off" /><button>Send</button>
+    <input id="message-input" autocomplete="off" />
   </form>
 
 </body>

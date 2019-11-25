@@ -48,11 +48,11 @@ class GameState {
             function highscore() {
 
               // POST
-              
+
               var email = "teja"; //email of the player
               var highscore = snake.score;
               var data = {email,highscore};
-  
+
               fetch("/mmo/highscore", {
                 headers: {
                   "Content-Type": "application/json",
@@ -67,11 +67,11 @@ class GameState {
               })
               .catch( error => {
                 alert(error)
-  
-  
+
+
               })
-  
-  
+
+
             }
             highscore()
 

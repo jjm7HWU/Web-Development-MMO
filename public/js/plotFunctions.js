@@ -114,3 +114,10 @@ function gameOverTransition() {
   // remove transparency for drawing shapes
   ctx.globalAlpha = 1;
 }
+
+function writeText(text, x, y) {
+  ctx.font = "18px Georgia";
+  ctx.strokeColor = BLACK;
+  ctx.strokeText(text, x*TILE_SIZE, y*TILE_SIZE);
+  ctx.stroke();
+}

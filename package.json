@@ -37,6 +37,6 @@
     "moment": "^2.24.0",
     "mysql2": "^1.7.0",
     "sequelize": "^5.21.1",
-    "socket.io": "^2.3.0"
+    "socket.io": "^2.4.0"
   }
 }
